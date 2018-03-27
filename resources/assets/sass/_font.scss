@@ -1,0 +1,40 @@
+p, h3, h1, h2, h4, input, label, span  {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/** Sizes **/
+p {
+  font-size: 1em;
+}
+h1 {
+  font-size: 2.827em;
+}
+h2 {
+  font-size: 1.999em;
+}
+h3 {
+  font-size: 1.414em;
+}
+
+/** line-height **/
+p {
+  line-height: 1.414em;
+}
+
+/** leading **/
+// p {
+//   letter-spacing: 0.05em;
+// }
+
+#title-container {
+  text-align: center;
+  margin: 50px 0px;
+}
+
+#title {
+  @include text-gradient($theme-primary, $theme-primary-darken);
+}
+
+.error {
+  color: $theme-error;
+}

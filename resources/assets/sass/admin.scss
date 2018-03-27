@@ -1,0 +1,65 @@
+@import '_colours';
+
+
+#body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    padding: 10px 0px;
+    
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      text-align: center;
+    }
+
+    padding: 0px !important;
+
+    // field sections
+    ul {
+      margin-bottom: 10px !important;
+
+      // field labels
+      li:nth-child(1) {
+          padding-bottom: 10px !important;
+      }
+
+      input, textarea {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.btn {
+  padding: 20px;
+  border: none;
+}
+
+.btn-default {
+  background: $theme-default;
+  color: white;
+}
+
+.btn-warning {
+  background: $theme-warning;
+  color: white;
+}
+
+.center-component {
+  align-self: center;
+  text-align: center;
+}

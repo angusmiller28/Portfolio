@@ -1,0 +1,28 @@
+@import "_colours";
+
+.cards {
+  ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px;
+  }
+  .card {
+    img { border: 16px solid white; }
+    padding: 10px;
+  }
+}
+
+@media (min-width: 710px){
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+$theme-primary: #6D51DE;
+$theme-primary-darken: darken($theme-primary, 15%);
+$theme-primary-light: lighten($theme-primary, 15%);
+$theme-primary-gradient: linear-gradient(-180deg, $theme-primary, $theme-primary-darken);
+
+$theme-secondary: #E98A0C;
+$theme-secondary-light: darken($theme-secondary, 15%);
+$theme-secondary-darken: lighten($theme-secondary, 15%);
+$theme-secondary-gradient: -webkit-gradient(linear, left top, left bottom, from($theme-secondary), to($theme-secondary-darken));
+
+$theme-default: #0d87eb;
+$theme-warning: #eb630d;
+$theme-error: #eb0d0d;
+$theme-accent: #DD1A9C;
+$theme-disabled: grey;
+
+/** Light **/
+$theme-light-background: #E6EAEE;
+$theme-light-footer: white;
+
+
+$theme-background: $theme-light-background;
+$theme-footer: $theme-light-footer;
+
+$gradient-blue: linear-gradient(-180deg, #237BD6, #2055C3);
