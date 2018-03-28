@@ -21,9 +21,8 @@ Route::get('/admin', function () {
 
 
 Route::resource('/projects', 'ProjectController');
-
-
 Route::get('/projects/project/{id}', 'ProjectController@show');
+
 //Route::get('/projects/project/{squirrel}', ['uses' =>'ProjectController@doSomething']);
 
 Auth::routes();
@@ -33,5 +32,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function(){
   Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.log');
   Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+  Route::post('/admin', array('uses' => 'BlogController@store'));
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
