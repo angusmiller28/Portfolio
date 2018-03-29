@@ -60,6 +60,7 @@ class ProjectController extends Controller
               try {
                   $file = file_get_contents($request->file('coverImage')->path());
                   $image = base64_encode($file);
+                  $projects->cover_image = $image;
 
               } catch (FileNotFoundException $e) {
                   echo "catch";
@@ -161,7 +162,6 @@ class ProjectController extends Controller
         if ($request->input('subTitle'))
           $projects->sub_title = $request->input('subTitle');
 
-        $projects->cover_image = $image;
         $projects->save();
 
         /////////////////////////
@@ -274,8 +274,13 @@ class ProjectController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        //
+      // delete
+      $project = Project::find($id);
+      $project->delete();
+
+      // redirect
+      return Redirect('/admin')->with('success', 'Project Deleted!');
     }
 }

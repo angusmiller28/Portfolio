@@ -15,15 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+
 
 
 Route::resource('/projects', 'ProjectController');
 Route::get('/projects/project/{id}', 'ProjectController@show');
 
-//Route::get('/projects/project/{squirrel}', ['uses' =>'ProjectController@doSomething']);
+Route::resource('/blogs', 'BlogController');
+Route::get('/blogs/blog/{id}', 'BlogController@show');
+
+Route::resource('/users', 'UserController');
+Route::get('/users/user/{id}', 'UserController@show');
 
 Auth::routes();
 
@@ -33,5 +35,6 @@ Route::prefix('admin')->group(function(){
   Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.log');
   Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
   Route::post('/admin', array('uses' => 'BlogController@store'));
+  Route::get('/', 'UserController@index');
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });

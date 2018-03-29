@@ -28,9 +28,9 @@
       @include('partials/nav')
       @include('partials/messages')
 
+      <!-- PROJECT FORM -->
       <div id="project-form-container">
         <h3>Add Project</h3>
-        <!-- PROJECT FORM -->
         {!! Form::open(['action' => 'ProjectController@store', 'method' => 'POST', 'files' => true]) !!}
           <div class="form-group">
             {{Form::label('name', 'Name')}}
@@ -96,18 +96,26 @@
 
           </div>
           {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-
         {!! Form::close() !!}
-        <!-- END PROJECT FORM -->
-      </div>
+      </div><!-- END::PROJECT FORM --><!-- END::PROJECT FORM -->
 
+      <!-- BLOG FORM -->
       <div id="blog-form-container">
         <h3>Add Blog</h3>
-        <!-- PROJECT FORM -->
         {!! Form::open(['action' => 'BlogController@store', 'method' => 'POST', 'files' => true]) !!}
           <div class="form-group">
             {{Form::label('name', 'Name')}}
             {{Form::text('name', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('coverImage', 'Cover Image')}}
+              {{Form::file('coverImage', ['class' => 'form-control', 'accept' => 'image/png', 'ng-file-select' => 'onFileSelect($files)', 'ng-model' => 'coverImageBlog'])}}
+              {{HTML::image('', '', ['ng-src' => '<% coverImageBlog %>', 'width' => '300', 'id' => 'myFile'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('displayImage', 'Display Image')}}
+              {{Form::file('displayImage', ['class' => 'form-control', 'accept' => 'image/png', 'ng-file-select' => 'onFileSelect($files)', 'ng-model' => 'displayImageBlog'])}}
+              {{HTML::image('', '', ['ng-src' => '<% displayImageBlog %>', 'width' => '300', 'id' => 'myFile'])}}
           </div>
           <div class="form-group">
             <ul>
@@ -115,67 +123,178 @@
               <li>
                 <i class="fab fa-facebook-square"></i>
                 {{Form::label('Facebook', 'facebook')}}
-                {{Form::checkbox('Facebook', '')}}
+                {{Form::checkbox('Facebook', 'facebook')}}
               </li>
               <li>
                 <i class="fab fa-twitter-square"></i>
                 {{Form::label('Twitter', 'twitter')}}
-                {{Form::checkbox('Twitter', '')}}
+                {{Form::checkbox('Twitter', 'twitter')}}
               </li>
               <li>
                 <i class="fab fa-google-plus-square"></i>
                 {{Form::label('Google+', 'google')}}
-                {{Form::checkbox('Google+', '')}}
+                {{Form::checkbox('Google+', 'google')}}
               </li>
               <li>
                 <i class="fab fa-reddit-square"></i>
                 {{Form::label('Reddit', 'reddit')}}
-                {{Form::checkbox('Reddit', '')}}
+                {{Form::checkbox('Reddit', 'reddit')}}
               </li>
               <li>
                 <i class="fa fa-envelope-square"></i>
                 {{Form::label('Email', 'email')}}
-                {{Form::checkbox('Email', '')}}
+                {{Form::checkbox('Email', 'email')}}
               </li>
             </ul>
           </div>
-          <!-- <div class="form-group">
-            <button id="bold" type="button" name="button">Bold</button>
-            {{Form::label('Text', 'text')}}
-            {{Form::textarea('Text', '', ['class' => 'form-control', 'id' => 'editor'])}}
-          </div> -->
           <div class="form-group">
-            <button id="heading" type="button" name="button"><i class="fa fa-heading"></i></button>
-            <button id="list-ol" type="button" name="button"><i class="fa fa-list-ol"></i></button>
-            <button id="list-ul" type="button" name="button"><i class="fa fa-list-ul"></i></button>
-            <button id="paragraph" type="button" name="button"><i class="fa fa-paragraph"></i></button>
-            <button id="bold" type="button" name="button"><i class="fa fa-bold"></i></button>
-            <button id="italic" type="button" name="button"><i class="fa fa-italic"></i></button>
-            <button id="underline" type="button" name="button"><i class="fa fa-underline"></i></button>
-            {{Form::file('mobileImage', ['class' => 'form-control', 'accept' => 'image/png', 'ng-file-select' => 'onFileSelect($files)', 'ng-model' => 'mobileImage'])}}
-            <button id="image" type="button" name="button"><i class="fa fa-image"></i></button>
-            <button id="colour" type="button" name="button"><i class="fa fa-tint"></i></button>
-            <button id="getData" type="button" name="button"><i class="fa fa-plus"></i></button>
-            <div id="colour-picker-container">
-              <input id="color-picker" type="color" name="favcolor" value="#ff0000">
             </div>
-
-            </div>
+            <div class="col-md-12 tags buttons">
             {{Form::label('Text', 'text')}}
             <section id="editor" class="editable"></section>
 
             <input id="editor-data" type="text" name="editor-data">
+
           </div>
 
-          {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+          <div id="colour-picker-container">
+            <input id="color-picker" type="color" name="favcolor" value="#ff0000">
+          </div>
+
+          <div id="editor" class="row" style="width: 300px; height: 200px; background: white;" contentEditable="true">asda</div>
+          <button id="getData" type="button" name="button">Extract data</button>
+          <input id="blog-content" type="text" name="blog-content" value="">
+
+          {{Form::submit('Submit', ['id' => 'submit-blog', 'class'=>'btn btn-primary'])}}
 
         {!! Form::close() !!}
-        <!-- END PROJECT FORM -->
+      </div> <!-- END::BLOG FORM -->
+
+      <!-- ADD ADMIN FORM -->
+      <div id="admin-form-container">
+        <h3>Add Staff</h3>
+        <form method="POST" action="{{ route('admin.register.submit') }}">
+          @csrf
+          <div class="form-group">
+            {{Form::label('name', 'Name')}}
+            {{Form::text('name', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('email', 'Email')}}
+            {{Form::text('email', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('password', 'Password')}}
+            {{Form::text('password', '', ['class' => 'form-control'])}}
+          </div>
+
+          {{Form::submit('Submit', ['id' => 'submit-blog', 'class'=>'btn btn-primary'])}}
+
+        {!! Form::close() !!}
+      </div> <!-- END::ADMIN FORM -->
+
+      <!-- BLOG GALLERY -->
+      <div id="blog-gallery-container" class="cards">
+        <ul>
+          <li>Blogs</li>
+          @foreach($blogs as $blog)
+              <div class="card">
+                <li>
+                  <div class="card card-small"><a href="blogs/blog/<?php echo $blog->blog_id ?>">
+                  <img src="data:image/png;base64,<?php echo $blog->cover_image?>" /></a>
+                  {{ Form::open(array('url' => 'blogs/' . $blog->blog_id, 'class' => 'pull-right')) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+                    {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                  {{ Form::close() }}
+                  </div>
+                </li>
+              </div>
+          @endforeach
+        </ul>
+      </div><!-- END::BLOG GALLERY -->
+
+      <!-- PROJECTS GALLERY -->
+      <div id="project-gallery-container" class="cards">
+        <ul>
+          <li>Projects</li>
+          @foreach($projects as $project)
+              <div class="card">
+                <li>
+                  <div class="card card-small"><a href="projects/project/<?php echo $project->project_id ?>">
+                  <img src="data:image/png;base64,<?php echo $project->cover_image?>" /></a>
+                  {{ Form::open(array('url' => 'projects/' . $project->project_id, 'class' => 'pull-right')) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+                    {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                  {{ Form::close() }}
+                  </div>
+                </li>
+              </div>
+          @endforeach
+        </ul>
+      </div><!-- END::PROJECTS GALLERY -->
+
+      <!-- USERS GALLERY -->
+      <div id="user-gallery-container" class="cards">
+        <ul>
+          <li>Users</li>
+          @foreach($users as $user)
+          <div class="card">
+            <li>
+              <div class="card card-small">
+                <a href="users/user/<?php echo $user->id ?>">
+                <img src="data:image/png;base64,<?php echo $user->profile_image?>" /></a>
+                <p>{{ $user->name }}</p>
+                {{ Form::open(array('url' => 'users/' . $user->id, 'class' => 'pull-right')) }}
+                  {{ Form::hidden('_method', 'DELETE') }}
+                  {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                {{ Form::close() }}
+              </div>
+            </li>
+          </div>
+          @endforeach
+        <ul>
       </div>
 
       @include('partials/footer')
     </div>
     <style>
+        .active {
+          color: blue;
+        }
+       .btn-success {
+         background-color: white;
+         color: black;
+       }
+
+       .btn-success:hover, .btn-success:hover i {
+         color: blue;
+       }
+
+       .btn-success i {
+          color: black;
+        }
+
+       .btn-error {
+         background-color: red;
+       }
+       .btn-error i {
+          color: black;
+        }
+
+       .buttons {
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+       }
+       .btn {
+         padding: 10px;
+         margin: 5px;
+         width: auto !important;
+         height: 20px;
+       }
+       .buttons>div {
+
+       }
       .editable {
         width: 300px;
         height: 200px;
@@ -183,92 +302,177 @@
         padding: 5px;
         background-color: white;
       }
+
     </style>
     <script src="{{asset('js/jquery-fieldselection.js')}}" type="text/javascript"></script>
     <script type="text/javascript">
+    var commands = [{
+    	"cmd": "backColor",
+    	"val": "red",
+    	"desc": "Changes the document background color. In styleWithCss mode, it affects the background color of the containing block instead. This requires a color value string to be passed in as a value argument. (Internet Explorer uses this to set text background color.)"
+    },
+    {
+  	"cmd": "foreColor",
+  	"val": "rgba(0,0,0,.5)",
+  	"desc": "Changes a font color for the selection or at the insertion point. This requires a color value string to be passed in as a value argument."
+    },
+    {
+    	"cmd": "formatBlock",
+      "val": "<blockquote>",
+    	"desc": "Adds an HTML block-style tag around the line containing the current selection, replacing the block element containing the line if one exists (in Firefox, BLOCKQUOTE is the exception - it will wrap any containing block element). Requires a tag-name string to be passed in as a value argument. Virtually all block style tags can be used (eg. \"H1\", \"P\", \"DL\", \"BLOCKQUOTE\"). (Internet Explorer supports only heading tags H1 - H6, ADDRESS, and PRE, which must also include the tag delimiters &lt; &gt;, such as \"&lt;H1&gt;\".)"
+    },
+    {
+    	"cmd": "heading",
+    	"val": "h3",
+    	"icon": "header",
+    	"desc": "Adds a heading tag around a selection or insertion point line. Requires the tag-name string to be passed in as a value argument (i.e. \"H1\", \"H6\"). (Not supported by Internet Explorer and Safari.)"
+    },
+    {
+    	"cmd": "formatBlock",
+      "val": "<blockquote>",
+    	"desc": "Adds an HTML block-style tag around the line containing the current selection, replacing the block element containing the line if one exists (in Firefox, BLOCKQUOTE is the exception - it will wrap any containing block element). Requires a tag-name string to be passed in as a value argument. Virtually all block style tags can be used (eg. \"H1\", \"P\", \"DL\", \"BLOCKQUOTE\"). (Internet Explorer supports only heading tags H1 - H6, ADDRESS, and PRE, which must also include the tag delimiters &lt; &gt;, such as \"&lt;H1&gt;\".)"
+    },{
+  	"cmd": "fontName",
+  	"val": "'Inconsolata', monospace",
+  	"desc": "Changes the font name for the selection or at the insertion point. This requires a font name string (\"Arial\" for example) to be passed in as a value argument."
+  }, {
+	"cmd": "copy",
+	"icon": "clipboard",
+	"desc": "Copies the current selection to the clipboard. Clipboard capability must be enabled in the user.js preference file. See"
+},
+{
+	"cmd": "createLink",
+	"val": "https://twitter.com/netsi1964",
+	"icon": "link",
+	"desc": "Creates an anchor link from the selection, only if there is a selection. This requires the HREF URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
+}, {
+	"cmd": "cut",
+	"icon": "scissors",
+	"desc": "Cuts the current selection and copies it to the clipboard. Clipboard capability must be enabled in the user.js preference file. See"
+},
+{
+	"cmd": "delete",
+	"icon": "scissors",
+	"desc": "Deletes the current selection."
+},
+{
+	"cmd": "heading",
+	"val": "h3",
+	"icon": "header",
+	"desc": "Adds a heading tag around a selection or insertion point line. Requires the tag-name string to be passed in as a value argument (i.e. \"H1\", \"H6\"). (Not supported by Internet Explorer and Safari.)"
+},
+{
+	"cmd": "bold",
+	"icon": "bold",
+	"desc": "Toggles bold on/off for the selection or at the insertion point. (Internet Explorer uses the STRONG tag instead of B.)"
+},
+, {
+	"cmd": "insertOrderedList",
+	"icon": "list-ol",
+	"desc": "Creates a numbered ordered list for the selection or at the insertion point."
+}, {
+	"cmd": "insertUnorderedList",
+	"icon": "list-ul",
+	"desc": "Creates a bulleted unordered list for the selection or at the insertion point."
+}, {
+	"cmd": "insertParagraph",
+	"icon": "paragraph",
+	"desc": "Inserts a paragraph around the selection or the current line. (Internet Explorer inserts a paragraph at the insertion point and deletes the selection.)"
+},
+, {
+	"cmd": "underline",
+	"icon": "underline",
+	"desc": "Toggles underline on/off for the selection or at the insertion point."
+},
+{
+	"cmd": "createLink",
+	"val": "https://twitter.com/netsi1964",
+	"icon": "link",
+	"desc": "Creates an anchor link from the selection, only if there is a selection. This requires the HREF URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
+}
+, {
+	"cmd": "unlink",
+	"icon": "chain-broken",
+	"desc": "Removes the anchor tag from a selected anchor link."
+},
+, {
+	"cmd": "selectAll",
+	"desc": "Selects all of the content of the editable region."
+}, {
+	"cmd": "strikeThrough",
+	"icon": "strikethrough",
+	"desc": "Toggles strikethrough on/off for the selection or at the insertion point."
+}, {
+	"cmd": "subscript",
+	"icon": "subscript",
+	"desc": "Toggles subscript on/off for the selection or at the insertion point."
+}, {
+	"cmd": "superscript",
+	"icon": "superscript",
+	"desc": "Toggles superscript on/off for the selection or at the insertion point."
+}, {
+	"cmd": "insertImage",
+	"val": "http://dummyimage.com/160x90",
+	"icon": "picture-o",
+	"desc": "Inserts an image at the insertion point (deletes selection). Requires the image SRC URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
+}, {
+	"cmd": "removeFormat",
+	"desc": "Removes all formatting from the current selection."
+}];
 
-    function select() {
-      var flag = 0;
+    function doCommand(cmdKey) {
+    	var cmd = commandRelation[cmdKey];
+    	if (supported(cmd) === "btn-error") {
+    		alert("execCommand(“" + cmd.cmd + "”)\nis not supported in your browser");
+    		return;
+    	}
+      // if colour command use value from color-picker
+      if(cmd.cmd == "foreColor")
+        cmd.val = $("#color-picker").val();
 
-      sel = window.getSelection();
-      for (var i = 0; i < sel.rangeCount; i++) {
-          var s = sel.getRangeAt(i).startContainer.parentNode.id;
-          var e = sel.getRangeAt(i).endContainer.parentNode.id;
-          if (s == "editor") flag = 1;
-          if (flag = 1 && e == "editor" || e == "editor-child") flag = 2;
+      val = (typeof cmd.val !== "undefined") ? prompt("Value for " + cmd.cmd + "?", cmd.val) : "";
+
+      if(cmd.cmd == "insertParagraph"){
+        document.execCommand('insertHtml',false,'<p></p>');
+        return true;
       }
 
-      if (flag == 2) alert(sel);
-      }
+      document.execCommand(cmd.cmd, false, (val || "")); // Thanks to https://codepen.io/bluestreak for finding this bug
+    }
 
-      function surroundSelection(element, style) {
-          var elem = document.createElement(element);
+    var commandRelation = {};
 
+    function supported(cmd) {
+    	var css = !!document.queryCommandSupported(cmd.cmd) ? "btn-success" : "btn-error"
+    	return css
+    };
 
-          // if element is ol
-          // style with params
-          if (element == "ol" || element == "ul"){
-              surroundSelection('li');
-          }
+    function icon(cmd) {
+    	return (typeof cmd.icon !== "undefined") ? "fa fa-" + cmd.icon : "";
+    };
 
+    function init() {
+    	var html = '',
+    		// template = '<span><code class="btn btn-xs %btnClass%" title="%desc%" onmousedown="event.preventDefault();" onclick="doCommand(\'%cmd%\')"><i class="%iconClass%"></i> %cmd%</code></span>';
+        template = '<div id="%btnId%" class="btn btn-xs %btnClass%" title="%desc%" onmousedown="event.preventDefault();" onclick="doCommand(\'%cmd%\')"><i id="%btnId%-icon"class="%iconClass%"></i> %cmd%</div>';
+    	  commands.map(function(command, i) {
+    		commandRelation[command.cmd] = command;
+    		var temp = template;
+    		temp = temp.replace(/%iconClass%/gi, icon(command));
+    		temp = temp.replace(/%desc%/gi, command.desc);
+    		temp = temp.replace(/%btnClass%/gi, supported(command));
+        temp = temp.replace(/%btnId%/gi, command.cmd);
+    		temp = temp.replace(/%cmd%/gi, command.cmd);
+    		html+=temp;
+    	});
+  	  document.querySelector(".buttons").innerHTML = html;
+  }
 
-          // if element is SPAN
-          // style with params
-          if (element == "span"){
-            for (var key in style){
-              if (key == "colour")
-                elem.style.color = style[key];
-              else if (key == "weight")
-                elem.style.fontWeight = style[key];
-            }
-          }
-
-          // if element is IMG
-          // style with params
-          if (element == "img"){
-            for (var key in style){
-              switch (key) {
-                case "src":
-                  elem.src = ""+ style[key] + "";
-                  break;
-                case "id":
-                  elem.id = style[key];
-                  break;
-                default:
-                  var attr = document.createAttribute(key);
-                  attr.value = style[key];
-                  elem.setAttributeNode(attr)
-                  break;
-              }
-            }
-          }
-
-          if (window.getSelection) {
-              var sel = window.getSelection();
-              if (sel.rangeCount) {
-                  var range = sel.getRangeAt(0).cloneRange();
-                  range.surroundContents(elem);
-                  sel.removeAllRanges();
-                  sel.addRange(range);
-              }
-          }
-      }
-
-      function removeSelection(element) {
-        var range = window.getSelection().getRangeAt(0);
-
-        var node = $(range.commonAncestorContainer)
-
-        if (node.parent().is(element)) {
-            node.unwrap();
-        }
-      }
-
+  init();
 
       function containsSelection(element) {
         var range = window.getSelection().getRangeAt(0);
-
-        var node = $(range.commonAncestorContainer)
+        var node = $(range.commonAncestorContainer);
 
         if (node.parent().is(element)) {
           return true;
@@ -278,223 +482,157 @@
       }
 
       $(document).ready(function(){
-        /******************************************
-        ********* GET EDITOR DATA SECTION *********
-        ******************************************/
-        $('#getData').click(function(){
-         var children = $('#editor').children();
-         var blogDataArray = [];
-         var blogData = {};
+        $("#submit-blog").click(function(){
+          /******************************************
+          ********* GET EDITOR DATA SECTION *********
+          ******************************************/
+          var children = $('#editor').children();
+          var blogDataArray = [];
+          var blogData = {};
+          console.log(children);
 
-          for(var i=0;i<children.length;i++){
-            switch (children[i].tagName) {
-              case "P":
-                blogData = {"P":children[i].outerText};
-                blogDataArray.push(blogData);
-                break;
-              case "B":
-                blogData = {"B":children[i].outerText};
-                blogDataArray.push(blogData);
-                break;
-              default:
+           for(var i=0;i<children.length;i++){
+             switch (children[i].tagName) {
+               case "H1":
+                 blogData = "<h1>" + children[i].innerHTML + "</h1>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "H2":
+                 blogData = "<h2>" + children[i].innerHTML + "</h2>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "H3":
+                 blogData = "<h3>" + children[i].innerHTML + "</h3>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "H4":
+                 blogData = "<h4>" + children[i].innerHTML + "</h4>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "H5":
+                 blogData = "<h5>" + children[i].innerHTML + "</h5>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "H6":
+                 blogData = "<h6>" + children[i].innerHTML + "</h6>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "P":
+                 blogData = "<p>" + children[i].innerHTML + "</p>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "OL":
+                 blogData = "<ol>" + children[i].innerHTML + "</ol>";
+                 blogDataArray.push(blogData);
+                 break;
+               case "UL":
+                 blogData = "<ul>" + children[i].innerHTML + "</ul>";
+                 blogDataArray.push(blogData);
+                 break;
+               default:
 
-            }
-          }
-          console.log(blogDataArray);
+             }
+           }
+          $('#blog-content').val(blogDataArray);
         });
 
-        /***********************************
-        ********* TEXT SECTION *********
-        ***********************************/
-        var selected = false;
-
-        $('#editor').each(function(){
-            this.contentEditable = true;
-        });
-
-        $("#editor").keypress(function(e) {
-          // trap the return key being pressed
-          if (e.keyCode === 13) {
-            // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-            document.execCommand('insertHTML', false, '<br><br>');
-            // prevent the default behaviour of return key pressed
-            return false;
-          }
-        });
 
         var selection;
-
-        $('#editor').click(function(){
-          // Heading
-          if(containsSelection('h2')){
-            $('#heading').css({"background-color":"white", "color":"blue"});
-            $('#heading').addClass("active");
-          } else {
-            $('#heading').css({"background-color":"white", "color":"black"});
-            $('#heading').removeClass("active");
-          }
-
-          // Ordered List
-          if(containsSelection('li')){
-            $('#list-ol').css({"background-color":"white", "color":"blue"});
-            $('#list-ol').addClass("active");
-          } else {
-            $('#list-ol').css({"background-color":"white", "color":"black"});
-            $('#list-ol').removeClass("active");
-          }
-
-          // Unordered List
-          if(containsSelection('li')){
-            $('#list-ul').css({"background-color":"white", "color":"blue"});
-            $('#list-ul').addClass("active");
-          } else {
-            $('#list-ul').css({"background-color":"white", "color":"black"});
-            $('#list-ul').removeClass("active");
-          }
-
-          // Paragraph
-          if(containsSelection('p')){
-            $('#paragraph').css({"background-color":"white", "color":"blue"});
-            $('#paragraph').addClass("active");
-          } else {
-            $('#paragraph').css({"background-color":"white", "color":"black"});
-            $('#paragraph').removeClass("active");
-          }
-
-          // Bold
-          if(containsSelection('b')){
-            $('#bold').css({"background-color":"white", "color":"blue"});
-            $('#bold').addClass("active");
-          } else {
-            $('#bold').css({"background-color":"white", "color":"black"});
-            $('#bold').removeClass("active");
-          }
-
-          // Italic
-          if(containsSelection('i')){
-            $('#italic').css({"background-color":"white", "color":"blue"});
-            $('#italic').addClass("active");
-          } else {
-            $('#italic').css({"background-color":"white", "color":"black"});
-            $('#italic').removeClass("active");
-          }
-
-          // Underline
-          if(containsSelection('u')){
-            $('#underline').css({"background-color":"white", "color":"blue"});
-            $('#underline').addClass("active");
-          } else {
-            $('#underline').css({"background-color":"white", "color":"black"});
-            $('#underline').removeClass("active");
-          }
-
-          // Image
-          if(containsSelection('img')){
-            $('#image').css({"background-color":"white", "color":"blue"});
-            $('#image').addClass("active");
-          } else {
-            $('#image').css({"background-color":"white", "color":"black"});
-            $('#image').removeClass("active");
-          }
-
-          // Colour
-          if(containsSelection('span')){
-            $('#colour').css({"background-color":"white", "color":"blue"});
-            $('#colour').addClass("active");
-          } else {
-            $('#colour').css({"background-color":"white", "color":"black"});
-            $('#colour').removeClass("active");
-          }
-
-          console.log(selection);
-        });
-
-        $('#heading').click(function(){
-          if ($('#heading').hasClass("active")){
-            removeSelection('h2');
-            // surroundSelection('p');
-          } else {
-            // removeSelection('p');
-            surroundSelection('h2');
-          }
-        });
-
-        $('#list-ol').click(function(){
-          if ($('#list-ol').hasClass("active")){
-            removeSelection('ol');
-          } else {
-            surroundSelection('ol');
-          }
-        });
-
-        $('#list-ul').click(function(){
-          if ($('#list-ul').hasClass("active")){
-            removeSelection('ul');
-          } else {
-            surroundSelection('ul');
-          }
-        });
+        // $('#editor').click(function(){
+        //   // Heading
+        //   if(containsSelection('h1') || containsSelection('h2') || containsSelection('h3') || containsSelection('h4') || containsSelection('h5') || containsSelection('h6')){
+        //     $('#heading').addClass("active");
+        //     $('#heading-icon').addClass("active");
+        //   } else {
+        //     $('#heading').removeClass("active");
+        //     $('#heading-icon').removeClass("active");
+        //   }
+        //
+        //   // Ordered List
+        //   if(containsSelection('li')){
+        //     $('#insertOrderedList').css({"background-color":"white", "color":"blue"});
+        //     $('#insertOrderedList').addClass("active");
+        //   } else {
+        //     $('#insertOrderedList').css({"background-color":"white", "color":"black"});
+        //     $('#insertOrderedList').removeClass("active");
+        //   }
+        //
+        //   // Unordered List
+        //   if(containsSelection('li')){
+        //     $('#insertUnorderedList').css({"background-color":"white", "color":"blue"});
+        //     $('#insertUnorderedList').addClass("active");
+        //   } else {
+        //     $('#insertUnorderedList').css({"background-color":"white", "color":"black"});
+        //     $('#insertUnorderedList').removeClass("active");
+        //   }
+        //
+        //   // Paragraph
+        //   if(containsSelection('p')){
+        //     $('#paragraph').css({"background-color":"white", "color":"blue"});
+        //     $('#paragraph').addClass("active");
+        //   } else {
+        //     $('#paragraph').css({"background-color":"white", "color":"black"});
+        //     $('#paragraph').removeClass("active");
+        //   }
+        //
+        //   // Link
+        //   if(containsSelection('a')){
+        //     $('#link').css({"background-color":"white", "color":"blue"});
+        //     $('#link').addClass("active");
+        //   } else {
+        //     $('#link').css({"background-color":"white", "color":"black"});
+        //     $('#link').removeClass("active");
+        //   }
+        //
+        //   // Bold
+        //   if(containsSelection('b')){
+        //     $('#bold').css({"background-color":"white", "color":"blue"});
+        //     $('#bold').addClass("active");
+        //   } else {
+        //     $('#bold').css({"background-color":"white", "color":"black"});
+        //     $('#bold').removeClass("active");
+        //   }
+        //
+        //   // Italic
+        //   if(containsSelection('i')){
+        //     $('#italic').css({"background-color":"white", "color":"blue"});
+        //     $('#italic').addClass("active");
+        //   } else {
+        //     $('#italic').css({"background-color":"white", "color":"black"});
+        //     $('#italic').removeClass("active");
+        //   }
+        //
+        //   // Underline
+        //   if(containsSelection('u')){
+        //     $('#underline').css({"background-color":"white", "color":"blue"});
+        //     $('#underline').addClass("active");
+        //   } else {
+        //     $('#underline').css({"background-color":"white", "color":"black"});
+        //     $('#underline').removeClass("active");
+        //   }
+        //
+        //   // Image
+        //   if(containsSelection('img')){
+        //     $('#image').css({"background-color":"white", "color":"blue"});
+        //     $('#image').addClass("active");
+        //   } else {
+        //     $('#image').css({"background-color":"white", "color":"black"});
+        //     $('#image').removeClass("active");
+        //   }
+        //
+        //   // backColor
+        //   if(containsSelection('span')){
+        //     $('#backColor').css({"background-color":"white", "color":"blue"});
+        //     $('#backColor').addClass("active");
+        //   } else {
+        //     $('#backColor').css({"background-color":"white", "color":"black"});
+        //     $('#backColor').removeClass("active");
+        //   }
+        //
+        //   console.log(selection);
+        // });
 
 
-        $('#paragraph').click(function(){
-          if ($('#paragraph').hasClass("active")){
-            removeSelection('p');
-          } else {
-            if(containsSelection('div')){
-
-              surroundSelection('p');
-            } else {
-              surroundSelection('p');
-            }
-
-
-          }
-        });
-
-        $('#bold').click(function(){
-          if ($('#bold').hasClass("active")){
-            removeSelection('b');
-          } else {
-            if(containsSelection('p'))
-              surroundSelection('b');
-          }
-        });
-
-        $('#italic').click(function(){
-          if ($('#italic').hasClass("active")){
-            removeSelection('i');
-          } else {
-            surroundSelection('i');
-          }
-        });
-
-        $('#underline').click(function(){
-          if ($('#underline').hasClass("active")){
-            removeSelection('u');
-          } else {
-            surroundSelection('u');
-          }
-        });
-
-        $('#colour').click(function(){
-          if ($('#colour').hasClass("active")){
-            removeSelection('span');
-          } else {
-            var colour = $('#color-picker').val();
-            surroundSelection('span', {colour: colour});
-          }
-        });
-
-        // Image
-        //{{HTML::image('', '', ['ng-src' => '<% mobileImage %>', 'width' => '300', 'id' => 'myFile'])}}
-        $('#image').click(function(){
-          if ($('#image').hasClass("active")){
-            removeSelection('img');
-          } else {
-            //var url = 'http://3.bp.blogspot.com/-9zcswb51KYo/VWKjk5dM95I/AAAAAAAANDA/-lXNex7eFR0/s1600/cool-backgrounds-images-27-download-wallpapers-backgrounds.jpg';
-            surroundSelection('img', {'ng-src':'<% mobileImage %>', 'id':'myFile'});
-          }
-        });
 
         /***********************************
         ********* PROJECTS SECTION *********
