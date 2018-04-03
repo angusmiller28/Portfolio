@@ -1,0 +1,35 @@
+@import "_colours";
+@import "_mixins";
+@import "_font";
+
+#quick-index-container {
+  position: fixed;
+  background-color: white;
+  width: 90%;
+  height: 100vh !important;
+  top: 0px;
+  left: 0px;
+  background-color: $theme-secondary-darken;
+
+  p {
+    color: white;
+  }
+}
+
+#quick-nav-container {
+  text-align: center !important;
+}
+
+#quick-nav-title-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: $theme-secondary-light;
+
+  h3 {
+    color: white;
+  }
+}
+
+#quick-nav-container-content {
+  height: 100%;
+}

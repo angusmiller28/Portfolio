@@ -4,15 +4,17 @@
 
 $padding: 20px;
 
-nav#nav-container {
-  background: $theme-primary-gradient;
 
-  ul#nav-bar-nav {
+.nav-container {
+  background: $theme-primary-gradient;
+  color: white;
+
+  .nav-bar-nav {
     justify-content: flex-end;
   }
 }
 
-#nav-bar-nav, #nav-outside {
+.nav-bar-nav, #nav-outside {
   li:hover {
     background: $theme-accent;
   }
@@ -23,12 +25,17 @@ nav#nav-container {
 
     i {
       padding: 20px;
+      margin-right: 0px !important;
       color: white;
     }
   }
 }
 
-#nav-bar-container {
+.slogan {
+  text-align: center;
+}
+
+.nav-bar-container {
   padding: $padding;
   display: grid;
   grid-template-columns: 10% auto;
@@ -38,7 +45,7 @@ nav#nav-container {
     flex-direction: row;
   }
 
-  #nav-bar-logo {
+  .nav-bar-logo {
     flex: display;
     align-self: center;
   }
@@ -49,18 +56,19 @@ nav#nav-container {
 }
 
 /********************************
-*********** Responsive **********/
+*********** Responsive **********
+********************************/
 @media (max-width: 500px){
-  #nav-bar-container {
+  .nav-bar-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #nav-bar-logo {
+  .nav-bar-logo {
     padding-bottom: 20px;
   }
-  #nav-bar-nav {
+  .nav-bar-nav {
     grid-area: logo
   }
 }

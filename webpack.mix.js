@@ -12,10 +12,13 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+   .js('resources/assets/js/quick-nav.js', 'public/js')
+   .js('resources/assets/js/nav.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/admin.scss', 'public/css')
    .sass('resources/assets/sass/footer.scss', 'public/css')
    .sass('resources/assets/sass/index.scss', 'public/css')
    .sass('resources/assets/sass/project.scss', 'public/css')
    .sass('resources/assets/sass/projects.scss', 'public/css')
+   .sass('resources/assets/sass/nav-scroll.scss', 'public/css')
    .sass('resources/assets/sass/nav.scss', 'public/css');

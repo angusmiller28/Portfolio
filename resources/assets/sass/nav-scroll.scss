@@ -1,0 +1,10 @@
+@import "_colours";
+@import "_mixins";
+@import "_font";
+
+#nav-bar-scroll-container {
+  position: fixed;
+  background-color: $theme-secondary-darken;
+  display: none;
+  top: 0px;
+}

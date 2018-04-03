@@ -4,8 +4,8 @@ $theme-primary-light: lighten($theme-primary, 15%);
 $theme-primary-gradient: linear-gradient(-180deg, $theme-primary, $theme-primary-darken);
 
 $theme-secondary: #E98A0C;
-$theme-secondary-light: darken($theme-secondary, 15%);
-$theme-secondary-darken: lighten($theme-secondary, 15%);
+$theme-secondary-light: lighten($theme-secondary, 2%);
+$theme-secondary-darken: darken($theme-secondary, 2%);
 $theme-secondary-gradient: -webkit-gradient(linear, left top, left bottom, from($theme-secondary), to($theme-secondary-darken));
 
 $theme-default: #0d87eb;

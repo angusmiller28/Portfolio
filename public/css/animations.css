@@ -1,0 +1,18 @@
+/***************************
+********* PAGE *************
+***************************/
+.slide-in-to-right {
+  animation-name: slide-in-to-right;
+  animation-duration: 0.5s; }
+
+@keyframes slide-in-to-right {
+  from {
+    left: -90%; } }
+.pop:hover {
+  animation: pop 0.3s linear 1; }
+
+@keyframes pop {
+  50% {
+    transform: scale(1.2); } }
+
+/*# sourceMappingURL=animations.css.map */

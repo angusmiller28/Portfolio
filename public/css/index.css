@@ -55,12 +55,20 @@ p {
   color: #eb0d0d;
 }
 
-#nav-bar-outside > li:nth-child(2) {
+/***********************************
+********* DEFAULT SETTINGS *********
+***********************************/
+
+.nav-bar-outside > li:nth-child(2) {
   background-color: #DD1A9C;
 }
 
-#nav-bar-nav > li:nth-child(2) {
+.nav-bar-nav > li:nth-child(2) {
   background-color: #DD1A9C;
+}
+
+li a {
+  text-align: center;
 }
 
 #container {
@@ -82,120 +90,6 @@ p {
   margin-right: 1em;
 }
 
-#container nav#nav-container hr {
-  margin: 50px 0px;
-  min-width: 300px !important;
-  width: 100% !important;
-  max-width: 500px !important;
-}
-
-#container nav#nav-container section#nav-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 50px 50px;
-}
-
-#container nav#nav-container section#nav-wrapper p,
-#container nav#nav-container section#nav-wrapper a,
-#container nav#nav-container section#nav-wrapper i {
-  color: white;
-}
-
-#container nav#nav-container section#nav-wrapper h3,
-#container nav#nav-container section#nav-wrapper h3 > i {
-  color: #a391ea;
-}
-
-#container nav#nav-container section#nav-wrapper #profile-icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#container nav#nav-container section#nav-wrapper [id$=container] {
-  min-width: 300px !important;
-  width: 100% !important;
-  max-width: 500px !important;
-}
-
-#container nav#nav-container section#nav-wrapper #social-container #social-items,
-#container nav#nav-container section#nav-wrapper #social-container #contact-items,
-#container nav#nav-container section#nav-wrapper #contact-container #social-items,
-#container nav#nav-container section#nav-wrapper #contact-container #contact-items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 0px;
-}
-
-#container nav#nav-container section#nav-wrapper #social-container #social-items ul,
-#container nav#nav-container section#nav-wrapper #social-container #contact-items ul,
-#container nav#nav-container section#nav-wrapper #contact-container #social-items ul,
-#container nav#nav-container section#nav-wrapper #contact-container #contact-items ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0px;
-  margin-bottom: 30px !important;
-}
-
-#container nav#nav-container section#nav-wrapper #social-container #social-items ul p:nth-child(1),
-#container nav#nav-container section#nav-wrapper #social-container #contact-items ul p:nth-child(1),
-#container nav#nav-container section#nav-wrapper #contact-container #social-items ul p:nth-child(1),
-#container nav#nav-container section#nav-wrapper #contact-container #contact-items ul p:nth-child(1) {
-  margin-bottom: 0px;
-}
-
-#container nav#nav-container section#nav-wrapper #social-container #social-items ul p:nth-child(1) i,
-#container nav#nav-container section#nav-wrapper #social-container #contact-items ul p:nth-child(1) i,
-#container nav#nav-container section#nav-wrapper #contact-container #social-items ul p:nth-child(1) i,
-#container nav#nav-container section#nav-wrapper #contact-container #contact-items ul p:nth-child(1) i {
-  font-size: 1.414em;
-}
-
-#container nav#nav-container section#nav-wrapper #social-container #social-items ul div > p,
-#container nav#nav-container section#nav-wrapper #social-container #contact-items ul div > p,
-#container nav#nav-container section#nav-wrapper #contact-container #social-items ul div > p,
-#container nav#nav-container section#nav-wrapper #contact-container #contact-items ul div > p {
-  text-align: center;
-}
-
-#container nav#nav-container section#nav-wrapper #transcript-container div > p {
-  text-align: center;
-}
-
-#container nav#nav-container section#nav-wrapper #nav-footer > p {
-  display: none;
-}
-
 #container section#body-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -213,8 +107,8 @@ p {
 #container section#body-container h3 > i,
 #container section#body-container h3 {
   background: #E98A0C;
-  background: -webkit-gradient(linear, left top, left bottom, from(#E98A0C), to(#f6ad4c));
-  background: linear-gradient(-180deg, #E98A0C, #f6ad4c);
+  background: -webkit-gradient(linear, left top, left bottom, from(#E98A0C), to(#df840c));
+  background: linear-gradient(-180deg, #E98A0C, #df840c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: initial;
@@ -264,7 +158,7 @@ p {
   #container {
     display: grid;
     grid-template-columns: 500px auto !important;
-    grid-template-areas: "nav body" "footer footer";
+    grid-template-areas: "nav body" "footer footer";
   }
 
   #body-container {

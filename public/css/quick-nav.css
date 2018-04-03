@@ -1,0 +1,61 @@
+/** Light **/
+p, h3, h1, h2, h4, input, label, span {
+  font-family: 'Montserrat', sans-serif; }
+
+/** Sizes **/
+p {
+  font-size: 1em; }
+
+h1 {
+  font-size: 2.827em; }
+
+h2 {
+  font-size: 1.999em; }
+
+h3 {
+  font-size: 1.414em; }
+
+/** line-height **/
+p {
+  line-height: 1.414em; }
+
+/** leading **/
+#title-container {
+  text-align: center;
+  margin: 50px 0px; }
+
+#title {
+  background: #6D51DE;
+  background: linear-gradient(-180deg, #6D51DE, #4324be);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial; }
+
+.error {
+  color: #eb0d0d; }
+
+#quick-index-container {
+  position: fixed;
+  background-color: white;
+  width: 90%;
+  height: 100vh !important;
+  top: 0px;
+  left: 0px;
+  background-color: #df840c; }
+  #quick-index-container p {
+    color: white; }
+
+#quick-nav-container {
+  text-align: center !important; }
+
+#quick-nav-title-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f3900d; }
+  #quick-nav-title-container h3 {
+    color: white; }
+
+#quick-nav-container-content {
+  height: 100%; }
+
+/*# sourceMappingURL=quick-nav.css.map */

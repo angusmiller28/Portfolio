@@ -1,6 +1,7 @@
 <head>
   <link href="{{asset('css/base.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/nav.css')}}" type="text/css" rel="stylesheet" />
+  <link href="{{asset('css/nav-scroll.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/actions.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/about.css')}}" type="text/css" rel="stylesheet" />
 
@@ -14,15 +15,10 @@
 </head>
 
 <nav class="nav-container">
-  <div class="nav-bar-container">
+  <div id="nav-bar-scroll-container" class="nav-bar-container">
     <ul>
       <li class="nav-bar-logo"><div class="logo">
         <img src="{{asset('img/logo.png')}}" alt="logo" height="23.15px" width="62.9px" />
-      </div></li>
-    </ul>
-    <ul>
-      <li class="slogan"><div>
-        <h3>Web Designer & Developer</h3>
       </div></li>
     </ul>
     <ul class="nav-bar-nav">
@@ -33,8 +29,6 @@
     </ul>
   </div>
 </nav>
-
-@include('partials/nav_scroll')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{asset('js/nav.js')}}" type="text/javascript"></script>

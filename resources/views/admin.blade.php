@@ -28,6 +28,112 @@
       @include('partials/nav')
       @include('partials/messages')
 
+      <!-- RESUME FORM -->
+      <div id="resume-form-container">
+        <h3>Add Project</h3>
+        {!! Form::open(['action' => 'ResumeController@store', 'method' => 'POST', 'files' => true]) !!}
+          <div class="form-group">
+            {{Form::label('description', 'Profile description')}}
+            {{Form::text('description', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            <ul>
+              <li>Contact on social media</li>
+              <li>
+                <i class="fab fa-facebook-square"></i>
+                {{Form::label('Facebook', 'facebook')}}
+                {{Form::text('Facebook', 'facebook')}}
+              </li>
+              <li>
+                <i class="fab fa-twitter-square"></i>
+                {{Form::label('Twitter', 'twitter')}}
+                {{Form::text('Twitter', 'twitter')}}
+              </li>
+              <li>
+                <i class="fab fa-google-plus-square"></i>
+                {{Form::label('Google+', 'google')}}
+                {{Form::text('Google+', 'google')}}
+              </li>
+              <li>
+                <i class="fab fa-reddit-square"></i>
+                {{Form::label('Reddit', 'reddit')}}
+                {{Form::text('Reddit', 'reddit')}}
+              </li>
+              <li>
+                <i class="fa fa-linkedin"></i>
+                {{Form::label('Linkedin', 'linkedin')}}
+                {{Form::text('Linkedin', 'linkedin')}}
+              </li>
+              <li>
+                <i class="fa fa-github-square"></i>
+                {{Form::label('GitHub', 'github')}}
+                {{Form::text('GitHub', 'github')}}
+              </li>
+            </ul>
+          </div>
+          <div class="form-group">
+            <li>Contact</li>
+            {{Form::label('email', 'Email')}}
+            {{Form::text('email', '', ['class' => 'form-control'])}}
+            {{Form::label('address', 'Address')}}
+            {{Form::text('address', '', ['class' => 'form-control'])}}
+            {{Form::label('phone', 'Phone')}}
+            {{Form::text('phone', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('transcript', 'Transcript link')}}
+            {{Form::text('transcript', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('cover-letter', 'Cover Letter')}}
+            {{Form::textarea('cover-letter', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('education', 'Education')}}
+            {{Form::text('education', '', ['class' => 'form-control'])}}
+            <i id="education-add" class="fas fa-plus-circle"></i>
+            <ul id="education-list"></ul>
+          </div>
+          <div class="form-group">
+            {{Form::label('technical', 'Technical')}}
+            {{Form::text('technical', '', ['class' => 'form-control'])}}
+            <i id="technical-add" class="fas fa-plus-circle"></i>
+            <ul id="technical-list"></ul>
+          </div>
+          <div class="form-group">
+            {{Form::label('referenceTitle', 'Reference')}}
+            {{Form::text('referenceTitle', '', ['class' => 'form-control'])}}
+            {{Form::label('referenceStartDate', 'Reference start date')}}
+            {{Form::text('referenceStartDate', '', ['class' => 'form-control'])}}
+            {{Form::label('referenceEndDate', 'Reference end date')}}
+            {{Form::text('referenceEndDate', '', ['class' => 'form-control'])}}
+            {{Form::label('referenceDescription', 'Reference description')}}
+            {{Form::textarea('referenceTitle', '', ['class' => 'form-control'])}}
+            {{Form::label('referenceBossTitle', 'Reference boss title')}}
+            {{Form::text('referenceBossTitle', '', ['class' => 'form-control'])}}
+            {{Form::label('referenceBossName', 'Reference boss name')}}
+            {{Form::text('referenceBossName', '', ['class' => 'form-control'])}}
+            {{Form::label('referenceAddress', 'Reference address name')}}
+            {{Form::text('referenceAddress', '', ['class' => 'form-control'])}}
+            {{Form::label('referencePhoneNumber', 'Reference phone number')}}
+            {{Form::text('referencePhoneNumber', '', ['class' => 'form-control'])}}
+            {{Form::label('referenceEmail', 'Reference email')}}
+            {{Form::text('referenceEmail', '', ['class' => 'form-control'])}}
+            <i id="reference-add" class="fas fa-plus-circle"></i>
+            <ul id="reference-list"></ul>
+          </div>
+          <div class="form-group">
+            {{Form::label('certificate', 'Certificate')}}
+            {{Form::text('certificate', '', ['class' => 'form-control'])}}
+            {{Form::file('coverImage', ['class' => 'form-control', 'accept' => 'image/png'])}}
+            <i id="certificate-add" class="fas fa-plus-circle"></i>
+            <ul id="certificate-list"></ul>
+          </div>
+          {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        {!! Form::close() !!}
+      </div>
+      <!-- END::RESUME FORM -->
+
       <!-- PROJECT FORM -->
       <div id="project-form-container">
         <h3>Add Project</h3>

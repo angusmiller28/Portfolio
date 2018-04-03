@@ -1,3 +1,6 @@
+<head>
+  <link href="{{asset('css/footer.css')}}" type="text/css" rel="stylesheet" />
+</head>
 <footer>
   <ul>
     <li><p>Made with</p></li>

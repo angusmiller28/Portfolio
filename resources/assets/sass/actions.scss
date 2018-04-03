@@ -1,0 +1,12 @@
+@import "_colours";
+@import "_mixins";
+@import "_font";
+
+.error {
+  background-color: $theme-error;
+}
+
+// Buttons
+i.warning {
+  color: $theme-warning !important;
+}

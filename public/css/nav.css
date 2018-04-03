@@ -55,42 +55,48 @@ p {
   color: #eb0d0d;
 }
 
-nav#nav-container {
+.nav-container {
   background: -webkit-gradient(linear, left top, left bottom, from(#6D51DE), to(#4324be));
   background: linear-gradient(-180deg, #6D51DE, #4324be);
+  color: white;
 }
 
-nav#nav-container ul#nav-bar-nav {
+.nav-container .nav-bar-nav {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-#nav-bar-nav li:hover,
+.nav-bar-nav li:hover,
 #nav-outside li:hover {
   background: #DD1A9C;
 }
 
-#nav-bar-nav li,
+.nav-bar-nav li,
 #nav-outside li {
   margin: 0px 10px;
   background: grey;
   border-radius: 50%;
 }
 
-#nav-bar-nav li i,
+.nav-bar-nav li i,
 #nav-outside li i {
   padding: 20px;
+  margin-right: 0px !important;
   color: white;
 }
 
-#nav-bar-container {
+.slogan {
+  text-align: center;
+}
+
+.nav-bar-container {
   padding: 20px;
   display: grid;
   grid-template-columns: 10% auto;
 }
 
-#nav-bar-container ul {
+.nav-bar-container ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,7 +106,7 @@ nav#nav-container ul#nav-bar-nav {
           flex-direction: row;
 }
 
-#nav-bar-container #nav-bar-logo {
+.nav-bar-container .nav-bar-logo {
   -webkit-box-flex: display;
       -ms-flex: display;
           flex: display;
@@ -113,10 +119,11 @@ nav#nav-container ul#nav-bar-nav {
 }
 
 /********************************
-*********** Responsive **********/
+*********** Responsive **********
+********************************/
 
 @media (max-width: 500px) {
-  #nav-bar-container {
+  .nav-bar-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -132,11 +139,11 @@ nav#nav-container ul#nav-bar-nav {
             align-items: center;
   }
 
-  #nav-bar-logo {
+  .nav-bar-logo {
     padding-bottom: 20px;
   }
 
-  #nav-bar-nav {
+  .nav-bar-nav {
     grid-area: logo;
   }
 }
