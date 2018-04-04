@@ -9,5 +9,7 @@
     "/css/nav-scroll.css": "/css/nav-scroll.css",
     "/css/nav.css": "/css/nav.css",
     "/js/quick-nav.js": "/js/quick-nav.js",
-    "/js/nav.js": "/js/nav.js"
+    "/js/other-nav.js": "/js/other-nav.js",
+    "/js/nav.js": "/js/nav.js",
+    "/js/index.js": "/js/index.js"
 }

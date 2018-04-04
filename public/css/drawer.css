@@ -34,28 +34,29 @@ p {
 .error {
   color: #eb0d0d; }
 
-#quick-index-container {
+.drawer-container {
+  display: flex;
   position: fixed;
   background-color: white;
   width: 90%;
   height: 100vh !important;
   top: 0px;
   left: 0px;
-  background-color: #df840c; }
-  #quick-index-container p {
-    color: white; }
-
-#quick-nav-container {
+  background-color: #df840c;
   text-align: center !important; }
-
-#quick-nav-title-container {
-  display: flex;
-  justify-content: space-around;
-  background-color: #f3900d; }
-  #quick-nav-title-container h3 {
+  .drawer-container p {
     color: white; }
 
-#quick-nav-container-content {
-  height: 100%; }
+.drawer-title-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px !important;
+  background-color: #f3900d; }
+  .drawer-title-container h3 {
+    color: white; }
 
-/*# sourceMappingURL=quick-nav.css.map */
+.drawer-content-container {
+  height: 100% !important;
+  width: 100%; }
+
+/*# sourceMappingURL=drawer.css.map */

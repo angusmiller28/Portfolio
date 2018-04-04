@@ -60,27 +60,27 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 57);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 53:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(58);
 
 
 /***/ }),
 
-/***/ 54:
+/***/ 58:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
     var lastScrollTop = 0;
     $(window).scroll(function (event) {
         var st = $(this).scrollTop();
-        console.log(st);
+
         if (st > lastScrollTop || lastScrollTop < 100) {
             $("#nav-bar-scroll-container").css("display", "none");
         } else {

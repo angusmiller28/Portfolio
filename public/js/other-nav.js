@@ -60,37 +60,37 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 53);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 51:
+/***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
 
-/***/ 52:
+/***/ 54:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-    $(".quick-nav-btn").click(function () {
-        $("#quick-nav-drawer").removeClass("hide");
-        $("#quick-nav-drawer").addClass("drawer-container");
-        $(".quick-nav-btn").toggleClass("active");
+    $(".other-nav-btn").click(function () {
+        $("#other-nav-drawer").removeClass("hide");
+        $("#other-nav-drawer").addClass("drawer-container");
+        $(".other-nav-btn").toggleClass("active");
 
         // if($(window).width() <= 1200){
         //   $(".drawer-container").toggleClass("flex-content");
         // }
     });
 
-    $(".close-nav-btn, .quick-nav-link").click(function () {
-        $("#quick-nav-drawer").addClass("hide");
-        $("#quick-nav-drawer").removeClass("drawer-container");
-        $(".quick-nav-btn").toggleClass("active");
+    $(".close-nav-btn").click(function () {
+        $("#other-nav-drawer").addClass("hide");
+        $("#other-nav-drawer").removeClass("drawer-container");
+        $(".other-nav-btn").toggleClass("active");
     });
 });
 

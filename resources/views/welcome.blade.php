@@ -34,9 +34,9 @@
                 <ul id="cover-letter-container">
                   <li>
                     <ul class="item-list-title">
-                      <li><h3><i class="fas fa-address-book"></i></h3></li>
+                      <li><h3><i class="fas fa-file-alt"></i></h3></li>
                       <li><h3>Cover Letter</h3></li>
-                      <li><h3><i id="cover-letter-btn"class="fas fa-arrow-circle-down"></i></h3></li>
+                      <li class="pop"><h3><i id="cover-letter-btn"class="fas fa-arrow-circle-down"></i></h3></li>
                     </ul>
                   </li>
                   <li id="cover-letter-content"><p>As a successfully completed student who studied Bachelor of Science (Computing)
@@ -91,7 +91,7 @@
                 <ul id="education-container">
                   <li>
                     <ul class="item-list-title">
-                      <li><h3><i class="fas fa-address-book"></i></h3></li>
+                      <li><h3><i class="fas fa-graduation-cap"></i></h3></li>
                       <li><h3>Education</h3></li>
                     </ul>
                   </li>
@@ -204,7 +204,6 @@
 
             </div>
 
-
-
+            <script src="{{asset('js/index.js')}}" type="text/javascript"></script>
           </body>
         </html>

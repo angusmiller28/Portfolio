@@ -9,12 +9,16 @@ $padding: 20px;
 ********* DEFAULT SETTINGS *********
 ***********************************/
 // nav settings
-.nav-bar-outside>li:nth-child(2) {
-  background-color: $theme-accent;
+.nav-bar-outside>li:nth-child(2){
+  div {
+    background-color: $theme-accent;
+  }
 }
 
 .nav-bar-nav>li:nth-child(2) {
-  background-color: $theme-accent;
+  div {
+    background-color: $theme-accent;
+  }
 }
 
 li a {

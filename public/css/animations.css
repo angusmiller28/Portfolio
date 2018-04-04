@@ -11,6 +11,12 @@
 .pop:hover {
   animation: pop 0.3s linear 1; }
 
+.shift-down {
+  animation: shift-down 0.5s linear 1; }
+
+@keyframes shift-down {
+  50% {
+    transform: translate(0px, 10px); } }
 @keyframes pop {
   50% {
     transform: scale(1.2); } }

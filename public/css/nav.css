@@ -59,6 +59,26 @@ p {
   background: -webkit-gradient(linear, left top, left bottom, from(#6D51DE), to(#4324be));
   background: linear-gradient(-180deg, #6D51DE, #4324be);
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav-container ul:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .nav-container .nav-bar-nav {
@@ -67,33 +87,51 @@ p {
           justify-content: flex-end;
 }
 
-.nav-bar-nav li:hover,
-#nav-outside li:hover {
+.nav-bar-nav,
+#nav-outside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  margin-top: 20px !important;
+}
+
+.nav-bar-nav div:hover,
+#nav-outside div:hover {
   background: #DD1A9C;
 }
 
 .nav-bar-nav li,
 #nav-outside li {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.nav-bar-nav div,
+#nav-outside div {
   margin: 0px 10px;
   background: grey;
   border-radius: 50%;
 }
 
-.nav-bar-nav li i,
-#nav-outside li i {
+.nav-bar-nav div i,
+#nav-outside div i {
   padding: 20px;
   margin-right: 0px !important;
   color: white;
 }
 
 .slogan {
+  display: none !important;
   text-align: center;
 }
 
 .nav-bar-container {
   padding: 20px;
   display: grid;
-  grid-template-columns: 10% auto;
+  grid-template-columns: 1fr;
 }
 
 .nav-bar-container ul {
@@ -112,6 +150,7 @@ p {
           flex: display;
   -ms-flex-item-align: center;
       align-self: center;
+  padding-bottom: 0px !important;
 }
 
 #nav-outside {
@@ -122,29 +161,35 @@ p {
 *********** Responsive **********
 ********************************/
 
-@media (max-width: 500px) {
+@media (min-width: 788px) {
   .nav-bar-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute !important;
+        justify-content: space-around !important;
+    width: 100%;
   }
 
   .nav-bar-logo {
     padding-bottom: 20px;
   }
 
+  .slogan {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    padding-right: 20px !important;
+    margin-right: 20px !important;
+    padding-left: 20px;
+  }
+
   .nav-bar-nav {
-    grid-area: logo;
+    margin-top: 0px !important;
   }
 }
 

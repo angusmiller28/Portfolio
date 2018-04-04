@@ -25,15 +25,15 @@
     </ul>
     <ul id="social-items">
       <ul>
-        <li><p><i class="fab fa-linkedin"></i></p></li>
+        <li><p><i id="social-linkedin-icon" class="fab fa-linkedin"></i></p></li>
         <li><a href=""><p>Angus Miller</p></a></li>
       </ul>
       <ul>
-        <li><p><i class="fab fa-facebook-square"></i></p></li>
+        <li><p><i id="social-facebook-icon" class="fab fa-facebook-square"></i></p></li>
         <li><a href=""><p>Angus Miller</p></a></li>
       </ul>
       <ul>
-        <li><p><i class="fab fa-github"></i></p></li>
+        <li><p><i id="social-github-icon" class="fab fa-github"></i></p></li>
         <li><a href=""><p>angusmiller28</p></a></li>
       </ul>
     </ul>
@@ -48,15 +48,15 @@
     </ul>
     <ul id="contact-items">
       <ul>
-        <li><p><i class="fas fa-envelope"></i></p></li>
+        <li><p><i id="contact-address-icon" class="fas fa-envelope"></i></p></li>
         <li><p>angus.miller28@gmail.com</p></li>
       </ul>
       <ul>
-        <li><p><i class="fas fa-map"></i></p></li>
+        <li><p><i id="contact-map-icon" class="fas fa-map"></i></p></li>
         <li><div><p>128 Vulture St, South Brisbane Queensland 4101</p></div></li>
       </ul>
       <ul>
-        <li><p><i class="fas fa-phone"></i></p></li>
+        <li><p><i id="contact-phone-icon" class="fas fa-phone"></i></p></li>
         <li><p>0423 584 163</p></li>
       </ul>
     </ul>

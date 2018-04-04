@@ -13,6 +13,8 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/quick-nav.js', 'public/js')
+   .js('resources/assets/js/other-nav.js', 'public/js')
+   .js('resources/assets/js/index.js', 'public/js')
    .js('resources/assets/js/nav.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/admin.scss', 'public/css')
