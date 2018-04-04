@@ -4,6 +4,7 @@
 
 
 #nav-bar-scroll-container {
+  z-index: 10;
   position: fixed;
   background-color: $theme-secondary-darken;
   top: 0px;

@@ -277,7 +277,7 @@
       </div> <!-- END::BLOG FORM -->
 
       <!-- ADD ADMIN FORM -->
-      <div id="admin-form-container">
+      <!-- <div id="admin-form-container">
         <h3>Add Staff</h3>
         <form method="POST" action="{{ route('admin.register.submit') }}">
           @csrf
@@ -297,7 +297,8 @@
           {{Form::submit('Submit', ['id' => 'submit-blog', 'class'=>'btn btn-primary'])}}
 
         {!! Form::close() !!}
-      </div> <!-- END::ADMIN FORM -->
+      </div>  -->
+      <!-- END::ADMIN FORM -->
 
       <!-- BLOG GALLERY -->
       <div id="blog-gallery-container" class="cards">

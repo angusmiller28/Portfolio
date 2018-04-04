@@ -3,6 +3,20 @@
 @import "_font";
 @import "_components";
 
+/***********************************
+********* DEFAULT SETTINGS *********
+***********************************/
+// nav settings
+.nav-bar-nav>li:nth-child(1) {
+  div {
+    background-color: $theme-accent;
+  }
+}
+
+.quick-nav-btn {
+  display: none;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -41,6 +55,7 @@ p {
 
 #body-container {
   grid-area: body;
+  margin-bottom: 50px;
 }
 
 footer {

@@ -1,78 +1,52 @@
 /** Light **/
-
-p,
-h3,
-h1,
-h2,
-h4,
-input,
-label,
-span {
-  font-family: 'Montserrat', sans-serif;
-}
+p, h3, h1, h2, h4, input, label, span {
+  font-family: 'Montserrat', sans-serif; }
 
 /** Sizes **/
-
 p {
-  font-size: 1em;
-}
+  font-size: 1em; }
 
 h1 {
-  font-size: 2.827em;
-}
+  font-size: 2.827em; }
 
 h2 {
-  font-size: 1.999em;
-}
+  font-size: 1.999em; }
 
 h3 {
-  font-size: 1.414em;
-}
+  font-size: 1.414em; }
 
 /** line-height **/
-
 p {
-  line-height: 1.414em;
-}
+  line-height: 1.414em; }
 
 /** leading **/
-
 #title-container {
   text-align: center;
-  margin: 50px 0px;
-}
+  margin: 50px 0px; }
 
 #title {
   background: #6D51DE;
-  background: -webkit-gradient(linear, left top, left bottom, from(#6D51DE), to(#4324be));
   background: linear-gradient(-180deg, #6D51DE, #4324be);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: initial;
-}
+  display: initial; }
 
 .error {
-  color: #eb0d0d;
-}
+  color: #eb0d0d; }
 
 footer {
   background-color: white;
   text-align: center;
-  padding: 20px;
-}
-
-footer p {
-  background: #6D51DE;
-  background: -webkit-gradient(linear, left top, left bottom, from(#6D51DE), to(#4324be));
-  background: linear-gradient(-180deg, #6D51DE, #4324be);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: initial;
-}
+  padding: 20px; }
+  footer p {
+    background: #6D51DE;
+    background: linear-gradient(-180deg, #6D51DE, #4324be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial; }
 
 @media (min-width: 1920px) {
   footer {
-    grid-area: footer;
-  }
-}
+    grid-area: footer; } }
 
+/*# sourceMappingURL=footer.css.map */

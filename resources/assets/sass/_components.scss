@@ -8,8 +8,9 @@
     padding: 0px;
   }
   .card {
-    img { border: 16px solid white; }
-    padding: 10px;
+    border: 8px solid white;
+    img { width: 250px !important; height: 250px !important;}
+
   }
 }
 

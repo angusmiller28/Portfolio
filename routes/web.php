@@ -32,7 +32,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function(){
-  Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.log');
+  Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
   Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
   Route::post('/admin', array('uses' => 'BlogController@store'));
   Route::get('/', 'UserController@index');
