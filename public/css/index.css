@@ -71,10 +71,6 @@ li a {
   text-align: center;
 }
 
-#container {
-  background-color: #E6EAEE;
-}
-
 #container .item-list-title {
   display: -webkit-box;
   display: -ms-flexbox;

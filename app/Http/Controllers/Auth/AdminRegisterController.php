@@ -6,6 +6,7 @@ use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class AdminRegisterController extends Controller
@@ -28,7 +29,7 @@ class AdminRegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -55,6 +56,24 @@ class AdminRegisterController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+    {
+      $this->validate($request, [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:6|confirmed',
+      ]);
+
+      $admin = new Admin;
+      $admin->name = $request->input('name');
+      $admin->email = $request->input('email');
+      $admin->job_title = $request->input('job_title');
+      $admin->password = Hash::make($request->input('password'));
+      $admin->save();
+
+      return redirect('/admin')->with('success', 'Admin Created');
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -63,10 +82,6 @@ class AdminRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        
     }
 }

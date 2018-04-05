@@ -11,5 +11,6 @@
     "/js/quick-nav.js": "/js/quick-nav.js",
     "/js/other-nav.js": "/js/other-nav.js",
     "/js/nav.js": "/js/nav.js",
-    "/js/index.js": "/js/index.js"
+    "/js/index.js": "/js/index.js",
+    "/js/admin.js": "/js/admin.js"
 }

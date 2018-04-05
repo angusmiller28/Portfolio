@@ -3,11 +3,10 @@
 
     <link href="{{asset('css/projects.css')}}" type="text/css" rel="stylesheet" />
   </head>
+
   <body>
+    @include('partials/nav')
     <div id="container" >
-
-        @include('partials/nav')
-
         <section id="body-container">
           <div id="title-container"><h1 id="title">Projects</h1></div>
 
@@ -25,7 +24,6 @@
             </ul>
           </div>
         </section>
-
-        @include('partials/footer')
     </div>
+    @include('partials/footer')
   </body>

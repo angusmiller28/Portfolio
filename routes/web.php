@@ -29,12 +29,20 @@ Route::get('/users/user/{id}', 'UserController@show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/resumes', 'ResumeController');
 
-Route::prefix('admin')->group(function(){
-  Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-  Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-  Route::post('/admin', array('uses' => 'BlogController@store'));
-  Route::get('/', 'UserController@index');
-  Route::get('/', 'AdminController@index')->name('admin.dashboard');
-});
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+// Route::post('/admin', 'Auth\AdminRegisterController@store')->name('admin.register.submit');
+// Route::post('/admin', 'ResumeController@store')->name('resume.add.submit');
+// Route::post('/admin', 'ResumeController@update')->name('resume.update.submit');
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+
+// Route::prefix('admin')->group(function(){
+//   Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+//   Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+//   Route::post('/admin', array('uses' => 'BlogController@store'));
+//   Route::get('/', 'UserController@index');
+//   Route::get('/', 'AdminController@index')->name('admin.dashboard');
+// });

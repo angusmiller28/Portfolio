@@ -45,6 +45,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	margin: 0px !important;
 }
+h3 {
+	padding: 1.41em 0px;
+	margin: 0px !important;
+}
 ul {
 	margin: 0px !important;
 	padding: 0px !important;
