@@ -19,6 +19,7 @@ class ResumeController extends Controller
     public function index()
     {
       $resumes = Resume::all();
+      $educations = Education::all();
 
       foreach ($resumes as $r) {
         $resumeDescription = $r->description;
@@ -26,7 +27,7 @@ class ResumeController extends Controller
         $resumeEmail = $r->email;
         $resumeAddress = $r->address;
         $resumeTranscript = $r->transcript;
-        $resumePhoneNumber = $r->phone_number;
+        $resumePhoneNumber = $r->phone;
         $resumeFacebookLink = $r->facebook_link;
         $resumeLinkedinLink = $r->linkedin_link;
         $resumeGithubLink = $r->github_link;
@@ -59,7 +60,8 @@ class ResumeController extends Controller
       ->with('githubName', $resumeGithubName)
       ->with('twitterName', $resumeTwitterName)
       ->with('googleName', $resumeGoogleName)
-      ->with('redditName', $resumeRedditName);
+      ->with('redditName', $resumeRedditName)
+      ->with('educations', $educations);
     }
 
     /**
@@ -121,21 +123,6 @@ class ResumeController extends Controller
       $resumes->reddit_name = $request->input('reddit_name');
 
       $resumes->save();
-
-      //////////////////////////////
-      // add education to database
-      //////////////////////////////
-      $educations = $request->input('educations');
-      if (!empty($educations)){
-        foreach ($educations as $educationName => $value) {
-          $name = $educationName;
-
-          $educations = new Education;
-          $educations->name = $name;
-          $educations->resume_fk = $resumes->resume_id;
-          $educations->save();
-        }
-      }
 
 
       //////////////////////////////
@@ -223,6 +210,62 @@ class ResumeController extends Controller
           $r->delete();
         }
       }
+
+
+
+      ////////////////////////////////
+      // add educations to database
+      ///////////////////////////////
+
+      $educations = $request->input('educations');
+
+      if (!empty($educations)){
+        foreach ($educations as $educationName => $value) {
+          $name = $educationName;
+          foreach ($value as $startDate => $value2) {
+            $start_date = $startDate;
+            foreach ($value2 as $endDate => $value3) {
+              $end_date = $endDate;
+              foreach ($value3 as $i => $value4) {
+                $institution = $i;
+                foreach ($value4 as $g => $value5) {
+                  $gpa = $g;
+                }
+              }
+            }
+          }
+
+          $educations = new Education;
+
+          $educations->name = $name;
+          $educations->start_date = $start_date;
+          $educations->end_date = $end_date;
+          $educations->institution = $institution;
+          $educations->gpa = $gpa;
+          $educations->resume_fk = $resumes->resume_id;
+          $educations->save();
+        }
+      }
+
+      ///////////////////////////////////////
+      // remove educations from database
+      //////////////////////////////////////
+      // check if should update
+      if($request->input('resume_id'))
+        $educations = Education::find($request->input('education_id'));
+
+      $educations = $request->input('educationsDelete');
+      if (!empty($educations)){
+        foreach ($educations as $educationId => $value) {
+          $r = Education::find($educationId);
+          $r->delete();
+        }
+      }
+
+
+
+
+
 
       if($request->input('resume_id'))
         return redirect('/admin')->with('success', 'Resume Updated');

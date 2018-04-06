@@ -138,15 +138,29 @@ $(document).ready(function () {
     $(".delete-reference-list").append('<li><input type="text" name="referencesDelete[' + this.id + ']" style="display:none"></li>');
   });
 
-  var socialName;
-  var socialLink;
+  var educationName;
+  var educationStartDate;
+  var educationEndDate;
+  var educationInstitution;
+  var educationGpa;
 
-  $("#socials-add").click(function () {
-    socialName = $("#socialsName").val();
-    socialLink = $("#socialsLink").val();
-    $("#socials-list").append('<li><input type="text" name="socials[' + socialName + '][' + socialLink + ']" style="display:none"></li>');
-    $("#socials-list").append('<li>Social name: ' + socialName + '</li>');
-    $("#socials-list").append('<li>Social link: ' + socialLink + '</li>');
+  $("#education-add").click(function () {
+    educationName = $("#educationName").val();
+    educationStartDate = $("#educationStartDate").val();
+    educationEndDate = $("#educationEndDate").val();
+    educationInstitution = $("#educationInstitution").val();
+    educationGpa = $("#educationGpa").val();
+    $("#education-list").append('<li><input type="text" name="educations[' + educationName + '][' + educationStartDate + '][' + educationEndDate + '][' + educationInstitution + '][' + educationGpa + ']" style="display:none"></li>');
+    $("#education-list").append('<li>Education name: ' + educationName + '</li>');
+    $("#education-list").append('<li>Education Start Date: ' + educationStartDate + '</li>');
+    $("#education-list").append('<li>Education End Date: ' + educationEndDate + '</li>');
+    $("#education-list").append('<li>Education Institution: ' + educationInstitution + '</li>');
+    $("#education-list").append('<li>Education GPA: ' + educationGpa + '</li>');
+  });
+
+  $(".delete-education").click(function () {
+    $("#" + this.id).remove();
+    $(".delete-education-list").append('<li><input type="text" name="educationsDelete[' + this.id + ']" style="display:none"></li>');
   });
 });
 

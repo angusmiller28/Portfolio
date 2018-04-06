@@ -70,15 +70,15 @@
     <ul id="contact-items">
       <ul>
         <li><p><i id="contact-address-icon" class="fas fa-envelope"></i></p></li>
-        <li><p>angus.miller28@gmail.com</p></li>
+        <li><p>{{$email}}</p></li>
       </ul>
       <ul>
         <li><p><i id="contact-map-icon" class="fas fa-map"></i></p></li>
-        <li><div><p>128 Vulture St, South Brisbane Queensland 4101</p></div></li>
+        <li><div><p>{{$address}}</p></div></li>
       </ul>
       <ul>
         <li><p><i id="contact-phone-icon" class="fas fa-phone"></i></p></li>
-        <li><p>0423 584 163</p></li>
+        <li><p>{{$phoneNumber}}</p></li>
       </ul>
     </ul>
   </div>
@@ -90,7 +90,7 @@
       <li><h3><i class="fas fa-clipboard-list"></i></h3></li>
       <li><h3>Transcript link</h3></li>
     </ul>
-    <div><p><a href="">https/tinyurl.com/yd86u68g</a></p></div>
+    <div><p><a href="{{$transcriptLink}}">{{$transcriptLink}}</a></p></div>
   </div>
 
   <div id="nav-footer">

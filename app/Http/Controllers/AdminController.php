@@ -9,6 +9,7 @@ use App\User;
 use App\Admin;
 use App\Resume;
 use App\Reference;
+use App\Education;
 use Auth;
 use Image;
 
@@ -36,6 +37,7 @@ class AdminController extends Controller
       $users = User::all();
       $resumes = Resume::all();
       $references = Reference::all();
+      $educations = Education::all();
       $resumeCount = Resume::count();
       $resumeSet = false;
 
@@ -46,6 +48,7 @@ class AdminController extends Controller
       ->with('blogs', $blogs)
       ->with('users', $users)
       ->with('references', $references)
+      ->with('educations', $educations)
       ->with('resumes', $resumes)
       ->with('resumeSet', $resumeSet)
       ->with('projects', $projects);

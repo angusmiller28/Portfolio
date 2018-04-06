@@ -31,52 +31,12 @@
             <li class="pop"><h3><i id="cover-letter-btn"class="fas fa-arrow-circle-down"></i></h3></li>
           </ul>
         </li>
-        <li id="cover-letter-content"><p>As a successfully completed student who studied Bachelor of Science (Computing)
-              at USQ in Toowoomba, I am very interested in applying for the Junior
-              Java Developer position. </p>
-
-              <p>
-              Currently, I have completed my 3rd and final year at USQ studying a Bachelor
-              of Science (Computing). Other achievements include obtaining a Certificate
-              II in Information Technology with an Award of Excellence for the
-              highest achieving student.</p>
-
-              <p>
-              These studies have given me a range of theoretical and practical skills from
-              Networking and System Administration to Software Development which will
-              more than meet the needs for this role. I also have completed numerous
-              projects which can be seen on GitHub. My name on Github is angusmiller28.</p>
-
-              <p>
-              My commitment to the IT field can be explained by my results and the following
-              projects seen on my Github account and the ones at the end of this
-              document. My final GPA is 5.25 with all 24 courses successfully completed.
-              By viewing my projects on GitHub you will see my commitment passion
-              attention to detail and dedication to learning across several different programming
-              languages process and projects to advance my skills and give
-              myself a challenge.</p>
-
-              <p>
-              While at school, I was a kitchen hand at the Russell Tavern. My responsibilities
-              in this role included food preparation and cooking. This position has
-              given me key employability skills while also allowing myself to experience
-              working in a professional and fast-paced work environment. Furthermore,
-              when I was in year 10 I undertook a week of work experience with Urban
-              Strategies Brisbane. This experience has further developed my communication
-              skills, teamwork and practical knowledge of what is expected in a
-              professional work environment.</p>
-
-              <p>
-              Having worked in a team of 5 with our final University project, I have
-              gained a lot of communication skills. Planning tasks and timing meetings
-              provided challenges. Having to work around other team members commitments
-              was a challenge that was resolved with communication and using
-              messaging platforms.</p>
-
-              <p>
-              Throughout my study I have been challenged with many programming
-              tasks. My final semester was to develop an e-commerce site that could be
-              configured easily to a business needs.</p>
+        <li id="cover-letter-content">
+          <?php
+          $doc = new DOMDocument();
+          $doc->loadHTML("".$coverLetter."");
+          echo $doc->saveHTML();
+          ?>
         </li>
       </ul>
 
@@ -87,10 +47,14 @@
             <li><h3>Education</h3></li>
           </ul>
         </li>
-        <li><p>University of Southern Queensland
-            S1 2015 - S2 2017 : Bachelor of
-            Science (Computing) - GPA 5.25</p>
-        </li>
+        @foreach($educations as $education)
+          <li>
+            <p>{{$education->institution}}</p>
+            <p>{{$education->start_date}}-{{$education->end_date}}</p>
+            <p>{{$education->name}}</p>
+            <p>{{$education->gpa}}</p>
+          </li>
+        @endforeach
       </ul>
 
       <ul id="technical-container">

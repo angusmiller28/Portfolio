@@ -134,12 +134,42 @@
           <div class="form-group">
             <ul>
               <li>
-              {{Form::label('education', 'Education')}}
-              {{Form::text('education', '', ['class' => 'form-control'])}}
+              {{Form::label('educationName', 'Education Name')}}
+              {{Form::text('educationName', '', ['class' => 'form-control'])}}
+              </li>
+              <li>
+              {{Form::label('educationStartDate', 'Education Start Date')}}
+              {{Form::text('educationStartDate', '', ['class' => 'form-control'])}}
+              </li>
+              <li>
+              {{Form::label('educationEndDate', 'Education End Date')}}
+              {{Form::text('educationEndDate', '', ['class' => 'form-control'])}}
+              </li>
+              <li>
+              {{Form::label('educationInstitution', 'Education Institution')}}
+              {{Form::text('educationInstitution', '', ['class' => 'form-control'])}}
+              </li>
+              <li>
+              {{Form::label('educationGpa', 'Education GPA')}}
+              {{Form::text('educationGpa', '', ['class' => 'form-control'])}}
               </li>
               <li>
                 <i id="education-add" class="fas fa-plus-circle"></i>
-                <ul id="education-list"></ul>
+                <ul id="education-list">
+                  @foreach($educations as $education)
+                    <ul id="{{$education->education_id}}">
+
+                    <li>Education Name: {{$education->name}}</li>
+                    <li>Education Start Date: {{$education->start_date}}</li>
+                    <li>Education End Date: {{$education->end_date}}</li>
+                    <li>Education Institutione: {{$education->institution}}</li>
+                    <li>Education GPA: {{$education->gpa}}</li>
+                    <li><button id="{{$education->education_id}}" class="delete-education" type="button" name="button">Delete Education</button></li>
+                    </ul>
+                  @endforeach
+                </ul>
+                <ul class="delete-education-list">
+                </ul>
               </li>
             <ul>
           </div>
