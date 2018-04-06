@@ -26,33 +26,75 @@
               <li class="form-group-title"><p>Contact on social media</b></li>
               <li>
                 <i class="fab fa-facebook-square"></i>
-                {{Form::label('Facebook', 'Facebook')}}
-                {{Form::text('Facebook', $resume->facebook_link, ['class' => 'form-control'])}}
+                {{Form::label('facebook_link', 'Facebook')}}
+              </li>
+              <li>
+                {{Form::label('facebook_name', 'Name')}}
+                {{Form::text('facebook_name', $resume->facebook_name, ['class' => 'form-control'])}}
+              </li>
+              <li>
+                {{Form::label('facebook_link', 'Link')}}
+                {{Form::text('facebook_link', $resume->facebook_link, ['class' => 'form-control'])}}
               </li>
               <li>
                 <i class="fab fa-twitter-square"></i>
-                {{Form::label('Twitter', 'Twitter')}}
-                {{Form::text('Twitter', $resume->twitter_link, ['class' => 'form-control'])}}
+                {{Form::label('twitter_link', 'Twitter')}}
+              </li>
+              <li>
+                {{Form::label('twitter_name', 'Name')}}
+                {{Form::text('twitter_name', $resume->twitter_name, ['class' => 'form-control'])}}
+              </li>
+              <li>
+                {{Form::label('twitter_link', 'Link')}}
+                {{Form::text('twitter_link', $resume->twitter_link, ['class' => 'form-control'])}}
               </li>
               <li>
                 <i class="fab fa-google-plus-square"></i>
-                {{Form::label('Google+', 'Google')}}
-                {{Form::text('Google+', $resume->google_link, ['class' => 'form-control'])}}
+                {{Form::label('google_link', 'Google')}}
+              </li>
+              <li>
+                {{Form::label('google_name', 'Name')}}
+                {{Form::text('google_name', $resume->google_name, ['class' => 'form-control'])}}
+              </li>
+              <li>
+                {{Form::label('google_link', 'Link')}}
+                {{Form::text('google_link', $resume->google_link, ['class' => 'form-control'])}}
               </li>
               <li>
                 <i class="fab fa-reddit-square"></i>
-                {{Form::label('Reddit', 'Reddit')}}
-                {{Form::text('Reddit', $resume->reddit_link, ['class' => 'form-control'])}}
+                {{Form::label('reddit_link', 'Reddit')}}
+              </li>
+              <li>
+                {{Form::label('reddit_name', 'Name')}}
+                {{Form::text('reddit_name', $resume->reddit_name, ['class' => 'form-control'])}}
+              </li>
+              <li>
+                {{Form::label('reddit_link', 'Link')}}
+                {{Form::text('reddit_link', $resume->reddit_link, ['class' => 'form-control'])}}
               </li>
               <li>
                 <i class="fab fa-linkedin"></i>
-                {{Form::label('Linkedin', 'Linkedin')}}
-                {{Form::text('Linkedin', $resume->linkedin_link, ['class' => 'form-control'])}}
+                {{Form::label('linkedin_link', 'Linkedin')}}
+              </li>
+              <li>
+                {{Form::label('linkedin_name', 'Name')}}
+                {{Form::text('linkedin_name', $resume->linkedin_name, ['class' => 'form-control'])}}
+              </li>
+              <li>
+                {{Form::label('linkedin_link', 'Link')}}
+                {{Form::text('linkedin_link', $resume->linkedin_link, ['class' => 'form-control'])}}
               </li>
               <li>
                 <i class="fab fa-github-square"></i>
-                {{Form::label('GitHub', 'GitHub')}}
-                {{Form::text('GitHub', $resume->github_link, ['class' => 'form-control'])}}
+                {{Form::label('github_link', 'GitHub Link')}}
+              </li>
+              <li>
+                {{Form::label('github_name', 'Name')}}
+                {{Form::text('github_name', $resume->github_name, ['class' => 'form-control'])}}
+              </li>
+              <li>
+                {{Form::label('github_link', 'Link')}}
+                {{Form::text('github_link', $resume->github_link, ['class' => 'form-control'])}}
               </li>
             </ul>
           </div>
@@ -200,33 +242,33 @@
             <li class="form-group-title"><p>Contact on social media</b></li>
             <li>
               <i class="fab fa-facebook-square"></i>
-              {{Form::label('Facebook', 'Facebook')}}
-              {{Form::text('Facebook', '', ['class' => 'form-control'])}}
+              {{Form::label('facebook_link', 'Facebook')}}
+              {{Form::text('facebook_link', '', ['class' => 'form-control'])}}
             </li>
             <li>
               <i class="fab fa-twitter-square"></i>
-              {{Form::label('Twitter', 'Twitter')}}
-              {{Form::text('Twitter', '', ['class' => 'form-control'])}}
+              {{Form::label('twitter_link', 'Twitter')}}
+              {{Form::text('twitter_link', '', ['class' => 'form-control'])}}
             </li>
             <li>
               <i class="fab fa-google-plus-square"></i>
-              {{Form::label('Google+', 'Google')}}
-              {{Form::text('Google+', '', ['class' => 'form-control'])}}
+              {{Form::label('google_link', 'Google')}}
+              {{Form::text('google_link', '', ['class' => 'form-control'])}}
             </li>
             <li>
               <i class="fab fa-reddit-square"></i>
-              {{Form::label('Reddit', 'Reddit')}}
-              {{Form::text('Reddit', '', ['class' => 'form-control'])}}
+              {{Form::label('reddit_link', 'Reddit')}}
+              {{Form::text('reddit_link', '', ['class' => 'form-control'])}}
             </li>
             <li>
               <i class="fab fa-linkedin"></i>
-              {{Form::label('Linkedin', 'Linkedin')}}
-              {{Form::text('Linkedin', '', ['class' => 'form-control'])}}
+              {{Form::label('linkedin_link', 'Linkedin')}}
+              {{Form::text('linkedin_link', '', ['class' => 'form-control'])}}
             </li>
             <li>
               <i class="fab fa-github-square"></i>
-              {{Form::label('GitHub', 'GitHub')}}
-              {{Form::text('GitHub', '', ['class' => 'form-control'])}}
+              {{Form::label('github_link', 'GitHub')}}
+              {{Form::text('github_link', '', ['class' => 'form-control'])}}
             </li>
           </ul>
         </div>
@@ -344,7 +386,7 @@
       @endif
 
 
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        {{Form::submit('Submit', ['class'=>'btn btn-default'])}}
       {!! Form::close() !!}
     </div>
     <!-- END::RESUME FORM -->
@@ -420,7 +462,7 @@
           {{Form::file('video', ['class' => 'form-control', 'ng-file-select' => 'onFileSelect($files)', 'ng-model' => 'desktopImage'])}}
 
         </div>
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        {{Form::submit('Submit', ['class'=>'btn btn-default'])}}
       {!! Form::close() !!}
     </div><!-- END::PROJECT FORM --><!-- END::PROJECT FORM -->
 
@@ -442,9 +484,11 @@
             {{Form::file('displayImage', ['class' => 'form-control', 'accept' => 'image/png', 'ng-file-select' => 'onFileSelect($files)', 'ng-model' => 'displayImageBlog'])}}
             {{HTML::image('', '', ['ng-src' => '<% displayImageBlog %>', 'width' => '300', 'id' => 'myFile'])}}
         </div>
-        <div class="form-group">
+        <div id="share-social-media-container" class="form-group">
           <ul>
-            <li>Share on social media</li>
+            <li><label>
+              Share on social media
+            </label></li>
             <li>
               <i class="fab fa-facebook-square"></i>
               {{Form::label('Facebook', 'facebook')}}
@@ -479,18 +523,17 @@
           <section id="editor" class="editable"></section>
 
           <input id="editor-data" type="text" name="editor-data">
-
         </div>
 
         <div id="colour-picker-container">
           <input id="color-picker" type="color" name="favcolor" value="#ff0000">
         </div>
 
-        <div id="editor" class="row" style="width: 300px; height: 200px; background: white;" contentEditable="true">asda</div>
+        <div id="editor" class="row" style="width: 300px; height: 200px; background: white" contentEditable="true">asda</div>
         <button id="getData" type="button" name="button">Extract data</button>
         <input id="blog-content" type="text" name="blog-content" value="">
 
-        {{Form::submit('Submit', ['id' => 'submit-blog', 'class'=>'btn btn-primary'])}}
+        {{Form::submit('Submit', ['id' => 'submit-blog', 'class'=>'btn btn-default'])}}
 
       {!! Form::close() !!}
     </div> <!-- END::BLOG FORM -->
@@ -500,49 +543,49 @@
     <!-- END::ADMIN FORM -->
 
     <!-- BLOG GALLERY -->
-    <div id="blog-gallery-container" class="cards">
+    <div id="blog-gallery-container" >
       <ul>
-        <li>Blogs</li>
+        <li><h3>Blogs</h3></li>
+        <ul class="cards">
         @foreach($blogs as $blog)
-            <div class="card">
-              <li>
-                <div class="card card-small"><a href="blogs/blog/<?php echo $blog->blog_id ?>">
-                <img src="data:image/png;base64,<?php echo $blog->cover_image?>" /></a>
-                {{ Form::open(array('url' => 'blogs/' . $blog->blog_id, 'class' => 'pull-right')) }}
-                  {{ Form::hidden('_method', 'DELETE') }}
-                  {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
-                {{ Form::close() }}
-                </div>
-              </li>
-            </div>
+        <li>
+          <div class="card card-small"><a href="blogs/blog/<?php echo $blog->blog_id ?>">
+          <img src="data:image/png;base64,<?php echo $blog->cover_image?>" /></a>
+          {{ Form::open(array('url' => 'blogs/' . $blog->blog_id)) }}
+            {{ Form::hidden('_method', 'DELETE') }}
+            {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+          {{ Form::close() }}
+          </div>
+        </li>
         @endforeach
+        </ul>
       </ul>
     </div><!-- END::BLOG GALLERY -->
 
     <!-- PROJECTS GALLERY -->
     <div id="project-gallery-container" class="cards">
       <ul>
-        <li>Projects</li>
+        <li><h3>Projects</h3></li>
+        <ul class="cards">
         @foreach($projects as $project)
-            <div class="card">
-              <li>
-                <div class="card card-small"><a href="projects/project/<?php echo $project->project_id ?>">
-                <img src="data:image/png;base64,<?php echo $project->cover_image?>" /></a>
-                {{ Form::open(array('url' => 'projects/' . $project->project_id, 'class' => 'pull-right')) }}
-                  {{ Form::hidden('_method', 'DELETE') }}
-                  {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
-                {{ Form::close() }}
-                </div>
-              </li>
+          <li>
+            <div class="card card-small"><a href="projects/project/<?php echo $project->project_id ?>">
+            <img src="data:image/png;base64,<?php echo $project->cover_image?>" /></a>
+            {{ Form::open(array('url' => 'projects/' . $project->project_id, 'class' => 'pull-right')) }}
+              {{ Form::hidden('_method', 'DELETE') }}
+              {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+            {{ Form::close() }}
             </div>
+          </li>
         @endforeach
+        </ul>
       </ul>
     </div><!-- END::PROJECTS GALLERY -->
 
     <!-- USERS GALLERY -->
     <div id="user-gallery-container" class="cards">
       <ul>
-        <li>Users</li>
+        <li><h3>Users</h3></li>
         @foreach($users as $user)
         <div class="card">
           <li>
@@ -616,116 +659,89 @@
   var commands = [{
   	"cmd": "backColor",
   	"val": "red",
+    "icon": "flask",
   	"desc": "Changes the document background color. In styleWithCss mode, it affects the background color of the containing block instead. This requires a color value string to be passed in as a value argument. (Internet Explorer uses this to set text background color.)"
   },
   {
 	"cmd": "foreColor",
 	"val": "rgba(0,0,0,.5)",
+  "icon": "tint",
 	"desc": "Changes a font color for the selection or at the insertion point. This requires a color value string to be passed in as a value argument."
-  },
-  {
-  	"cmd": "formatBlock",
-    "val": "<blockquote>",
-  	"desc": "Adds an HTML block-style tag around the line containing the current selection, replacing the block element containing the line if one exists (in Firefox, BLOCKQUOTE is the exception - it will wrap any containing block element). Requires a tag-name string to be passed in as a value argument. Virtually all block style tags can be used (eg. \"H1\", \"P\", \"DL\", \"BLOCKQUOTE\"). (Internet Explorer supports only heading tags H1 - H6, ADDRESS, and PRE, which must also include the tag delimiters &lt; &gt;, such as \"&lt;H1&gt;\".)"
   },
   {
   	"cmd": "heading",
   	"val": "h3",
-  	"icon": "header",
+  	"icon": "heading",
   	"desc": "Adds a heading tag around a selection or insertion point line. Requires the tag-name string to be passed in as a value argument (i.e. \"H1\", \"H6\"). (Not supported by Internet Explorer and Safari.)"
   },
   {
-  	"cmd": "formatBlock",
-    "val": "<blockquote>",
-  	"desc": "Adds an HTML block-style tag around the line containing the current selection, replacing the block element containing the line if one exists (in Firefox, BLOCKQUOTE is the exception - it will wrap any containing block element). Requires a tag-name string to be passed in as a value argument. Virtually all block style tags can be used (eg. \"H1\", \"P\", \"DL\", \"BLOCKQUOTE\"). (Internet Explorer supports only heading tags H1 - H6, ADDRESS, and PRE, which must also include the tag delimiters &lt; &gt;, such as \"&lt;H1&gt;\".)"
-  },{
 	"cmd": "fontName",
+  "icon": "font",
 	"val": "'Inconsolata', monospace",
 	"desc": "Changes the font name for the selection or at the insertion point. This requires a font name string (\"Arial\" for example) to be passed in as a value argument."
-}, {
-"cmd": "copy",
-"icon": "clipboard",
-"desc": "Copies the current selection to the clipboard. Clipboard capability must be enabled in the user.js preference file. See"
-},
-{
-"cmd": "createLink",
-"val": "https://twitter.com/netsi1964",
-"icon": "link",
-"desc": "Creates an anchor link from the selection, only if there is a selection. This requires the HREF URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
-}, {
-"cmd": "cut",
-"icon": "scissors",
-"desc": "Cuts the current selection and copies it to the clipboard. Clipboard capability must be enabled in the user.js preference file. See"
-},
-{
-"cmd": "delete",
-"icon": "scissors",
-"desc": "Deletes the current selection."
-},
-{
-"cmd": "heading",
-"val": "h3",
-"icon": "header",
-"desc": "Adds a heading tag around a selection or insertion point line. Requires the tag-name string to be passed in as a value argument (i.e. \"H1\", \"H6\"). (Not supported by Internet Explorer and Safari.)"
-},
-{
-"cmd": "bold",
-"icon": "bold",
-"desc": "Toggles bold on/off for the selection or at the insertion point. (Internet Explorer uses the STRONG tag instead of B.)"
-},
-, {
-"cmd": "insertOrderedList",
-"icon": "list-ol",
-"desc": "Creates a numbered ordered list for the selection or at the insertion point."
-}, {
-"cmd": "insertUnorderedList",
-"icon": "list-ul",
-"desc": "Creates a bulleted unordered list for the selection or at the insertion point."
-}, {
-"cmd": "insertParagraph",
-"icon": "paragraph",
-"desc": "Inserts a paragraph around the selection or the current line. (Internet Explorer inserts a paragraph at the insertion point and deletes the selection.)"
-},
-, {
-"cmd": "underline",
-"icon": "underline",
-"desc": "Toggles underline on/off for the selection or at the insertion point."
-},
-{
-"cmd": "createLink",
-"val": "https://twitter.com/netsi1964",
-"icon": "link",
-"desc": "Creates an anchor link from the selection, only if there is a selection. This requires the HREF URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
-}
-, {
-"cmd": "unlink",
-"icon": "chain-broken",
-"desc": "Removes the anchor tag from a selected anchor link."
-},
-, {
-"cmd": "selectAll",
-"desc": "Selects all of the content of the editable region."
-}, {
-"cmd": "strikeThrough",
-"icon": "strikethrough",
-"desc": "Toggles strikethrough on/off for the selection or at the insertion point."
-}, {
-"cmd": "subscript",
-"icon": "subscript",
-"desc": "Toggles subscript on/off for the selection or at the insertion point."
-}, {
-"cmd": "superscript",
-"icon": "superscript",
-"desc": "Toggles superscript on/off for the selection or at the insertion point."
-}, {
-"cmd": "insertImage",
-"val": "http://dummyimage.com/160x90",
-"icon": "picture-o",
-"desc": "Inserts an image at the insertion point (deletes selection). Requires the image SRC URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
-}, {
-"cmd": "removeFormat",
-"desc": "Removes all formatting from the current selection."
-}];
+  },
+  {
+  "cmd": "createLink",
+  "val": "https://twitter.com/netsi1964",
+  "icon": "link",
+  "desc": "Creates an anchor link from the selection, only if there is a selection. This requires the HREF URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
+  },
+  {
+  "cmd": "bold",
+  "icon": "bold",
+  "desc": "Toggles bold on/off for the selection or at the insertion point. (Internet Explorer uses the STRONG tag instead of B.)"
+  },
+  {
+  "cmd": "insertOrderedList",
+  "icon": "list-ol",
+  "desc": "Creates a numbered ordered list for the selection or at the insertion point."
+  },
+  {
+  "cmd": "insertUnorderedList",
+  "icon": "list-ul",
+  "desc": "Creates a bulleted unordered list for the selection or at the insertion point."
+  },
+  {
+  "cmd": "insertParagraph",
+  "icon": "paragraph",
+  "desc": "Inserts a paragraph around the selection or the current line. (Internet Explorer inserts a paragraph at the insertion point and deletes the selection.)"
+  },
+  {
+  "cmd": "underline",
+  "icon": "underline",
+  "desc": "Toggles underline on/off for the selection or at the insertion point."
+  },
+  {
+  "cmd": "createLink",
+  "val": "https://twitter.com/netsi1964",
+  "icon": "link",
+  "desc": "Creates an anchor link from the selection, only if there is a selection. This requires the HREF URI string to be passed in as a value argument. The URI must contain at least a single character, which may be a white space. (Internet Explorer will create a link with a null URI value.)"
+  },
+  {
+  "cmd": "unlink",
+  "icon": "unlink",
+  "desc": "Removes the anchor tag from a selected anchor link."
+  },
+  {
+  "cmd": "strikeThrough",
+  "icon": "strikethrough",
+  "desc": "Toggles strikethrough on/off for the selection or at the insertion point."
+  },
+  {
+  "cmd": "subscript",
+  "icon": "subscript",
+  "desc": "Toggles subscript on/off for the selection or at the insertion point."
+  },
+  {
+  "cmd": "superscript",
+  "icon": "superscript",
+  "desc": "Toggles superscript on/off for the selection or at the insertion point."
+  },
+  {
+  "cmd": "removeFormat",
+  "icon": "undo",
+  "desc": "Removes all formatting from the current selection."
+  }];
 
   function doCommand(cmdKey) {
   	var cmd = commandRelation[cmdKey];
@@ -761,7 +777,7 @@
   function init() {
   	var html = '',
   		// template = '<span><code class="btn btn-xs %btnClass%" title="%desc%" onmousedown="event.preventDefault();" onclick="doCommand(\'%cmd%\')"><i class="%iconClass%"></i> %cmd%</code></span>';
-      template = '<div id="%btnId%" class="btn btn-xs %btnClass%" title="%desc%" onmousedown="event.preventDefault();" onclick="doCommand(\'%cmd%\')"><i id="%btnId%-icon"class="%iconClass%"></i> %cmd%</div>';
+      template = '<div id="%btnId%" class="btn btn-xs %btnClass%" title="%desc%" onmousedown="event.preventDefault();" onclick="doCommand(\'%cmd%\')"><i id="%btnId%-icon"class="%iconClass%"></i><span class="editor-icon-name">%cmd%</span></div>';
   	  commands.map(function(command, i) {
   		commandRelation[command.cmd] = command;
   		var temp = template;

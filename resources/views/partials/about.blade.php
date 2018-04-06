@@ -9,10 +9,7 @@
       <li><h3>Profile</h3></li>
     </ul>
     <p id="profile-content">
-      Hi my name is Angus Miller. I have just successfully completed my study of
-      Bachelor of Science Computing. Having gained a firm experience in a wide
-      variety of IT fields such as Networking, Security, Programming, Database theory and Business System Analysis and design. I have the passion, commitment
-      and skills to target the requirement of your organisation.
+      {{$description}}
     </p>
   </div>
 
@@ -24,18 +21,42 @@
       <li><h3>Social</h3></li>
     </ul>
     <ul id="social-items">
+      @if (isset($linkedinLink))
       <ul>
         <li><p><i id="social-linkedin-icon" class="fab fa-linkedin"></i></p></li>
-        <li><a href=""><p>Angus Miller</p></a></li>
+        <li><a href="{{$linkedinLink}}"><p>Angus Miller</p></a></li>
       </ul>
+      @endif
+      @if (isset($facebookLink))
       <ul>
         <li><p><i id="social-facebook-icon" class="fab fa-facebook-square"></i></p></li>
-        <li><a href=""><p>Angus Miller</p></a></li>
+        <li><a href="{{$facebookLink}}"><p>{{$facebookName}}</p></a></li>
       </ul>
+      @endif
+      @if (isset($githubLink))
       <ul>
         <li><p><i id="social-github-icon" class="fab fa-github"></i></p></li>
-        <li><a href=""><p>angusmiller28</p></a></li>
+        <li><a href="{{$githubLink}}"><p>{{$githubName}}</p></a></li>
       </ul>
+      @endif
+      @if (isset($twitterLink))
+      <ul>
+        <li><p><i id="social-twitter-icon" class="fab fa-twitter-square"></i></p></li>
+        <li><a href="{{$twitterLink}}"><p>{{$twitterName}}</p></a></li>
+      </ul>
+      @endif
+      @if (isset($googleLink))
+      <ul>
+        <li><p><i id="social-google-icon" class="fab fa-google-plus-square"></i></p></li>
+        <li><a href="{{$googleLink}}"><p>{{$googleName}}</p></a></li>
+      </ul>
+      @endif
+      @if (isset($redditLink))
+      <ul>
+        <li><p><i id="social-reddit-icon" class="fab fa-reddit-square"></i></p></li>
+        <li><a href="{{$redditLink}}"><p>{{$redditName}}</p></a></li>
+      </ul>
+      @endif
     </ul>
   </div>
 

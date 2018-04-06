@@ -15,17 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/resume', 'ResumeController@index');
 
-
-
-Route::resource('/projects', 'ProjectController');
-Route::get('/projects/project/{id}', 'ProjectController@show');
-
-Route::resource('/blogs', 'BlogController');
-Route::get('/blogs/blog/{id}', 'BlogController@show');
-
-Route::resource('/users', 'UserController');
-Route::get('/users/user/{id}', 'UserController@show');
 
 Auth::routes();
 
@@ -38,6 +29,26 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 // Route::post('/admin', 'ResumeController@store')->name('resume.add.submit');
 // Route::post('/admin', 'ResumeController@update')->name('resume.update.submit');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+
+
+Route::resource('/projects', 'ProjectController');
+Route::get('/projects/project/{id}', 'ProjectController@show');
+
+Route::resource('/blogs', 'BlogController');
+Route::get('/blogs/blog/{id}', 'BlogController@show');
+
+Route::get('/profile', 'UserController@profile')->name('profile');
+Route::post('/profile', 'UserController@update_avatar')->name('profile.update.image.submit');
+
+Route::get('/admin/profile', 'AdminController@profile');
+Route::post('/admin/profile', 'AdminController@update_avatar')->name('admin.profile.update.image.submit');
+
+Route::resource('/users', 'UserController');
+Route::get('/users/user/{id}', 'UserController@show');
+
+
+
+
 
 // Route::prefix('admin')->group(function(){
 //   Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

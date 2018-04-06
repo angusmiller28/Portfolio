@@ -20,7 +20,46 @@ class ResumeController extends Controller
     {
       $resumes = Resume::all();
 
-      return 12;
+      foreach ($resumes as $r) {
+        $resumeDescription = $r->description;
+        $resumeCoverLetter = $r->cover_letter;
+        $resumeEmail = $r->email;
+        $resumeAddress = $r->address;
+        $resumeTranscript = $r->transcript;
+        $resumePhoneNumber = $r->phone_number;
+        $resumeFacebookLink = $r->facebook_link;
+        $resumeLinkedinLink = $r->linkedin_link;
+        $resumeGithubLink = $r->github_link;
+        $resumeTwitterLink = $r->twitter_link;
+        $resumeGoogleLink = $r->google_link;
+        $resumeRedditLink = $r->reddit_link;
+        $resumeFacebookName = $r->facebook_name;
+        $resumeLinkedinName = $r->linkedin_name;
+        $resumeGithubName = $r->github_name;
+        $resumeTwitterName = $r->twitter_name;
+        $resumeGoogleName = $r->google_name;
+        $resumeRedditName = $r->reddit_name;
+      }
+
+      return view('welcome')
+      ->with('description', $resumeDescription)
+      ->with('coverLetter', $resumeCoverLetter)
+      ->with('email', $resumeEmail)
+      ->with('address', $resumeAddress)
+      ->with('transcriptLink', $resumeTranscript)
+      ->with('phoneNumber', $resumePhoneNumber)
+      ->with('facebookLink', $resumeFacebookLink)
+      ->with('linkedinLink', $resumeLinkedinLink)
+      ->with('githubLink', $resumeGithubLink)
+      ->with('twitterLink', $resumeTwitterLink)
+      ->with('googleLink', $resumeGoogleLink)
+      ->with('redditLink', $resumeRedditLink)
+      ->with('facebookName', $resumeFacebookName)
+      ->with('linkedinName', $resumeLinkedinName)
+      ->with('githubName', $resumeGithubName)
+      ->with('twitterName', $resumeTwitterName)
+      ->with('googleName', $resumeGoogleName)
+      ->with('redditName', $resumeRedditName);
     }
 
     /**
@@ -65,20 +104,21 @@ class ResumeController extends Controller
       $resumes->phone = $request->input('phone');
       $resumes->transcript = $request->input('transcript');
 
-      if($request->input('facebook_link'))
-          $resumes->facebook_link;
-      if($request->input('linkedin_link'))
-          $resumes->linkedin_link;
-      if($request->input('github_link'))
-          $resumes->github_link;
-      if($request->input('twitter_link'))
-          $resumes->twitter_link;
-      if($request->input('google_link'))
-          $resumes->google_link;
-      if($request->input('reddit_link'))
-          $resumes->reddit_link;
-      if($request->input('cover-letter'))
-          $resumes->cover_letter;
+      // links
+      $resumes->facebook_link = $request->input('facebook_link');
+      $resumes->linkedin_link = $request->input('linkedin_link');
+      $resumes->github_link = $request->input('github_link');
+      $resumes->twitter_link = $request->input('twitter_link');
+      $resumes->google_link = $request->input('google_link');
+      $resumes->reddit_link = $request->input('reddit_link');
+      $resumes->cover_letter = $request->input('cover-letter');
+
+      $resumes->facebook_name = $request->input('facebook_name');
+      $resumes->linkedin_name = $request->input('linkedin_name');
+      $resumes->github_name = $request->input('github_name');
+      $resumes->twitter_name = $request->input('twitter_name');
+      $resumes->google_name = $request->input('google_name');
+      $resumes->reddit_name = $request->input('reddit_name');
 
       $resumes->save();
 
@@ -175,7 +215,7 @@ class ResumeController extends Controller
       // check if should update
       if($request->input('resume_id'))
         $references = Reference::find($request->input('reference_id'));
-        
+
       $references = $request->input('referencesDelete');
       if (!empty($references)){
         foreach ($references as $referenceId => $value) {

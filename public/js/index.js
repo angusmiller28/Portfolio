@@ -83,7 +83,7 @@ $(document).ready(function () {
     console.log(st);
 
     // social section
-    if (st >= 590 && st <= 736) {
+    if (st >= 650 && st <= 736) {
       // linkedin
       $("#social-linkedin-icon").addClass("shift-down");
       $("#social-linkedin-icon").addClass("fa-linkedin-in");
@@ -92,11 +92,23 @@ $(document).ready(function () {
       $("#social-facebook-icon").addClass("shift-down");
       $("#social-facebook-icon").addClass("fa-facebook-f");
       $("#social-facebook-icon").removeClass("fa-facebook-square");
-      // phone
+      // github
       $("#social-github-icon").addClass("shift-down");
       $("#social-github-icon").addClass("fa-github-alt");
       $("#social-github-icon").removeClass("fa-github");
-    } else if (st >= 0 && st <= 589 || st >= 1176) {
+      // twitter
+      $("#social-twitter-icon").addClass("shift-down");
+      $("#social-twitter-icon").addClass("fa-twitter");
+      $("#social-twitter-icon").removeClass("fa-twitter-square");
+      // google+
+      $("#social-google-icon").addClass("shift-down");
+      $("#social-google-icon").addClass("fa-google-plus-g");
+      $("#social-google-icon").removeClass("fa-google-plus-square");
+      // reddit
+      $("#social-reddit-icon").addClass("shift-down");
+      $("#social-reddit-icon").addClass("fa-reddit-alien");
+      $("#social-reddit-icon").removeClass("fa-reddit-square");
+    } else if (st >= 0 && st <= 649 || st >= 1176) {
       // linkedin
       $("#social-linkedin-icon").removeClass("shift-down");
       $("#social-linkedin-icon").removeClass("fa-linkedin-in");
@@ -109,6 +121,18 @@ $(document).ready(function () {
       $("#social-github-icon").removeClass("shift-down");
       $("#social-github-icon").removeClass("fa-github-alt");
       $("#social-github-icon").addClass("fa-github");
+      // twitter
+      $("#social-twitter-icon").removeClass("shift-down");
+      $("#social-twitter-icon").removeClass("fa-twitter");
+      $("#social-twitter-icon").addClass("fa-twitter-square");
+      // google+
+      $("#social-google-icon").removeClass("shift-down");
+      $("#social-google-icon").removeClass("fa-google-plus-g");
+      $("#social-google-icon").addClass("fa-google-plus-square");
+      // reddit
+      $("#social-reddit-icon").removeClass("shift-down");
+      $("#social-reddit-icon").removeClass("fa-reddit-alien");
+      $("#social-reddit-icon").addClass("fa-reddit-square");
     }
 
     // contact section

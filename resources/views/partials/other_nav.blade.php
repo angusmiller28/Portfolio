@@ -8,7 +8,7 @@
           <li class="close-nav-btn" class="pop"><h3><i class="fa fa-window-close warning"></i></h3></li>
         </ul>
 
-          <li class="quick-nav-link"><a href="#profile-container"><p>Profile</p></a></li>
+          <li class="quick-nav-link"><a href="/profile"><p>My Profile</p></a></li>
           <li class="quick-nav-link"><a href="#social-container"><p>Social</p></a></li>
           <li class="quick-nav-link"><a href="#contact-container"><p>Contact</p></a></li>
           <li class="quick-nav-link"><a href="#transcript-container"><p>Transcript link</p></a></li>

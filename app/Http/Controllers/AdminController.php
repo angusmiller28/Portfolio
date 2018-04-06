@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\Project;
 use App\User;
+use App\Admin;
 use App\Resume;
 use App\Reference;
+use Auth;
+use Image;
+
 class AdminController extends Controller
 {
     /**
@@ -45,5 +49,24 @@ class AdminController extends Controller
       ->with('resumes', $resumes)
       ->with('resumeSet', $resumeSet)
       ->with('projects', $projects);
+    }
+
+    public function profile(){
+      return view('adminProfile', array('admin' => Auth::user()));
+    }
+
+    public function update_avatar(Request $request){
+      // Handle admin upload of avatar
+      if($request->hasFile('avatar')){
+        $avatar = $request->file('avatar');
+        $filename = time() . '.' . $avatar->getClientOriginalExtension();
+        Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
+
+        $admin = Auth::user();
+        $admin->avatar = $filename;
+        $admin->save();
+      }
+
+      return view('adminProfile', array('admin' => Auth::user()));
     }
 }
