@@ -15,6 +15,8 @@ use Image;
 
 class AdminController extends Controller
 {
+  protected $redirectTo = '/admin/login';
+
     /**
      * Create a new controller instance.
      *
@@ -22,7 +24,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+      $this->middleware('auth:admin');
     }
 
     /**
@@ -32,6 +34,9 @@ class AdminController extends Controller
      */
     public function index()
     {
+      if(Auth::user()->job_title != "Student")
+        return redirect('/admin/profile')->with('error', 'You dont have permission!');  
+
       $blogs = Blog::all();
       $projects = Project::all();
       $users = User::all();

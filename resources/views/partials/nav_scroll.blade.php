@@ -23,7 +23,7 @@
     </ul>
     <ul class="nav-bar-nav">
       <li><a href="projects.php"><div class="pop nav-project"><i class="fas fa-folder-open"></i></div></a></li>
-      <li><a href="index.php"><div class="active"><i class="fas fa-user nav-index"></i></div></a></li>
+      <li><a href="/resume"><div class="active"><i class="fas fa-user nav-index"></i></div></a></li>
       <li><div class="nav-link pop quick-nav-btn"><i class="fa fa-link"></i></div></li>
       <li><div class="other-nav-btn pop"><i class="fas fa-bars"></i></div></li>
     </ul>

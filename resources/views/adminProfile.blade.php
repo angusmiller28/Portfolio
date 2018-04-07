@@ -17,7 +17,16 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="submit" name="" value="update profile image">
           </form>
+
+          {{ Form::open(array('url' => '/admin/profile/' . $admin->id, 'class' => 'pull-right')) }}
+            {{ Form::hidden('_method', 'DELETE') }}
+            {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+          {{ Form::close() }}
+
+          <a href="{{ url('/admin/logout') }}"> logout </a>
+
         </section>
+
     </div>
     @include('partials/footer')
   </body>

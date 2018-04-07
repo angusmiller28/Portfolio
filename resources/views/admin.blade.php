@@ -6,7 +6,7 @@
 </head>
 <body>
   @include('partials/nav')
-  
+
 
   <div id="container" >
     <!-- RESUME FORM -->

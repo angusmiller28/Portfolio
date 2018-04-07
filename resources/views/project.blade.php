@@ -6,7 +6,7 @@
   </head>
   <body>
     @include('partials/nav')
-    
+
     <div id="container" >
         @include('partials/quick_nav')
 
@@ -64,7 +64,7 @@
             <li><h3><a href="/projects">Back to Projects</a></h3></li>
           </ul>
         </section>
-
-        @include('partials/footer')
     </div>
+
+    @include('partials/footer')
   </body>

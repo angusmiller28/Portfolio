@@ -6,11 +6,10 @@
 
 <body>
   @include('partials/nav')
+  @include('partials/quick_nav')
+  @include('partials/about')
 
   <div id="container">
-    @include('partials/quick_nav')
-    @include('partials/about')
-
     <section id="body-container">
       <div id="nav-outside">
         <ul id="nav-bar-outside">
@@ -155,9 +154,8 @@
       </ul>
 
     </section>
-
-    <script src="{{asset('js/index.js')}}" type="text/javascript"></script>
-    @include('partials/footer')
-
   </div>
+
+  <script src="{{asset('js/index.js')}}" type="text/javascript"></script>
+  @include('partials/footer')
 </body>

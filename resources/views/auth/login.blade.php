@@ -9,7 +9,7 @@
 @include('partials/messages')
 <div id="container" >
     <section id="body-container">
-      <div id="title-container"><h1 id="title">Register</h1></div>
+      <div id="title-container"><h1 id="title">Login</h1></div>
 
       <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -63,7 +63,7 @@
                 </a>
             </div>
         </div>
-        
+
       </form>
     </section>
 </div>

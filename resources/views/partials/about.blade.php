@@ -5,8 +5,7 @@
 
   <div id="profile-container">
     <ul class="item-list-title">
-      <li><h3><i class="fas fa-user-circle"></i></h3></li>
-      <li><h3>Profile</h3></li>
+      <li><h3><i class="fas fa-user-circle"></i>Profile</h3></li>
     </ul>
     <p id="profile-content">
       {{$description}}
@@ -17,8 +16,7 @@
 
   <div id="social-container">
     <ul class="item-list-title">
-      <li><h3><i class="fas fa-address-card"></i></h3></li>
-      <li><h3>Social</h3></li>
+      <li><h3><i class="fas fa-address-card"></i>Social</h3></li>
     </ul>
     <ul id="social-items">
       @if (isset($linkedinLink))
@@ -64,8 +62,7 @@
 
   <div id="contact-container">
     <ul class="item-list-title">
-      <li><h3><i class="fas fa-address-book"></i></h3></li>
-      <li><h3>Contact</h3></li>
+      <li><h3><i class="fas fa-address-book"></i>Contact</h3></li>
     </ul>
     <ul id="contact-items">
       <ul>
@@ -87,8 +84,7 @@
 
   <div id="transcript-container">
     <ul class="item-list-title">
-      <li><h3><i class="fas fa-clipboard-list"></i></h3></li>
-      <li><h3>Transcript link</h3></li>
+      <li><h3><i class="fas fa-clipboard-list"></i>Transcript link</h3></li>
     </ul>
     <div><p><a href="{{$transcriptLink}}">{{$transcriptLink}}</a></p></div>
   </div>

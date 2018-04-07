@@ -8,6 +8,8 @@ use Auth;
 
 class AdminLoginController extends Controller
 {
+  protected $redirectTo = '/admin/login';
+
   public function __construct(){
     $this->middleware('guest:admin');
   }
@@ -30,5 +32,12 @@ class AdminLoginController extends Controller
 
     // if unsuccessful, then redirect back to login page with form data
     return redirect()->back()->withInput($request->only('email', 'remember'));
+  }
+
+  public function logout () {
+    //logout user
+    auth()->logout();
+    // redirect to homepage
+    return redirect('/resume');
   }
 }
