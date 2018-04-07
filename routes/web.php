@@ -21,7 +21,6 @@ Route::get('/resume', 'ResumeController@index');
 Auth::routes();
 
 Route::resource('/resumes', 'ResumeController');
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
@@ -39,6 +38,8 @@ Route::get('/blogs/blog/{id}', 'BlogController@show');
 
 Route::get('/profile', 'UserController@profile')->name('profile');
 Route::post('/profile', 'UserController@update_avatar')->name('profile.update.image.submit');
+
+Route::post('/admin', 'Auth\AdminRegisterController@store');
 
 Route::get('/admin/profile', 'AdminController@profile');
 Route::post('/admin/profile', 'AdminController@update_avatar')->name('admin.profile.update.image.submit');

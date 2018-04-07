@@ -35,6 +35,7 @@ class AdminController extends Controller
       $blogs = Blog::all();
       $projects = Project::all();
       $users = User::all();
+      $admins = Admin::all();
       $resumes = Resume::all();
       $references = Reference::all();
       $educations = Education::all();
@@ -47,11 +48,30 @@ class AdminController extends Controller
       return view('admin')
       ->with('blogs', $blogs)
       ->with('users', $users)
+      ->with('admins', $admins)
       ->with('references', $references)
       ->with('educations', $educations)
       ->with('resumes', $resumes)
       ->with('resumeSet', $resumeSet)
       ->with('projects', $projects);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+      $this->validate($request, [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:6|confirmed',
+        'job_title' => 'required',
+      ]);
+
+      return 123;
     }
 
     public function profile(){

@@ -42,6 +42,18 @@ class AdminRegisterController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+      $admins = Admin::all();
+
+      return $admins;
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -52,6 +64,7 @@ class AdminRegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'job_title' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -61,6 +74,7 @@ class AdminRegisterController extends Controller
       $this->validate($request, [
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
+        'job_title' => 'required',
         'password' => 'required|string|min:6|confirmed',
       ]);
 
@@ -82,6 +96,6 @@ class AdminRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+
     }
 }

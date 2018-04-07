@@ -569,7 +569,35 @@
     </div> <!-- END::BLOG FORM -->
 
     <!-- ADD ADMIN FORM -->
+    <div id="admin-form-container">
+      <h3>Add Staff</h3>
+        {!! Form::open(['action' => 'Auth\AdminRegisterController@store', 'method' => 'POST', 'files' => true]) !!}
+        @csrf
+        <div class="form-group">
+          {{Form::label('name', 'Name')}}
+          {{Form::text('name', '', ['class' => 'form-control'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('email', 'Email')}}
+          {{Form::text('email', '', ['class' => 'form-control'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('job_title', 'Job title')}}
+          {{Form::text('job_title', '', ['class' => 'form-control'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('password', 'Password')}}
+          {{Form::text('password', '', ['class' => 'form-control'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('password_confirmation', 'Confirm password')}}
+          {{Form::text('password_confirmation', '', ['class' => 'form-control'])}}
+        </div>
 
+        {{Form::submit('Submit', ['id' => 'submit-blog', 'class'=>'btn btn-primary'])}}
+
+      {!! Form::close() !!}
+    </div>
     <!-- END::ADMIN FORM -->
 
     <!-- BLOG GALLERY -->
@@ -621,7 +649,7 @@
           <li>
             <div class="card card-small">
               <a href="users/user/<?php echo $user->id ?>">
-              <img src="data:image/png;base64,<?php echo $user->profile_image?>" /></a>
+              <img src="/uploads/avatars/{{$user->avatar}}" alt="" style="width: 50px; height: 50px; border-radius: 50%"></a>
               <p>{{ $user->name }}</p>
               {{ Form::open(array('url' => 'users/' . $user->id, 'class' => 'pull-right')) }}
                 {{ Form::hidden('_method', 'DELETE') }}
@@ -632,7 +660,29 @@
         </div>
         @endforeach
       <ul>
-    </div>
+    </div><!-- END::USERS GALLERY -->
+
+    <!-- ADMINS GALLERY -->
+    <div id="user-gallery-container" class="cards">
+      <ul>
+        <li><h3>Admins</h3></li>
+        @foreach($admins as $admin)
+        <div class="card">
+          <li>
+            <div class="card card-small">
+              <a href="users/user/<?php echo $admin->id ?>">
+              <img src="/uploads/avatars/{{$admin->avatar}}" alt="" style="width: 50px; height: 50px; border-radius: 50%"></a>
+              <p>{{ $admin->name }}</p>
+              {{ Form::open(array('url' => 'admins/' . $admin->id, 'class' => 'pull-right')) }}
+                {{ Form::hidden('_method', 'DELETE') }}
+                {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+              {{ Form::close() }}
+            </div>
+          </li>
+        </div>
+        @endforeach
+      <ul>
+    </div><!-- END::ADMINS GALLERY -->
 
     @include('partials/footer')
   </div>
