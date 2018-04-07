@@ -74,6 +74,44 @@ class AdminController extends Controller
       return 123;
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Admin $admin, $id)
+    {
+      $admin = Admin::where('id', $id)->get();
+
+      // break results admin into variables
+      foreach ($admin as $a) {
+        $adminName = $a->name;
+        $adminAvatar = $a->avatar;
+        $adminEmail = $a->email;
+        $adminJobTitle = $a->job_title;
+      }
+
+      return view('account')
+        ->with('name', $adminName)
+        ->with('avatar', $adminAvatar)
+        ->with('email', $adminEmail)
+        ->with('jobTitle', $adminJobTitle);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Admin $admin, $id)
+    {
+      $admin = Admin::where('id', $id)->delete();
+
+      return redirect('/admin')->with('success', 'Admin Deleted');
+    }
+
     public function profile(){
       return view('adminProfile', array('admin' => Auth::user()));
     }

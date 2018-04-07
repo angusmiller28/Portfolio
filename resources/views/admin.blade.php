@@ -6,7 +6,7 @@
 </head>
 <body>
   @include('partials/nav')
-  @include('partials/messages')
+  
 
   <div id="container" >
     <!-- RESUME FORM -->
@@ -670,10 +670,10 @@
         <div class="card">
           <li>
             <div class="card card-small">
-              <a href="users/user/<?php echo $admin->id ?>">
+              <a href="/admin/profile/<?php echo $admin->id ?>">
               <img src="/uploads/avatars/{{$admin->avatar}}" alt="" style="width: 50px; height: 50px; border-radius: 50%"></a>
               <p>{{ $admin->name }}</p>
-              {{ Form::open(array('url' => 'admins/' . $admin->id, 'class' => 'pull-right')) }}
+              {{ Form::open(array('url' => '/admin/profile/' . $admin->id, 'class' => 'pull-right')) }}
                 {{ Form::hidden('_method', 'DELETE') }}
                 {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
               {{ Form::close() }}

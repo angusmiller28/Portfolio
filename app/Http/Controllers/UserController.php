@@ -78,20 +78,40 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
+    public function delete(User $user, $id)
+    {
+      $user = User::find(Auth::user()->id);
+
+      Auth::logout();
+
+      if ($user->delete()) {
+           return redirect('/resume')->with('success', 'Your account has been deleted!');
+      }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, User $user)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Display the specified resource.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $user, $id)
     {
-        //
+      $user = User::where('id', $id)->delete();
+
+      return redirect('/admin')->with('success', 'User Deleted');
     }
 
     public function profile(){

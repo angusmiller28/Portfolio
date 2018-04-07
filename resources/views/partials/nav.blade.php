@@ -21,6 +21,6 @@
     </ul>
   </div>
 </nav>
-
+@include('partials/messages')
 @include('partials/nav_scroll')
 @include('partials/other_nav')
