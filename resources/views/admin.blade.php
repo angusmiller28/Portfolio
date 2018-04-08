@@ -6,7 +6,7 @@
 </head>
 <body>
   @include('partials/nav')
-
+  @include('partials/quick_nav')
 
   <div id="container" >
     <!-- RESUME FORM -->
@@ -157,7 +157,7 @@
                 <i id="education-add" class="fas fa-plus-circle"></i>
                 <ul id="education-list">
                   @foreach($educations as $education)
-                    <ul id="{{$education->education_id}}">
+                    <ul id="education-{{$education->education_id}}">
 
                     <li>Education Name: {{$education->name}}</li>
                     <li>Education Start Date: {{$education->start_date}}</li>
@@ -183,7 +183,7 @@
                 <i id="technical-add" class="fas fa-plus-circle"></i>
                 <ul id="technical-list">
                   @foreach($technicals as $technical)
-                    <ul id="{{$technical->technical_id}}">
+                    <ul id="technical-{{$technical->technical_id}}">
 
                     <li>Technical Content: {{$technical->content}}</li>
                     <li><button id="{{$technical->technical_id}}" class="delete-technical" type="button" name="button">Delete Technical</button></li>
@@ -234,7 +234,7 @@
               <i id="reference-add" class="fas fa-plus-circle"></i>
               <ul id="reference-list">
                 @foreach($references as $reference)
-                  <ul id="{{$reference->reference_id}}">
+                  <ul id="reference-{{$reference->reference_id}}">
 
                   <li>Reference Name: {{$reference->name}}</li>
                   <li>Reference Start Date: {{$reference->start_date}}</li>
@@ -271,7 +271,7 @@
                 <i id="certificate-add" class="fas fa-plus-circle"></i>
                 <ul id="certificate-list">
                   @foreach($certificates as $certificate)
-                    <ul id="{{$certificate->certificate_id}}">
+                    <ul id="certificate-{{$certificate->certificate_id}}">
 
                     <li>Certificate Name: {{$certificate->name}}</li>
                     <li>Certificate Document: <a href="data:application/pdf;base64,<?php echo $certificate->file?>" width="70" height="38" type="application/pdf" alt="Red dot" download="{{$certificate->file_name}}">Link</a></li>
@@ -690,7 +690,7 @@
     </div><!-- END::USERS GALLERY -->
 
     <!-- ADMINS GALLERY -->
-    <div id="user-gallery-container" class="cards">
+    <div id="admin-gallery-container" class="cards">
       <ul>
         <li><h3>Admins</h3></li>
         @foreach($admins as $admin)

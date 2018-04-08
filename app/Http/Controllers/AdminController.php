@@ -51,6 +51,8 @@ class AdminController extends Controller
       $resumeCount = Resume::count();
       $resumeSet = false;
 
+      $quickNavData = array("Update Resume"=>"#resume-form-container", "Add Project"=>"#project-form-container", "Add Blog"=>"#blog-form-container", "View Blogs"=>"#blog-gallery-container", "View Projects"=>"#project-gallery-container", "View Users"=>"#user-gallery-container", "View Admins"=>"#admin-gallery-container");
+
       if($resumeCount > 0)
           $resumeSet = true;
 
@@ -64,7 +66,8 @@ class AdminController extends Controller
       ->with('educations', $educations)
       ->with('resumes', $resumes)
       ->with('resumeSet', $resumeSet)
-      ->with('projects', $projects);
+      ->with('projects', $projects)
+      ->with('quickNavData', $quickNavData);
     }
 
     /**

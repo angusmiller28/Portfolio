@@ -134,7 +134,7 @@ $(document).ready(function () {
   });
 
   $(".delete-reference").click(function () {
-    $("#" + this.id).remove();
+    $("#reference-" + this.id).remove();
     $(".delete-reference-list").append('<li><input type="text" name="referencesDelete[' + this.id + ']" style="display:none"></li>');
   });
 
@@ -159,7 +159,7 @@ $(document).ready(function () {
   });
 
   $(".delete-education").click(function () {
-    $("#" + this.id).remove();
+    $("#education-" + this.id).remove();
     $(".delete-education-list").append('<li><input type="text" name="educationsDelete[' + this.id + ']" style="display:none"></li>');
   });
 });
@@ -174,7 +174,7 @@ $("#technical-add").click(function () {
 });
 
 $(".delete-technical").click(function () {
-  $("#" + this.id).remove();
+  $("#technical-" + this.id).remove();
   $(".delete-technical-list").append('<li><input type="text" name="technicalsDelete[' + this.id + ']" style="display:none"></li>');
 });
 
@@ -190,7 +190,7 @@ $("#certificate-add").click(function () {
 });
 
 $(".delete-certificate").click(function () {
-  $("#" + this.id).remove();
+  $("#certificate-" + this.id).remove();
   $(".delete-certificate-list").append('<li><input type="text" name="certificatesDelete[' + this.id + ']" style="display:none"></li>');
 });
 

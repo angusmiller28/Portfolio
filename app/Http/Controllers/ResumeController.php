@@ -46,6 +46,8 @@ class ResumeController extends Controller
         $resumeRedditName = $r->reddit_name;
       }
 
+      $quickNavData = array("Profile"=>"#profile-container", "Social"=>"#social-container", "Contact"=>"#contact-container", "Transcript link"=>"#transcript-container", "Cover letter"=>"#cover-letter-container", "Education"=>"#education-container", "Technical"=>"#technical-container", "References"=>"#references-container", "Certificates"=>"#certificate-container");
+
       return view('welcome')
       ->with('description', $resumeDescription)
       ->with('coverLetter', $resumeCoverLetter)
@@ -68,7 +70,8 @@ class ResumeController extends Controller
       ->with('educations', $educations)
       ->with('technicals', $technicals)
       ->with('certificates', $certificates)
-      ->with('references', $references);
+      ->with('references', $references)
+      ->with('quickNavData', $quickNavData);
     }
 
     /**

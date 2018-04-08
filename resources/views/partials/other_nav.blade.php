@@ -7,8 +7,10 @@
           <li><h3><i class="fa fa-bars"></i>Other Nav</h3></li>
           <li class="close-nav-btn" class="pop"><h3><i class="fa fa-window-close warning"></i></h3></li>
         </ul>
+          <!-- IF ADMIN IS LOGGED IN -->
           @if (Auth::check() && Auth::user()->role == "admin" )
             <li class="quick-nav-link"><a href="/admin/profile"><p>My Admin Profile</p></a></li>
+          <!-- IF USER IS LOGGED IN -->
           @elseif (Auth::check() && Auth::user()->role == "user")
             <li class="quick-nav-link"><a href="/profile"><p>My Profile</p></a></li>
           @else
