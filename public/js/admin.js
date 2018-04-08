@@ -164,6 +164,36 @@ $(document).ready(function () {
   });
 });
 
+var technicalContent;
+
+$("#technical-add").click(function () {
+  technicalContent = $("#technicalContent").val();
+
+  $("#technical-list").append('<li><input type="text" name="technicals[' + technicalContent + ']" style="display:none"></li>');
+  $("#technical-list").append('<li>Technical name: ' + technicalContent + '</li>');
+});
+
+$(".delete-technical").click(function () {
+  $("#" + this.id).remove();
+  $(".delete-technical-list").append('<li><input type="text" name="technicalsDelete[' + this.id + ']" style="display:none"></li>');
+});
+
+var certificateName;
+var certificateFileName;
+
+$("#certificate-add").click(function () {
+  certificateName = $("#certificateName").val();
+  certificateFileName = $("#certificateFileName").val();
+
+  $("#certificate-list").append('<li>Certificate name: ' + certificateName + '</li>');
+  $("#certificate-list").append('<li>Certificate File: ' + certificateFileName + '</li>');
+});
+
+$(".delete-certificate").click(function () {
+  $("#" + this.id).remove();
+  $(".delete-certificate-list").append('<li><input type="text" name="certificatesDelete[' + this.id + ']" style="display:none"></li>');
+});
+
 /***/ })
 
 /******/ });

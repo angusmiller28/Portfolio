@@ -177,11 +177,21 @@
             <ul>
               <li>
               {{Form::label('technical', 'Technical')}}
-              {{Form::text('technical', '', ['class' => 'form-control'])}}
+              {{Form::text('technicalContent', '', ['id' => 'technicalContent', 'class' => 'form-control'])}}
               </li>
               <li>
                 <i id="technical-add" class="fas fa-plus-circle"></i>
-                <ul id="technical-list"></ul>
+                <ul id="technical-list">
+                  @foreach($technicals as $technical)
+                    <ul id="{{$technical->technical_id}}">
+
+                    <li>Technical Content: {{$technical->content}}</li>
+                    <li><button id="{{$technical->technical_id}}" class="delete-technical" type="button" name="button">Delete Technical</button></li>
+                    </ul>
+                  @endforeach
+                </ul>
+                <ul class="delete-technical-list">
+                </ul>
               </li>
           </div>
           <div class="form-group">
@@ -247,13 +257,30 @@
           <div class="form-group">
             <ul>
               <li>
-                {{Form::label('certificate', 'Certificate')}}
-                {{Form::text('certificate', '', ['class' => 'form-control'])}}
+                {{Form::label('certificateName', 'Certificate')}}
+                {{Form::text('certificateName', '', ['id' => 'certificateName', 'class' => 'form-control'])}}
               </li>
-              <li>{{Form::file('coverImage', ['class' => 'form-control', 'accept' => 'image/png'])}}</li>
+              <li>
+                {{Form::label('certificateFileName', 'Certificate File Name')}}
+                {{Form::text('certificateFileName', '', ['id' => 'certificateFileName', 'class' => 'form-control'])}}
+              </li>
+              <li>
+                {{Form::label('certificateFile', 'Certificate File')}}
+                {{Form::file('certificateFile', ['id' => 'certificateFile', 'class' => 'form-control', 'accept' => 'application/pdf'])}}</li>
               <li>
                 <i id="certificate-add" class="fas fa-plus-circle"></i>
-                <ul id="certificate-list"></ul>
+                <ul id="certificate-list">
+                  @foreach($certificates as $certificate)
+                    <ul id="{{$certificate->certificate_id}}">
+
+                    <li>Certificate Name: {{$certificate->name}}</li>
+                    <li>Certificate Document: <a href="data:application/pdf;base64,<?php echo $certificate->file?>" width="70" height="38" type="application/pdf" alt="Red dot" download="{{$certificate->file_name}}">Link</a></li>
+                    <li><button id="{{$certificate->certificate_id}}" class="delete-certificate" type="button" name="button">Delete Certificate</button></li>
+                    </ul>
+                  @endforeach
+                </ul>
+                <ul class="delete-certificate-list">
+                </ul>
               </li>
             </ul>
           </div>

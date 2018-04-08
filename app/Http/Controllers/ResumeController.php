@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Resume;
 use App\Reference;
+use App\Technical;
 use App\Education;
 use App\Certificate;
 use Illuminate\Http\Request;
@@ -20,6 +21,9 @@ class ResumeController extends Controller
     {
       $resumes = Resume::all();
       $educations = Education::all();
+      $technicals = Technical::all();
+      $certificates = Certificate::all();
+      $references = Reference::all();
 
       foreach ($resumes as $r) {
         $resumeDescription = $r->description;
@@ -61,7 +65,10 @@ class ResumeController extends Controller
       ->with('twitterName', $resumeTwitterName)
       ->with('googleName', $resumeGoogleName)
       ->with('redditName', $resumeRedditName)
-      ->with('educations', $educations);
+      ->with('educations', $educations)
+      ->with('technicals', $technicals)
+      ->with('certificates', $certificates)
+      ->with('references', $references);
     }
 
     /**
@@ -128,17 +135,41 @@ class ResumeController extends Controller
       //////////////////////////////
       // add certificate to database
       //////////////////////////////
-      $certificates = $request->input('certificates');
-      if (!empty($certificates)){
-        foreach ($certificates as $certificateName => $value) {
-          $name = $certificateName;
+      $certificates = new Certificate;
 
-          $certificates = new Certificate;
-          $certificates->name = $name;
-          $certificates->resume_fk = $resumes->resume_id;
-          $certificates->save();
+      if($request->input('certificateName')){
+        $certificates->name = $request->input('certificateName');
+        $certificates->file_name = $request->input('certificateFileName');
+
+        // Validate and add coverImage to database
+        if ($request->hasFile('certificateFile')) {
+          if($request->file('certificateFile')->isValid()) {
+              try {
+                  $file = file_get_contents($request->file('certificateFile')->path());
+                  $image = base64_encode($file);
+                  $certificates->file = $image;
+
+              } catch (FileNotFoundException $e) {
+                  echo "catch";
+
+              }
+          }
         }
+        $certificates->resume_fk = $resumes->resume_id;
+        $certificates->save();
       }
+
+      // check if should update
+      if($request->input('resume_id'))
+        $certificates = Certificate::find($request->input('certificate_id'));
+
+        $certificates = $request->input('certificatesDelete');
+        if (!empty($certificates)){
+          foreach ($certificates as $certificateId => $value) {
+            $r = Certificate::find($certificateId);
+            $r->delete();
+          }
+        }
 
       ////////////////////////////////
       // add references to database
@@ -264,7 +295,38 @@ class ResumeController extends Controller
 
 
 
+      ////////////////////////////////
+      // add techincals to database
+      ///////////////////////////////
 
+      $technicals = $request->input('technicals');
+
+      if (!empty($technicals)){
+        foreach ($technicals as $technicalName => $value) {
+          $name = $technicalName;
+
+          $technicals = new Technical;
+
+          $technicals->content = $name;
+          $technicals->resume_fk = $resumes->resume_id;
+          $technicals->save();
+        }
+      }
+
+      ///////////////////////////////////////
+      // remove educations from database
+      //////////////////////////////////////
+      // check if should update
+      if($request->input('resume_id'))
+        $technicals = Technical::find($request->input('technical_id'));
+
+      $technicals = $request->input('technicalsDelete');
+      if (!empty($technicals)){
+        foreach ($technicals as $technicalId => $value) {
+          $r = Technical::find($technicalId);
+          $r->delete();
+        }
+      }
 
 
       if($request->input('resume_id'))

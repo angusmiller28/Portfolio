@@ -65,15 +65,11 @@
         </li>
         <li>
           <ul>
-            <li><p>Main object-oriented programming in Java and C++</p></li>
-            <li><p>Network performance and security in mobile internet technology and network devices</p></li>
-            <li><p>Network and System Administration</p></li>
-            <li><p>Programming theory and practical experience in front-end and backend</p></li>
-            <li><p>Main languages fluent in html5, CSS3, PHP, JavaScript, Java, C++ and C#</p></li>
-            <li><p>WordPress and creating custom themes for a business requirements</p></li>
-            <li><p>Operating System theory and software; Windows 7 and 10, Linux distributions Ubuntu and Debian</p></li>
-            <li><p>Website frameworks Bootstrap 3 and Foundation 3</p></li>
-            <li><p>Popular programming pre-processors and libraries; jquery, Sass, nodejs, node, angular and microsoft .NET Framework</p></li>
+            @foreach($technicals as $technical)
+              <li>
+                <p>{{$technical->content}}</p>
+              </li>
+            @endforeach
           </ul>
         </li>
       </ul>
@@ -85,57 +81,31 @@
             <li><h3>References</h3></li>
           </ul>
         </li>
-          <ul class="reference-item-title"> <!-- Refer 1 -->
-            <li>
-              <p><u>Kitchen Hand</u></p>
-            </li>
-            <li>
-              <p>2012 - 2018</p>
-            </li>
-          </ul>
+        @foreach($references as $reference)
+        <ul class="reference-item-title"> <!-- Refer 1 -->
           <li>
-            <p>My job as a kitchen hand was to prepare, cook and
-            clean. The job requires effective communicate to staff
-            members and also adaptive learning of new recipes.</p>
+            <p><u>{{$reference->name}}</u></p>
           </li>
           <li>
-            <p>Manager: Terry Inglis</p>
+            <p>{{$reference->start_date}} - {{$reference->end_date}}</p>
           </li>
-          <li>
-            <p>Russell Tavern, Dalby QLD 4405</p>
-          </li>
-          <li>
-            <p>phone: (07) 4662 2122</p>
-          </li>
-          <li>
-            <p>email: russell.tavern@alhgroup.com.au</p>
-          </li>
-          <ul class="reference-item-title"> <!-- Refer 2 -->
-            <li>
-              <p>Kitchen Hand</p>
-            </li>
-            <li>
-              <p>2012 - 2018</p>
-            </li>
-          </ul>
-          <li>
-            <p>My job was to complete various tasks such as inspection
-            on-site location with the director and to analysis
-            and collect information on different regional planning for
-            Brisbane.</p>
-          </li>
-          <li>
-            <p>Director: Lochlan Mummery</p>
-          </li>
-          <li>
-            <p>Urban Strategies, South Brisbane QLD 4101</p>
-          </li>
-          <li>
-            <p>Phone: (07) 3360 4200</p>
-          </li>
-          <li>
-            <p>email: admin@urbanstrategies.com.au</p>
-          </li>
+        </ul>
+        <li>
+          <p>{{$reference->description}}</p>
+        </li>
+        <li>
+          <p>{{$reference->boss_title}}: {{$reference->boss_name}}</p>
+        </li>
+        <li>
+          <p>{{$reference->address_name}}</p>
+        </li>
+        <li>
+          <p>phone: {{$reference->phone_number}}</p>
+        </li>
+        <li>
+          <p>email: {{$reference->email}}/p>
+        </li>
+        @endforeach
       </ul>
 
       <ul id="certificate-container">
@@ -147,8 +117,10 @@
         </li>
         <li>
           <ul>
-            <li><p>Certificate 2 Information, Digital & Media and Technology</p></li>
-            <li><p>Academic Award for Graphical Communications</p></li>
+            @foreach($certificates as $certificate)
+              <li><p>{{$certificate->name}}</p></li>
+              <li><a href="data:application/pdf;base64,<?php echo $certificate->file?>" width="70" height="38" type="application/pdf" alt="Red dot" download="{{$certificate->file_name}}">Download Document</a></li>
+            @endforeach
           </ul>
         </li>
       </ul>

@@ -9,6 +9,8 @@ use App\User;
 use App\Admin;
 use App\Resume;
 use App\Reference;
+use App\Technical;
+use App\Certificate;
 use App\Education;
 use Auth;
 use Image;
@@ -35,7 +37,7 @@ class AdminController extends Controller
     public function index()
     {
       if(Auth::user()->job_title != "Student")
-        return redirect('/admin/profile')->with('error', 'You dont have permission!');  
+        return redirect('/admin/profile')->with('error', 'You dont have permission!');
 
       $blogs = Blog::all();
       $projects = Project::all();
@@ -43,6 +45,8 @@ class AdminController extends Controller
       $admins = Admin::all();
       $resumes = Resume::all();
       $references = Reference::all();
+      $certificates = Certificate::all();
+      $technicals = Technical::all();
       $educations = Education::all();
       $resumeCount = Resume::count();
       $resumeSet = false;
@@ -55,6 +59,8 @@ class AdminController extends Controller
       ->with('users', $users)
       ->with('admins', $admins)
       ->with('references', $references)
+      ->with('technicals', $technicals)
+      ->with('certificates', $certificates)
       ->with('educations', $educations)
       ->with('resumes', $resumes)
       ->with('resumeSet', $resumeSet)
