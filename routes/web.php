@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/','SearchController@index');
+
+Route::get('/search','SearchController@search');
+
+
 Route::get('/resume', 'ResumeController@index');
 
 

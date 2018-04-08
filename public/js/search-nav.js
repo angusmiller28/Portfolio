@@ -60,35 +60,37 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 61);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 61:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(62);
+module.exports = __webpack_require__(56);
 
 
 /***/ }),
 
-/***/ 62:
+/***/ 56:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-    var lastScrollTop = 0;
-    $(window).scroll(function (event) {
-        var st = $(this).scrollTop();
+    $(".search-nav-btn").click(function () {
+        $("#search-nav-drawer").removeClass("hide");
+        $("#search-nav-drawer").addClass("drawer-container");
+        $(".search-nav-btn").toggleClass("active");
 
-        if (st > lastScrollTop || lastScrollTop < 100) {
-            $("#nav-bar-scroll-container").css("display", "none");
-        } else {
-            if (lastScrollTop > 100) {
-                $("#nav-bar-scroll-container").css("display", "flex");
-            }
-        }
-        lastScrollTop = st;
+        // if($(window).width() <= 1200){
+        //   $(".drawer-container").toggleClass("flex-content");
+        // }
+    });
+
+    $(".close-nav-btn").click(function () {
+        $("#search-nav-drawer").addClass("hide");
+        $("#search-nav-drawer").removeClass("drawer-container");
+        $(".search-nav-btn").toggleClass("active");
     });
 });
 

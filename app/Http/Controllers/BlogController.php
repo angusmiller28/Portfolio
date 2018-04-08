@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Blog;
+use App\User;
+use App\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 class BlogController extends Controller
 {
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware('auth:admin');
+  }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,6 +51,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
       $this->validate($request, [
         'name' => 'required',
         'blog-content' => 'required',
@@ -45,6 +59,7 @@ class BlogController extends Controller
         'displayImage' => 'required',
         'themeColour' => 'required'
       ]);
+
 
       /////////////////////////
       // add project to database
@@ -68,6 +83,16 @@ class BlogController extends Controller
             }
         }
       }
+
+
+      // add admin details
+      if (Auth::check() && Auth::user()->role == "admin")
+      {
+        $blog->admin_fk = Auth::user()->id;
+      }
+
+      // add created date
+      $blog->created_on = date("M d, Y");
 
       // Validate and add displayImage to database
       if ($request->hasFile('displayImage')) {
@@ -120,24 +145,37 @@ class BlogController extends Controller
       foreach ($blog as $b) {
         $blogName = $b->name;
         $blogContent = $b->content;
+        $blogThemeColour = $b->theme_colour;
         $blogDisplayImage = $b->display_image;
         $blogFacebookShareFlag = $b->facebook_share_flag;
         $blogTwitterShareFlag = $b->twitter_share_flag;
         $blogRedditShareFlag = $b->reddit_share_flag;
         $blogGoogleShareFlag = $b->google_share_flag;
         $blogEmailShareFlag = $b->email_share_flag;
+        $blogAdminId = $b->admin_fk;
+        $blogCreatedOn = $b->created_on;
+      }
+
+      $blogAdmin = Admin::where('id', $blogAdminId)->get();
+      foreach ($blogAdmin as $a) {
+        $blogAdminName = $a->name;
+        $blogAdminAvatar = $a->avatar;
       }
 
       return view('blog')
         ->with('name', $blogName)
         ->with('content', $blogContent)
+        ->with('themeColour', $blogThemeColour)
         ->with('displayImage', $blogDisplayImage)
         ->with('displayImage', $blogDisplayImage)
         ->with('facebookShareFlag', $blogFacebookShareFlag)
         ->with('twitterShareFlag', $blogTwitterShareFlag)
         ->with('redditShareFlag', $blogRedditShareFlag)
         ->with('googleShareFlag', $blogGoogleShareFlag)
-        ->with('emailShareFlag', $blogEmailShareFlag);
+        ->with('emailShareFlag', $blogEmailShareFlag)
+        ->with('adminName', $blogAdminName)
+        ->with('adminAvatar', $blogAdminAvatar)
+        ->with('createdOn', $blogCreatedOn);
     }
 
     /**
@@ -177,5 +215,47 @@ class BlogController extends Controller
 
       // redirect
       return Redirect('/admin')->with('success', 'Blog Deleted!');
+    }
+
+
+    public function search(Request $request)
+
+    {
+      return 123;
+    if($request->ajax())
+
+    {
+
+    $output="";
+    $blogs = Blog::where('name','LIKE','%'.$request->search."%")->get();
+
+    if($blogs)
+
+    {
+
+    foreach ($blogs as $key => $blog) {
+
+    $output.='<tr>'.
+
+    '<td>'.$blog->blog_id.'</td>'.
+
+    '</tr>';
+
+    }
+
+
+
+    return Response($output);
+
+
+
+       }
+
+
+
+       }
+
+
+
     }
 }

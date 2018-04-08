@@ -23,18 +23,16 @@
   <body>
     @include('partials/nav')
 
-    <div id="container" >
-      <!-- HEADER CONTAINER -->
-      <div id="header-container">
-        <img src="data:image/png;base64,<?php echo $displayImage?>" /></a>
-        <h1>{{ $name }}</h1>
-        <ul>
-          <li></li> <!-- add profile icon -->
-          <li></li> <!-- add profile name -->
-          <li></li> <!-- add post data name -->
-        </ul>
-      </div><!-- END::HEADER CONTAINER -->
+    <!-- HEADER CONTAINER -->
+    <div id="header-container"  style="background: {{$themeColour}} !important">
+      <img src="data:image/png;base64,<?php echo $displayImage?>" /></a>
+      <h1>{{ $name }}</h1>
+      <ul>
+        <li><p><img src="/uploads/avatars/{{$adminAvatar}}" alt="" style="width: 50px; height: 50px; border-radius: 50%">{{$adminName}} | {{$createdOn}}</p></li> <!-- add profile icon, profile name and date -->
+      </ul>
+    </div><!-- END::HEADER CONTAINER -->
 
+    <div id="container">
       <!-- SOCIALS CONTAINER -->
       <div class="social-container">
         <ul>
@@ -42,16 +40,16 @@
             <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fab fa-twitter"></i></div></li> <!-- add twitter social share -->
           @endif
           @if($facebookShareFlag == 1)
-          <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fab fa-facebook-f"></i></div></li> <!-- add facebook social share -->
+            <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fab fa-facebook-f"></i></div></li> <!-- add facebook social share -->
           @endif
           @if($googleShareFlag == 1)
-          <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fab fa-google-plus-g"></i></div></li> <!-- add google+ social share -->
+            <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fab fa-google-plus-g"></i></div></li> <!-- add google+ social share -->
           @endif
           @if($redditShareFlag == 1)
-          <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fab fa-reddit-alien"></i></div></li> <!-- add reddit social share -->
+            <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fab fa-reddit-alien"></i></div></li> <!-- add reddit social share -->
           @endif
           @if($emailShareFlag == 1)
-          <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fa fa-envelope"></i></div></li> <!-- add email social share -->
+            <li><div style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: orange"><i class="fa fa-envelope"></i></div></li> <!-- add email social share -->
           @endif
         </ul>
       </div><!-- END::SOCIALS CONTAINER -->

@@ -14,6 +14,7 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/quick-nav.js', 'public/js')
    .js('resources/assets/js/other-nav.js', 'public/js')
+   .js('resources/assets/js/search-nav.js', 'public/js')
    .js('resources/assets/js/editor.js', 'public/js')
    .js('resources/assets/js/index.js', 'public/js')
    .js('resources/assets/js/nav.js', 'public/js')
