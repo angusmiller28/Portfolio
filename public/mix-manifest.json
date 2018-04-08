@@ -12,5 +12,6 @@
     "/js/other-nav.js": "/js/other-nav.js",
     "/js/nav.js": "/js/nav.js",
     "/js/index.js": "/js/index.js",
+    "/js/editor.js": "/js/editor.js",
     "/js/admin.js": "/js/admin.js"
 }

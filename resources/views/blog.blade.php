@@ -21,9 +21,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div id="container" >
-      @include('partials/nav')
+    @include('partials/nav')
 
+    <div id="container" >
       <!-- HEADER CONTAINER -->
       <div id="header-container">
         <img src="data:image/png;base64,<?php echo $displayImage?>" /></a>
@@ -64,8 +64,8 @@
         echo $doc->saveHTML();
         ?>
       </div><!-- END::BODY CONTAINER -->
-
-      @include('partials/footer')
     </div>
+
+    @include('partials/footer')
   </body>
 </html>

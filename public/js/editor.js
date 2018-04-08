@@ -60,37 +60,35 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 59);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 59:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(60);
+module.exports = __webpack_require__(56);
 
 
 /***/ }),
 
-/***/ 60:
+/***/ 56:
 /***/ (function(module, exports) {
 
-$(document).ready(function () {
-    var lastScrollTop = 0;
-    $(window).scroll(function (event) {
-        var st = $(this).scrollTop();
+var editor = new Quill('.editor'); // First matching element will be used
+var container = document.getElementById('editors');
 
-        if (st > lastScrollTop || lastScrollTop < 100) {
-            $("#nav-bar-scroll-container").css("display", "none");
-        } else {
-            if (lastScrollTop > 100) {
-                $("#nav-bar-scroll-container").css("display", "flex");
-            }
-        }
-        lastScrollTop = st;
-    });
-});
+var options = {
+  debug: 'info',
+  modules: {
+    toolbar: '#toolbar'
+  },
+  placeholder: 'Compose an epic...',
+  readOnly: true,
+  theme: 'snow'
+};
+var editor = new Quill('#editor', options);
 
 /***/ })
 

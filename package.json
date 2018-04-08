@@ -18,5 +18,11 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "prosemirror-model": "^1.4.0",
+        "prosemirror-state": "^1.2.0",
+        "prosemirror-transform": "^1.0.9",
+        "prosemirror-view": "^1.2.0"
     }
 }
