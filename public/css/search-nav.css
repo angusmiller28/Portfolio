@@ -1,0 +1,24 @@
+.center-content {
+  justify-content: center; }
+
+#filter-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90% !important; }
+
+@media (min-width: 830px) {
+  .card {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    max-height: 275px !important; }
+
+  .card-image {
+    max-height: 275px !important; }
+    .card-image img {
+      max-height: 275px !important; }
+
+  .card-content {
+    max-width: 475px !important; } }
+
+/*# sourceMappingURL=search-nav.css.map */

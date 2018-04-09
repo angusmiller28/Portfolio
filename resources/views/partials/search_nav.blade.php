@@ -1,5 +1,6 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link href="{{asset('css/search-nav.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/drawer.css')}}" type="text/css" rel="stylesheet" />
 </head>
 <meta name="_token" content="{{ csrf_token() }}">
@@ -7,44 +8,46 @@
 <section id="search-nav-drawer" class="slide-in-to-right hide">
     <ul class="drawer-content-container">
         <ul class="drawer-title-container">
-          <li><h3><i class="fa fa-bars"></i>Search</h3></li>
+          <li><h3><i class="fa fa-search"></i>Search</h3></li>
           <li class="close-nav-btn" class="pop"><h3><i class="fa fa-window-close warning"></i></h3></li>
         </ul>
         <div class="form-group">
-          <input type="text" class="form-controller" id="search" name="search"></input>
+          <input type="text" class="form-control" id="search" name="search" placeholder="Search"></input>
         </div>
 
-        <table class="table table-bordered table-hover">
+        <div class="form-group">
+          <div class="center-content">
+            <ul id="filter-container">
+              <li><p><i class="fa fa-filter"></i> filter</p></li>
+              <li><i id="filter-more-btn" class="fas fa-window-close"></i></li>
+            </ul>
 
-        <thead>
+          </div>
+          <ul id="filter-content-container">
+            <li>Blogs<input id="filter_blog_checkbox" type="checkbox" name="filter_blog_checkbox" checked></li>
+            <li>Projects<input id="filter_project_checkbox" type="checkbox" name="filter_project_checkbox" checked></li>
+          </ul>
+        </div>
 
-        <tr>
+        <div class="center-content vertical-scrollable">
 
-        <th>ID</th>
+          <div id="search-results" class="cards ">
 
-        <th>Product Name</th>
-
-        <th>Description</th>
-
-        <th>Price</th>
-
-        </tr>
-
-        </thead>
-
-        <tbody>
-
-        </tbody>
-
-        </table>
+          </div>
+        </div>
 
     </ul>
 </section>
 <script type="text/javascript">
 
+$('#filter-more-btn').click(function(){
+  $('#filter-content-container').toggle();
+});
 $('#search').on('keyup',function(){
 
 $value=$(this).val();
+$filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
+$filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
 
 $.ajax({
 
@@ -52,11 +55,11 @@ type : 'get',
 
 url : '{{URL::to('search')}}',
 
-data:{'search':$value},
+data:{'search':$value, 'filter_blog_checkbox':$filter_blog_checkbox, 'filter_project_checkbox':$filter_project_checkbox},
 
 success:function(data){
 
-$('tbody').html(data);
+$('#search-results').html(data);
 
 }
 
@@ -64,7 +67,53 @@ $('tbody').html(data);
 
 
 
-})
+
+
+});
+
+$('#filter_blog_checkbox').change(function() {
+  $value=$('#search').val();
+  $filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
+  $filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
+
+  $.ajax({
+
+  type : 'get',
+
+  url : '{{URL::to('search')}}',
+
+  data:{'search':$value, 'filter_blog_checkbox':$filter_blog_checkbox, 'filter_project_checkbox':$filter_project_checkbox},
+
+  success:function(data){
+
+  $('#search-results').html(data);
+
+  }
+
+  });
+});
+
+$('#filter_project_checkbox').change(function() {
+  $value=$('#search').val();
+  $filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
+  $filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
+
+  $.ajax({
+
+  type : 'get',
+
+  url : '{{URL::to('search')}}',
+
+  data:{'search':$value, 'filter_blog_checkbox':$filter_blog_checkbox, 'filter_project_checkbox':$filter_project_checkbox},
+
+  success:function(data){
+
+  $('#search-results').html(data);
+
+  }
+
+  });
+});
 
 </script>
 

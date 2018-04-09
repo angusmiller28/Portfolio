@@ -26,4 +26,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/project.scss', 'public/css')
    .sass('resources/assets/sass/projects.scss', 'public/css')
    .sass('resources/assets/sass/nav-scroll.scss', 'public/css')
+   .sass('resources/assets/sass/drawer.scss', 'public/css')
    .sass('resources/assets/sass/nav.scss', 'public/css');

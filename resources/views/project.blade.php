@@ -8,7 +8,7 @@
     @include('partials/nav')
 
     <div id="container" >
-        @include('partials/quick_nav')
+
 
         <section id="body-container">
           <ul id="project-title-container">

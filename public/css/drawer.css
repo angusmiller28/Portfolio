@@ -43,10 +43,10 @@ p {
   height: 100vh !important;
   top: 0px;
   left: 0px;
-  background-color: #df840c;
+  background-color: white;
   text-align: center !important; }
   .drawer-container p {
-    color: white; }
+    color: black; }
 
 .drawer-title-container {
   display: flex;

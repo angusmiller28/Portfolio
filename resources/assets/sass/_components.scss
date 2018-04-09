@@ -1,29 +1,126 @@
 @import "_colours";
 
-.cards {
-  ul {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 0px;
-  }
-  .card {
-    border: 8px solid white;
-    img { width: 250px !important; height: 250px !important;}
-
-  }
+.form-control {
+  border: none !important;
+  padding: 5px 0px;
+  margin: 20px 0px;
 }
 
-@media (min-width: 710px){
-  .cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    ul {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
+.vertical-scrollable {
+
+    height: 500px;
+    overflow-y: scroll;
+
+}
+
+#search {
+  background-color: #f4f4f4;
+  width: 86%;
+  border: 2px solid #C1CBD4;
+  padding: 10px;
+}
+
+
+// .center-content {
+//   display: flex;
+//   justify-content: center;
+// }
+//
+// .card-hero {
+//   display: block;
+//   max-width:100%;
+//   max-height:auto;
+//   width: auto;
+//   height: auto;
+//
+//   img {
+//     display: block;
+//     max-width:100%;
+//     max-height:auto;
+//     width: auto;
+//     height: auto;
+//   }
+// }
+//
+// .cards {
+//   width: 90% !important;
+//   ul {
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+//     padding: 0px;
+//
+//   }
+//   .card {
+//     height: auto !important;
+//     width: 100% !important;
+//     border: 8px solid white;
+//     background-color: white;
+//
+//
+//     p {
+//       color: black !important;
+//     }
+//   }
+//
+//
+// }
+//
+// @media (min-width: 710px){
+//   .cards {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     align-content: center;
+//     ul {
+//       flex-direction: row;
+//       flex-wrap: wrap;
+//       justify-content: center;
+//     }
+//   }
+// }
+
+.center-content {
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px !important;
+}
+.cards {
+  width: 90% !important;
+  padding: 20px 0px;
+  .card:last-child {
+    padding-bottom: 100px;
+  }
+  .card {
+    display: block;
+    max-width:100%;
+    max-height:auto;
+    width: auto;
+    height: auto;
+    margin-bottom: 20px;
+
+
+    .card-content {
+      padding: 0px 20px 20px 20px !important;
+      background-color: #f4f4f4;
+      h3 {
+        padding: 10px 0px;
+      }
+      p {
+        color: black;
+        text-align: left;
+      }
     }
   }
+
+
+}
+
+.card-hero {
+  display: block;
+  max-width:100%;
+  max-height:auto;
+  width: auto !important;
+  height: auto;
 }

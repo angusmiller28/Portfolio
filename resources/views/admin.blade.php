@@ -549,6 +549,10 @@
           {{Form::text('name', '', ['class' => 'form-control'])}}
         </div>
         <div class="form-group">
+          {{Form::label('blogDescription', 'Blog description')}}
+          {{Form::textarea('blogDescription', '', ['class' => 'form-control'])}}
+        </div>
+        <div class="form-group">
           {{Form::label('coverImage', 'Cover Image')}}
             {{Form::file('coverImage', ['class' => 'form-control', 'accept' => 'image/png', 'ng-file-select' => 'onFileSelect($files)', 'ng-model' => 'coverImageBlog'])}}
             {{HTML::image('', '', ['ng-src' => '<% coverImageBlog %>', 'width' => '300', 'id' => 'myFile'])}}
@@ -587,10 +591,6 @@
               <i class="fa fa-envelope-square"></i>
               {{Form::label('Email', 'email')}}
               {{Form::checkbox('Email', 'email')}}
-            </li>
-            <li>
-            {{Form::label('blogLead', 'Blog lead')}}
-            {{Form::textarea('blogLead', '', ['class' => 'form-control'])}}
             </li>
           </ul>
         </div>

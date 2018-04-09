@@ -57,7 +57,8 @@ class BlogController extends Controller
         'blog-content' => 'required',
         'coverImage' => 'required',
         'displayImage' => 'required',
-        'themeColour' => 'required'
+        'themeColour' => 'required',
+        'blogDescription' => 'required'
       ]);
 
 
@@ -68,6 +69,7 @@ class BlogController extends Controller
       $blog->name = $request->input('name');
       $blog->content = $request->input('blog-content');
       $blog->theme_colour = $request->input('themeColour');
+      $blog->description = $request->input('blogDescription');
 
       // Validate and add coverImage to database
       if ($request->hasFile('coverImage')) {
