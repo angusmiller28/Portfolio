@@ -111,7 +111,8 @@ class UserController extends Controller
     {
       $user = User::where('id', $id)->delete();
 
-      return redirect('/admin')->with('success', 'User Deleted');
+      return redirect('/admin')
+        ->with('success', 'User Deleted');
     }
 
     public function profile(){
@@ -119,17 +120,27 @@ class UserController extends Controller
     }
 
     public function update_avatar(Request $request){
+      $this->validate($request, [
+        'avatar' => 'max:2000',
+      ]);
+
       // Handle user upload of avatar
       if($request->hasFile('avatar')){
         $avatar = $request->file('avatar');
+
         $filename = time() . '.' . $avatar->getClientOriginalExtension();
-        Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
+        $avatar = Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));;
 
         $user = Auth::user();
         $user->avatar = $filename;
         $user->save();
+
+        return redirect('/profile')
+          ->with('user', Auth::user())
+          ->with('success', 'Profile Avatar Updated');
+
       }
 
-      return view('profile', array('user' => Auth::user()));
+
     }
 }

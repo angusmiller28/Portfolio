@@ -27,6 +27,18 @@ i {
 .center-text {
   text-align: center;
 }
+
+
+.file {
+  padding: 10px;
+  display: table;
+  color: #fff;
+}
+
+input[type="file"] {
+    display: none;
+}
+
 .btn {
   padding: 10px !important;
   box-shadow: none !important;
@@ -57,6 +69,16 @@ i {
 }
 
 .form-container {
+  .feedback {
+    margin: 10px !important;
+    background-color: white;
+    padding: 10px !important;
+  }
+
+  .invalid-feedback {
+    color: $theme-error !important;
+  }
+
   form {
     width: 100% !important;
   }
@@ -76,10 +98,14 @@ i {
     display: grid;
     grid-template-columns: 250px;
     grid-template-rows: auto;
-    grid-template-areas: "title" "feedback" "input";
+    grid-template-areas: "title" "feedback" "description" "input";
 
     .form-title {
       grid-area: title;
+    }
+
+    .form-title {
+      grid-area: description;
     }
 
     .form-feedback {
@@ -87,7 +113,7 @@ i {
       label {
         padding: 0px !important;
         margin: 0px !important;
-        font-size: 0.8em;
+        font-size: 0.8em !important;;
       }
     }
 
@@ -130,13 +156,21 @@ i {
     margin-top: 5px;
     padding-top: 0px;
   }
+}
 
-  .feedback {
-    margin: 10px;
-  }
-
-  .invalid-feedback {
-    color: $theme-error;
+.form-file {
+  display: flex;
+  align-items: center;
+  .form-icon {
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: 20px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      margin: 10px !important;
+    }
   }
 }
 

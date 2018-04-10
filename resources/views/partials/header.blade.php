@@ -5,6 +5,7 @@
   <link href="{{asset('css/base.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/nav.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/actions.css')}}" type="text/css" rel="stylesheet" />
+  <link href="{{asset('css/messages.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/animations.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/footer.css')}}" type="text/css" rel="stylesheet" />
 

@@ -13,7 +13,9 @@ span {
 
 /** Sizes **/
 
-p {
+p,
+label,
+input {
   font-size: 1em;
 }
 

@@ -15,6 +15,42 @@ $(document).ready(function(){
         }
     });
 
+    $(document).on('change','#filev' , function(){
+      $file = $('.file input[type=file]');
+      $filename = $('.file input[type=file]').val().split('\\').pop();
+
+      $('#form-file-name').css('margin-right','10px');
+      $('#form-file-name').text($filename);
+
+
+    });
+
+    $(document).on('change','#filea' , function(){
+      $max_file_size = 2048000;
+      $file_size = this.files[0].size;
+
+      $("#file-status").removeClass("hide");
+      $("#form-feedback-server").remove();
+
+      // check file size not over
+      if($max_file_size < $file_size){
+        $("#file-status").removeClass("success");
+        $("#file-status").addClass("error");
+        $("#file-status i").removeClass('fa-check');
+        $("#file-status i").addClass('fa-exclamation');
+        $("#form-file-message").text("Selected file is over 2MB!");
+        $("#form-file-message").css({"color":"#eb0d0d","font-size":"0.8em","background-color":"white", "padding":"10px"});
+      } else {
+        $("#file-status").removeClass("error");
+        $("#file-status").addClass("success");
+        $("#file-status i").removeClass('fa-exclamation');
+        $("#file-status i").addClass('fa-check');
+        $("#form-file-message").text("Selected file is ok");
+        $("#form-file-message").css({"color":"#0deb94","font-size":"0.8em"});
+      }
+
+    });
+
     $("#password-confirmation").on('keyup',function(){
       $password_confirmation_value=$(this).val();
       $password_value=$("#password").val();
@@ -52,4 +88,6 @@ $(document).ready(function(){
       }
 
     });
+
+
 });
