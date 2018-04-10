@@ -21,6 +21,21 @@
 }
 
 
+.alert-danger {
+  background-color: $theme-warning;
+  color: white;
+}
+
+.alert-error {
+  background-color: $theme-error;
+  color: white;
+}
+
+.alert-success {
+  background-color: $theme-success;
+  color: white;
+}
+
 // .center-content {
 //   display: flex;
 //   justify-content: center;

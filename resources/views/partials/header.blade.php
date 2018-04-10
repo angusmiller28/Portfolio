@@ -7,7 +7,7 @@
   <link href="{{asset('css/actions.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/animations.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('css/footer.css')}}" type="text/css" rel="stylesheet" />
-  
+
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">

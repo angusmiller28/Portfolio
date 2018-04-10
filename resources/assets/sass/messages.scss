@@ -1,0 +1,11 @@
+@import "_colours";
+@import "_mixins";
+@import "_font";
+
+#message-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: darkgrey;
+  text-align: center;
+}

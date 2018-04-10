@@ -17,4 +17,129 @@ i {
 
 .hide {
   display: none !important;
+  visibility: hidden;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+.center-text {
+  text-align: center;
+}
+.btn {
+  padding: 10px !important;
+  box-shadow: none !important;
+  border: none !important;
+  width: auto !important;
+  min-width: 100px !important;
+  height: 40px !important;
+}
+
+.btn-default {
+  background: $theme-default !important;
+  color: white;
+}
+
+.btn-warning {
+  background: $theme-warning;
+  color: white;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 0px auto 0px !important;
+  grid-template-rows: auto;
+  grid-template-areas: ". main .";
+}
+#body-container {
+  grid-area: main;
+}
+
+.form-container {
+  form {
+    width: 100% !important;
+  }
+  .form-control {
+    margin: 5px 0px !important;
+    padding: 5px 0px !important;
+    width: 200px !important;
+  }
+
+  .form-group {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .form-content {
+    display: grid;
+    grid-template-columns: 250px;
+    grid-template-rows: auto;
+    grid-template-areas: "title" "feedback" "input";
+
+    .form-title {
+      grid-area: title;
+    }
+
+    .form-feedback {
+      grid-area: feedback;
+      label {
+        padding: 0px !important;
+        margin: 0px !important;
+        font-size: 0.8em;
+      }
+    }
+
+    .form-input {
+      grid-area: input;
+      display: flex;
+      align-items: center;
+      .form-icon {
+        margin-left: 20px;
+        display: flex;
+      }
+    }
+
+    .span-only-input-section {
+      display: flex !important;
+      justify-content: center !important;
+      width: 200px !important;
+    }
+  }
+
+
+  .form-icon {
+
+
+    width: 30px !important;
+    height: 30px !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    i {
+      margin-right: 0px !important;
+
+    }
+  }
+
+  .form-control {
+    width: 230px;
+    margin-top: 5px;
+    padding-top: 0px;
+  }
+
+  .feedback {
+    margin: 10px;
+  }
+
+  .invalid-feedback {
+    color: $theme-error;
+  }
+}
+
+@media only screen and (min-width: 600px){
+
 }

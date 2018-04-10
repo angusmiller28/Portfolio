@@ -2,11 +2,30 @@
 @import "_mixins";
 @import "_font";
 
-.error {
-  background-color: $theme-error;
-}
 
 // Buttons
 i.warning {
   color: $theme-warning !important;
+}
+
+.error {
+  background: $theme-error !important;
+  i {
+    color: darken($theme-error, 20%) !important;
+  }
+}
+
+.success {
+  background: $theme-success !important;
+  i {
+    color: darken($theme-success, 20%) !important;
+  }
+}
+
+
+.default {
+  background: $theme-default !important;
+  i {
+    color: darken($theme-default, 20%) !important;
+  }
 }

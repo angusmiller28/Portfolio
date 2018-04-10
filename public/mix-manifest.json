@@ -7,12 +7,14 @@
     "/css/project.css": "/css/project.css",
     "/css/projects.css": "/css/projects.css",
     "/css/nav-scroll.css": "/css/nav-scroll.css",
+    "/css/drawer.css": "/css/drawer.css",
     "/css/nav.css": "/css/nav.css",
     "/js/search-nav.js": "/js/search-nav.js",
     "/js/quick-nav.js": "/js/quick-nav.js",
     "/js/other-nav.js": "/js/other-nav.js",
     "/js/nav.js": "/js/nav.js",
     "/js/index.js": "/js/index.js",
+    "/js/form.js": "/js/form.js",
     "/js/editor.js": "/js/editor.js",
     "/js/admin.js": "/js/admin.js"
 }

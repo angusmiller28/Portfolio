@@ -34,22 +34,11 @@ p {
 .error {
   color: #eb0d0d; }
 
-i.warning {
-  color: #eb630d !important; }
+#message-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: darkgrey;
+  text-align: center; }
 
-.error {
-  background: #eb0d0d !important; }
-  .error i {
-    color: #8a0808 !important; }
-
-.success {
-  background: #0deb94 !important; }
-  .success i {
-    color: #088a57 !important; }
-
-.default {
-  background: #0d87eb !important; }
-  .default i {
-    color: #084f8a !important; }
-
-/*# sourceMappingURL=actions.css.map */
+/*# sourceMappingURL=messages.css.map */

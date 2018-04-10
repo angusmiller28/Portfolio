@@ -34,22 +34,23 @@ p {
 .error {
   color: #eb0d0d; }
 
-i.warning {
-  color: #eb630d !important; }
+#register-form-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%; }
+#register-form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+#register-form-container .form-control {
+  width: 290px;
+  margin-top: 5px;
+  padding-top: 0px; }
+#register-form-container .feedback {
+  margin: 10px; }
+#register-form-container .invalid-feedback {
+  color: #eb0d0d; }
 
-.error {
-  background: #eb0d0d !important; }
-  .error i {
-    color: #8a0808 !important; }
-
-.success {
-  background: #0deb94 !important; }
-  .success i {
-    color: #088a57 !important; }
-
-.default {
-  background: #0d87eb !important; }
-  .default i {
-    color: #084f8a !important; }
-
-/*# sourceMappingURL=actions.css.map */
+/*# sourceMappingURL=register.css.map */

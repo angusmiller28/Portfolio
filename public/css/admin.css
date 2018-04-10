@@ -163,25 +163,6 @@ form ul ul textarea {
   text-align: center;
 }
 
-.btn {
-  padding: 10px !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-  border: none !important;
-  width: auto !important;
-  height: 40px !important;
-}
-
-.btn-default {
-  background: #0d87eb !important;
-  color: white;
-}
-
-.btn-warning {
-  background: #eb630d;
-  color: white;
-}
-
 .center-component {
   -ms-flex-item-align: center;
       align-self: center;
