@@ -34,6 +34,9 @@ p {
 .error {
   color: #eb0d0d; }
 
+p {
+  color: black; }
+
 i.warning {
   color: #eb630d !important; }
 

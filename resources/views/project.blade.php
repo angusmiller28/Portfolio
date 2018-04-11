@@ -16,9 +16,8 @@
             <li><div id="subtitle-container"><h4 id="subtitle">{{ $projectSubTitle }}</h4></div></li>
           </ul>
           <ul id="project-main-image-container">
-            <li><img src="data:image/png;base64,{{ $displayImageBack }}" alt=""></li>
-            <li><img src="data:image/png;base64,{{ $displayImageFront }}" alt=""></li>
-
+            <li><img src="/uploads/projects/{{ $displayImageBack }}" alt=""></li>
+            <li><img src="/uploads/projects/{{ $displayImageFront }}" alt=""></li>
           </ul>
 
           <ul id="project-description-container">
@@ -31,7 +30,7 @@
 
             @if(isset($video)) <!-- Video -->
               <div class="">
-                  <video width="320" height="240" controls src="data:video/mp4;base64,{{$video}}" autoplay>
+                  <video width="320" height="240" controls src="/uploads/projects/{{$video}}" autoplay>
                     Your browser does not support the video tag.
                   </video>
               </div>

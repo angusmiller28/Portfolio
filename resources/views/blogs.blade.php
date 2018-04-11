@@ -33,8 +33,8 @@
                       @foreach($blogs as $blog)
                           <div class="card">
                             <li>
-                              <div class="card card-small"><a href="blogs/blog/<?php echo $blog->blog_id ?>">
-                              <img src="data:image/png;base64,<?php echo $blog->cover_image?>" /></a>
+                              <div class="card card-small"><a href="blogs/blog/{{ $blog->id }}">
+                              <img src="/uploads/blogs/{{ $blog->cover_image }}" /></a>
                               </div>
                             </li>
                           </div>

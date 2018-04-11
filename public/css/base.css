@@ -34,6 +34,9 @@ p {
 .error {
   color: #eb0d0d; }
 
+p {
+  color: black; }
+
 #container {
   background-color: #E6EAEE;
   padding: 10px; }
@@ -86,6 +89,7 @@ input[type="file"] {
   grid-template-areas: ". main ."; }
 
 #body-container {
+  padding: 0px !important;
   grid-area: main; }
 
 .form-container .feedback {

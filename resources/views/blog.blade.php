@@ -30,7 +30,7 @@
       <ul>
         <li><p><img src="/uploads/avatars/{{$adminAvatar}}" alt="" style="width: 50px; height: 50px; border-radius: 50%">{{$adminName}} | {{$createdOn}}</p></li> <!-- add profile icon, profile name and date -->
       </ul>
-      <img id="hero-image" src="data:image/png;base64,<?php echo $displayImage?>" /></a>
+      <img id="hero-image" src="/uploads/blogs/<?php echo $displayImage?>" /></a>
     </div><!-- END::HEADER CONTAINER -->
 
 
@@ -72,6 +72,29 @@
 
     </div>
 
+    <div id="comments-form-container">
+      {{ Form::open(['route' => ['comments.store', $blogId], 'method' => 'POST']) }}
+        {{ Form::label('name'), "Name:" }}
+        {{ Form::text('name', null, ['class' => 'form-control']) }}
+
+        {{ Form::label('email'), "Email:" }}
+        {{ Form::text('email', null, ['class' => 'form-control']) }}
+
+        {{ Form::label('comment'), "Comment:" }}
+        {{ Form::textarea('comment', null, ['class' => 'form-control']) }}
+
+        {{ Form::submit('Add Comment', ['class' => 'form-control btn btn-default']) }}
+      {{ Form::close() }}
+    </div>
+
+    <div id="comments-container">
+      @foreach($blogComments as $comment)
+        <div class="comment">
+          <p>Name: {{ $comment->name }}</p>
+          <p>Name: {{ $comment->comment }}</p>
+        </div>
+      @endforeach
+    </div>
     @include('partials/footer')
   </body>
 </html>

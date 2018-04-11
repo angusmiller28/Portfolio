@@ -213,7 +213,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project, $id)
     {
-      $project = Project::where('project_id', $id)->get();
+      $project = Project::where('id', $id)->get();
       $tools = Tool::where('project_fk', $id)->get();
       $socials = Social::where('project_fk', $id)->get();
 

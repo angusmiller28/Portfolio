@@ -33,7 +33,7 @@
         {!! Form::open(['action' => 'ResumeController@store', 'method' => 'POST', 'files' => true]) !!}
         @csrf
         @foreach($resumes as $resume)
-          {{Form::text('resume_id', $resume->resume_id, ['class' => 'form-control'])}}
+          {{Form::text('resume_id', $resume->id, ['class' => 'form-control'])}}
           <div class="form-group">
               {{Form::label('description', 'Resume description')}}
               {{Form::textarea('description', $resume->description, ['class' => 'form-control'])}}
@@ -174,14 +174,14 @@
                 <i id="education-add" class="fas fa-plus-circle"></i>
                 <ul id="education-list">
                   @foreach($educations as $education)
-                    <ul id="education-{{$education->education_id}}">
+                    <ul id="education-{{$education->id}}">
 
                     <li>Education Name: {{$education->name}}</li>
                     <li>Education Start Date: {{$education->start_date}}</li>
                     <li>Education End Date: {{$education->end_date}}</li>
                     <li>Education Institutione: {{$education->institution}}</li>
                     <li>Education GPA: {{$education->gpa}}</li>
-                    <li><button id="{{$education->education_id}}" class="delete-education" type="button" name="button">Delete Education</button></li>
+                    <li><button id="{{$education->id}}" class="delete-education" type="button" name="button">Delete Education</button></li>
                     </ul>
                   @endforeach
                 </ul>
@@ -200,10 +200,10 @@
                 <i id="technical-add" class="fas fa-plus-circle"></i>
                 <ul id="technical-list">
                   @foreach($technicals as $technical)
-                    <ul id="technical-{{$technical->technical_id}}">
+                    <ul id="technical-{{$technical->id}}">
 
                     <li>Technical Content: {{$technical->content}}</li>
-                    <li><button id="{{$technical->technical_id}}" class="delete-technical" type="button" name="button">Delete Technical</button></li>
+                    <li><button id="{{$technical->id}}" class="delete-technical" type="button" name="button">Delete Technical</button></li>
                     </ul>
                   @endforeach
                 </ul>
@@ -251,7 +251,7 @@
               <i id="reference-add" class="fas fa-plus-circle"></i>
               <ul id="reference-list">
                 @foreach($references as $reference)
-                  <ul id="reference-{{$reference->reference_id}}">
+                  <ul id="reference-{{$reference->id}}">
 
                   <li>Reference Name: {{$reference->name}}</li>
                   <li>Reference Start Date: {{$reference->start_date}}</li>
@@ -262,7 +262,7 @@
                   <li>Reference Address Name: {{$reference->address_name}}</li>
                   <li>Reference Phone Number: {{$reference->phone_number}}</li>
                   <li>Reference Email: {{$reference->email}}</li>
-                  <li><button id="{{$reference->reference_id}}" class="delete-reference" type="button" name="button">Delete Reference</button></li>
+                  <li><button id="{{$reference->id}}" class="delete-reference" type="button" name="button">Delete Reference</button></li>
                   </ul>
                 @endforeach
               </ul>
@@ -288,11 +288,11 @@
                 <i id="certificate-add" class="fas fa-plus-circle"></i>
                 <ul id="certificate-list">
                   @foreach($certificates as $certificate)
-                    <ul id="certificate-{{$certificate->certificate_id}}">
+                    <ul id="certificate-{{$certificate->id}}">
 
                     <li>Certificate Name: {{$certificate->name}}</li>
-                    <li>Certificate Document: <a href="data:application/pdf;base64,<?php echo $certificate->file?>" width="70" height="38" type="application/pdf" alt="Red dot" download="{{$certificate->file_name}}">Link</a></li>
-                    <li><button id="{{$certificate->certificate_id}}" class="delete-certificate" type="button" name="button">Delete Certificate</button></li>
+                    <li>Certificate Document: <a href="{{ $certificate->file }}" width="70" height="38" type="application/pdf" alt="Red dot" download="{{$certificate->file_name}}">Link</a></li>
+                    <li><button id="{{$certificate->id}}" class="delete-certificate" type="button" name="button">Delete Certificate</button></li>
                     </ul>
                   @endforeach
                 </ul>
@@ -306,7 +306,7 @@
         <h3>Add Resume</h3>
         {!! Form::open(['action' => 'ResumeController@store', 'method' => 'POST', 'files' => true]) !!}
         @csrf
-        {{Form::text('resume_id', '', ['class' => 'form-control'])}}
+        {{Form::text('id', '', ['class' => 'form-control'])}}
         <div class="form-group">
             {{Form::label('description', 'Resume description')}}
             {{Form::textarea('description', '', ['class' => 'form-control'])}}
@@ -656,8 +656,8 @@
         <ul class="cards">
         @foreach($blogs as $blog)
         <li>
-          <div class="card card-small"><a href="blogs/blog/<?php echo $blog->blog_id ?>">
-          <img src="data:image/png;base64,<?php echo $blog->cover_image?>" /></a>
+          <div class="card card-small"><a href="blogs/blog/{{ $blog->blog_id }}">
+          <img src="/uploads/blogs/{{ $blog->cover_image }}" style="width: 100px; height: 50px;" /></a>
           {{ Form::open(array('url' => 'blogs/' . $blog->blog_id)) }}
             {{ Form::hidden('_method', 'DELETE') }}
             {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
@@ -676,8 +676,8 @@
         <ul class="cards">
         @foreach($projects as $project)
           <li>
-            <div class="card card-small"><a href="projects/project/<?php echo $project->project_id ?>">
-            <img src="data:image/png;base64,<?php echo $project->cover_image?>" /></a>
+            <div class="card card-small"><a href="projects/project/{{ $project->project_id }}">
+            <img src="/uploads/projects/{{ $project->cover_image }}" style="width: 100px; height: 50px;" /></a>
             {{ Form::open(array('url' => 'projects/' . $project->project_id, 'class' => 'pull-right')) }}
               {{ Form::hidden('_method', 'DELETE') }}
               {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
@@ -697,7 +697,7 @@
         <div class="card">
           <li>
             <div class="card card-small">
-              <a href="users/user/<?php echo $user->id ?>">
+              <a href="users/user/{{ $user->id }}">
               <img src="/uploads/avatars/{{$user->avatar}}" alt="" style="width: 50px; height: 50px; border-radius: 50%"></a>
               <p>{{ $user->name }}</p>
               {{ Form::open(array('url' => 'users/' . $user->id, 'class' => 'pull-right')) }}
@@ -719,7 +719,7 @@
         <div class="card">
           <li>
             <div class="card card-small">
-              <a href="/admin/profile/<?php echo $admin->id ?>">
+              <a href="/admin/profile/{{ $admin->id }}">
               <img src="/uploads/avatars/{{$admin->avatar}}" alt="" style="width: 50px; height: 50px; border-radius: 50%"></a>
               <p>{{ $admin->name }}</p>
               {{ Form::open(array('url' => '/admin/profile/' . $admin->id, 'class' => 'pull-right')) }}

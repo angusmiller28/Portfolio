@@ -19,7 +19,7 @@
           <div class="center-content">
             <ul id="filter-container">
               <li><p><i class="fa fa-filter"></i> filter</p></li>
-              <li><i id="filter-more-btn" class="fas fa-window-close"></i></li>
+              <li><h3><i id="filter-more-btn" class="fas fa-window-close"></i></h3></li>
             </ul>
 
           </div>

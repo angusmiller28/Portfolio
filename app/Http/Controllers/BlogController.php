@@ -6,6 +6,7 @@ use Auth;
 use App\Blog;
 use App\User;
 use App\Admin;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
@@ -141,10 +142,11 @@ class BlogController extends Controller
      */
     public function show(Blog $blog, $id)
     {
-      $blog = Blog::where('blog_id', $id)->get();
+      $blog = Blog::where('id', $id)->get();
 
       // break results project into variables
       foreach ($blog as $b) {
+        $blogId = $b->id;
         $blogName = $b->name;
         $blogContent = $b->content;
         $blogThemeColour = $b->theme_colour;
@@ -156,6 +158,7 @@ class BlogController extends Controller
         $blogEmailShareFlag = $b->email_share_flag;
         $blogAdminId = $b->admin_fk;
         $blogCreatedOn = $b->created_on;
+        $blogComments =  $b->comments;
       }
 
       $blogAdmin = Admin::where('id', $blogAdminId)->get();
@@ -164,11 +167,14 @@ class BlogController extends Controller
         $blogAdminAvatar = $a->avatar;
       }
 
+
       return view('blog')
+        ->with('blog', $blog)
+        ->with('blogId', $blogId)
+        ->with('blogComments', $blogComments)
         ->with('name', $blogName)
         ->with('content', $blogContent)
         ->with('themeColour', $blogThemeColour)
-        ->with('displayImage', $blogDisplayImage)
         ->with('displayImage', $blogDisplayImage)
         ->with('facebookShareFlag', $blogFacebookShareFlag)
         ->with('twitterShareFlag', $blogTwitterShareFlag)

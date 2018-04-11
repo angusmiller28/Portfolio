@@ -69,7 +69,7 @@
         {{ Form::close() }}
 
 
-          <a href="{{ url('/logout') }}"> logout </a>
+        <a href="{{ url('/logout') }}"> logout </a>
 
       </div>
 

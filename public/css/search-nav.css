@@ -1,6 +1,3 @@
-.center-content {
-  justify-content: center; }
-
 #filter-container {
   display: flex;
   justify-content: space-between;

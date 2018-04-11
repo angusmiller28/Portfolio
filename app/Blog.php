@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
   protected $table = 'blogs';
-  protected $primaryKey = 'blog_id';
-  public $timestamps = false;
+  protected $primaryKey = 'id';
+
+  public function comments(){
+    return $this->hasMany('App\Comment');
+  }
 }

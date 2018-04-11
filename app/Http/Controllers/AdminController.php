@@ -131,6 +131,10 @@ class AdminController extends Controller
     }
 
     public function update_avatar(Request $request){
+      $this->validate($request, [
+        'avatar' => 'max:2000',
+      ]);
+
       // Handle admin upload of avatar
       if($request->hasFile('avatar')){
         $avatar = $request->file('avatar');
@@ -142,6 +146,8 @@ class AdminController extends Controller
         $admin->save();
       }
 
-      return view('adminProfile', array('admin' => Auth::user()));
+      return view('adminProfile')
+      ->with('admin', Auth::user())
+      ->with('success', 'Profile Avatar Updated');
     }
 }

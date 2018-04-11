@@ -15,8 +15,8 @@
               @foreach($projects as $project)
                   <div class="card">
                     <li>
-                      <div class="card card-small"><a href="projects/project/<?php echo $project->project_id ?>">
-                      <img src="data:image/png;base64,<?php echo $project->cover_image?>" /></a>
+                      <div class="card card-small"><a href="projects/project/{{$project->id}}">
+                      <img src="/uploads/projects/{{$project->cover_image}}" /></a>
                       </div>
                     </li>
                   </div>
