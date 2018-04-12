@@ -73,25 +73,25 @@
     </div>
 
     <div id="comments-form-container">
+      @if (Auth::check())
+      <img src="/uploads/avatars/{{Auth::user()->avatar}}" alt="" style="width: 150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px">
+      <p>{{Auth::user()->name}}</p>
+      <p>{{Auth::user()->email}}</p>
       {{ Form::open(['route' => ['comments.store', $blogId], 'method' => 'POST']) }}
-        {{ Form::label('name'), "Name:" }}
-        {{ Form::text('name', null, ['class' => 'form-control']) }}
-
-        {{ Form::label('email'), "Email:" }}
-        {{ Form::text('email', null, ['class' => 'form-control']) }}
-
         {{ Form::label('comment'), "Comment:" }}
-        {{ Form::textarea('comment', null, ['class' => 'form-control']) }}
+        {{ Form::textarea('comment', null, ['class' => 'form-control', 'style' => 'background-color: orange']) }}
 
         {{ Form::submit('Add Comment', ['class' => 'form-control btn btn-default']) }}
       {{ Form::close() }}
+      @endif
     </div>
 
     <div id="comments-container">
       @foreach($blogComments as $comment)
         <div class="comment">
-          <p>Name: {{ $comment->name }}</p>
-          <p>Name: {{ $comment->comment }}</p>
+          <img src="/uploads/avatars/{{ $blogCommentAvatar }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 25px">
+          <p>Name: {{ $blogCommentName }}</p>
+          <p>Comment: {{ $comment->comment }}</p>
         </div>
       @endforeach
     </div>

@@ -22,10 +22,24 @@ Route::get('/search','SearchController@search');
 
 Route::get('/resume', 'ResumeController@index');
 
+// store
+Route::get('/store', 'StoreController@index');
+
+// products
+Route::get('/product/{id}', 'ProductController@show');
 
 Auth::routes();
 Route::post('/register', 'Auth\RegisterController@store');
 Route::resource('/resumes', 'ResumeController');
+
+
+// Blog Routes
+Route::resource('/blogs', 'BlogController');
+Route::get('/blogs/blog/{id}', 'BlogController@show');
+
+// Comments
+Route::post('/comments/{id}', 'CommentsController@store')->name('comments.store');
+
 
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -61,13 +75,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::resource('/projects', 'ProjectController');
 Route::get('/projects/project/{id}', 'ProjectController@show');
-
-// Blog Routes
-Route::resource('/blogs', 'BlogController');
-Route::get('/blogs/blog/{id}', 'BlogController@show');
-
-// Comments
-Route::post('/comments/{id}', 'CommentsController@store')->name('comments.store');
 
 Route::resource('/users', 'UserController');
 Route::get('/users/user/{id}', 'UserController@show');

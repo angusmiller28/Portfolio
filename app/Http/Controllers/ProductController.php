@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
-use App\User;
-use App\Blog;
-use App\Comment;
-use Auth;
+use App\Product;
+use App\ProductImage;
 
-class CommentsController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,32 +34,9 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-      $this->validate($request, array(
-        'comment' => 'required|min:5|max:2000'
-      ));
 
-      $blog = Blog::find($id);
-
-      $comment = new Comment();
-
-      $comment->comment = $request->comment;
-      $comment->approved = true;
-      $comment->blog()->associate($blog);
-
-      if (Auth::check() && Auth::user()->role == "admin" ){
-        $admin = Admin::find(Auth::user()->id);
-        $comment->admin()->associate($admin);
-      }  else {
-        $user = User::find(Auth::user()->id);
-        $comment->user()->associate($user);
-      }
-
-      $comment->save();
-
-      return redirect('/blogs/blog/'.$blog->id)
-        ->with('success', 'Comment added');
     }
 
     /**
@@ -73,7 +47,22 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-        //
+      $product = Product::where('id', $id)->get();
+
+      // break results project into variables
+      foreach ($product as $p) {
+        $productName = $p->name;
+        $productPrice = $p->price;
+        $productDisplayImage = $p->display_image;
+      }
+
+      $productImages = ProductImage::where('product_id', $id)->get();
+
+      return view('product')
+        ->with('productName', $productName)
+        ->with('productPrice', $productPrice)
+        ->with('productDisplayImage', $productDisplayImage)
+        ->with('productImages', $productImages);
     }
 
     /**
