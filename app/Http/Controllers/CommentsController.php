@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
 use App\Blog;
+use App\Product;
 use App\Comment;
 use Auth;
 
@@ -43,13 +44,9 @@ class CommentsController extends Controller
         'comment' => 'required|min:5|max:2000'
       ));
 
-      $blog = Blog::find($id);
-
       $comment = new Comment();
-
       $comment->comment = $request->comment;
       $comment->approved = true;
-      $comment->blog()->associate($blog);
 
       if (Auth::check() && Auth::user()->role == "admin" ){
         $admin = Admin::find(Auth::user()->id);
@@ -59,10 +56,23 @@ class CommentsController extends Controller
         $comment->user()->associate($user);
       }
 
-      $comment->save();
+      $type = $request->type;
 
-      return redirect('/blogs/blog/'.$blog->id)
-        ->with('success', 'Comment added');
+      if($type == 'blog'){
+        $blog = Blog::find($id);
+        $comment->blog()->associate($blog);
+        $comment->save();
+
+        return redirect('/blogs/blog/'.$blog->id)
+          ->with('success', 'Comment added');
+      } else {
+        $product = Product::find($id);
+        $comment->product()->associate($product);
+        $comment->save();
+
+        return redirect('/product/'.$product->id)
+          ->with('success', 'Comment added');
+      }
     }
 
     /**

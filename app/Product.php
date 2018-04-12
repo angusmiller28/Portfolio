@@ -16,4 +16,8 @@ class Product extends Model
   public function videos(){
       return $this->hasMany('App\ProductVideo');
   }
+
+  public function comments(){
+    return $this->hasMany('App\Comment');
+  }
 }

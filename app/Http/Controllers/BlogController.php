@@ -161,22 +161,25 @@ class BlogController extends Controller
         $blogComments =  $b->comments;
       }
 
+      $commentName = "";
+      $commentAvatar = "";
+
       foreach ($blogComments as $c) {
         if ($c->user_id != null){
           $id = $c->user_id;
           $user = User::where('id', $id)->get();
 
           foreach ($user as $u) {
-            $blogCommentName = $u->name;
-            $blogCommentAvatar = $u->avatar;
+            $commentName = $u->name;
+            $commentAvatar = $u->avatar;
           }
         } else {
           $id = $c->admin_id;
           $admin = Admin::where('id', $id)->get();
 
           foreach ($admin as $a) {
-            $blogCommentName = $a->name;
-            $blogCommentAvatar = $a->avatar;
+            $commentName = $a->name;
+            $commentAvatar = $a->avatar;
           }
         }
       }
@@ -192,8 +195,8 @@ class BlogController extends Controller
         ->with('blog', $blog)
         ->with('blogId', $blogId)
         ->with('blogComments', $blogComments)
-        ->with('blogCommentName', $blogCommentName)
-        ->with('blogCommentAvatar', $blogCommentAvatar)
+        ->with('commentName', $commentName)
+        ->with('commentAvatar', $commentAvatar)
         ->with('name', $blogName)
         ->with('content', $blogContent)
         ->with('themeColour', $blogThemeColour)

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Comment;
 use App\ProductImage;
 use App\ProductVideo;
+use App\User;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -52,15 +55,45 @@ class ProductController extends Controller
 
       // break results project into variables
       foreach ($product as $p) {
+        $productId = $p->id;
         $productName = $p->name;
         $productPrice = $p->price;
         $productDisplayImage = $p->display_image;
+        $comments =  $p->comments;
+      }
+
+      $commentName = "";
+      $commentAvatar = "";
+
+      foreach ($comments as $c) {
+        if ($c->user_id != null){
+          $id = $c->user_id;
+          $user = User::where('id', $id)->get();
+
+          foreach ($user as $u) {
+            $commentName = $u->name;
+            $commentAvatar = $u->avatar;
+          }
+        } else {
+          $id = $c->admin_id;
+          $admin = Admin::where('id', $id)->get();
+
+          foreach ($admin as $a) {
+            $commentName = $a->name;
+            $commentAvatar = $a->avatar;
+          }
+        }
       }
 
       $productImages = ProductImage::where('product_id', $id)->get();
       $productVideos = ProductVideo::where('product_id', $id)->get();
 
       return view('product')
+        ->with('product', $product)
+        ->with('productId', $productId)
+        ->with('comments', $comments)
+        ->with('commentName', $commentName)
+        ->with('commentAvatar', $commentAvatar)
         ->with('productName', $productName)
         ->with('productPrice', $productPrice)
         ->with('productDisplayImage', $productDisplayImage)

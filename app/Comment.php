@@ -13,6 +13,14 @@ class Comment extends Model
       return $this->belongsTo('App\Blog');
   }
 
+  public function project(){
+      return $this->belongsTo('App\Project');
+  }
+
+  public function product(){
+      return $this->belongsTo('App\Product');
+  }
+
   public function user(){
       return $this->belongsTo('App\User');
   }

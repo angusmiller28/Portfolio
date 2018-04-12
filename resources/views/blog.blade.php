@@ -78,6 +78,8 @@
       <p>{{Auth::user()->name}}</p>
       <p>{{Auth::user()->email}}</p>
       {{ Form::open(['route' => ['comments.store', $blogId], 'method' => 'POST']) }}
+        {{ Form::hidden('type', 'blog') }}
+
         {{ Form::label('comment'), "Comment:" }}
         {{ Form::textarea('comment', null, ['class' => 'form-control', 'style' => 'background-color: orange']) }}
 
@@ -89,8 +91,8 @@
     <div id="comments-container">
       @foreach($blogComments as $comment)
         <div class="comment">
-          <img src="/uploads/avatars/{{ $blogCommentAvatar }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 25px">
-          <p>Name: {{ $blogCommentName }}</p>
+          <img src="/uploads/avatars/{{ $commentAvatar }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 25px">
+          <p>Name: {{ $commentName }}</p>
           <p>Comment: {{ $comment->comment }}</p>
         </div>
       @endforeach

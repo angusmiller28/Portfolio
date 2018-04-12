@@ -43,8 +43,32 @@
           @endforeach
         @endif <!-- END::Tools List -->
       </div>
+    </div>
 
+    <div id="comments-form-container">
+      @if (Auth::check())
+      <img src="/uploads/avatars/{{Auth::user()->avatar}}" alt="" style="width: 150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px">
+      <p>{{Auth::user()->name}}</p>
+      <p>{{Auth::user()->email}}</p>
+      {{ Form::open(['route' => ['comments.store', $productId], 'method' => 'POST']) }}
+        {{ Form::hidden('type', 'product') }}
 
+        {{ Form::label('comment'), "Comment:" }}
+        {{ Form::textarea('comment', null, ['class' => 'form-control', 'style' => 'background-color: orange']) }}
+
+        {{ Form::submit('Add Comment', ['class' => 'form-control btn btn-default']) }}
+      {{ Form::close() }}
+      @endif
+    </div>
+
+    <div id="comments-container">
+      @foreach($comments as $comment)
+        <div class="comment">
+          <img src="/uploads/avatars/{{ $commentAvatar }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 25px">
+          <p>Name: {{ $commentName }}</p>
+          <p>Comment: {{ $comment->comment }}</p>
+        </div>
+      @endforeach
     </div>
     @include('partials/footer')
   </body>
