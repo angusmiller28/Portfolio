@@ -7,6 +7,7 @@ use App\Blog;
 use App\User;
 use App\Admin;
 use App\Comment;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
@@ -142,6 +143,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog, $id)
     {
+
+
       $blog = Blog::where('id', $id)->get();
 
       // break results project into variables
@@ -161,8 +164,11 @@ class BlogController extends Controller
         $blogComments =  $b->comments;
       }
 
+
+
       $commentName = "";
       $commentAvatar = "";
+      $comments = array();
 
       foreach ($blogComments as $c) {
         if ($c->user_id != null){
@@ -182,21 +188,27 @@ class BlogController extends Controller
             $commentAvatar = $a->avatar;
           }
         }
+        // store user data into array
+        $comments[] = [
+          'name' => $commentName,
+          'rating' => $c->rating,
+          'avatar' => $commentAvatar,
+          'comment' => $c->comment
+        ];
       }
 
+
       $blogAdmin = Admin::where('id', $blogAdminId)->get();
+
       foreach ($blogAdmin as $a) {
         $blogAdminName = $a->name;
         $blogAdminAvatar = $a->avatar;
       }
 
-
       return view('blog')
         ->with('blog', $blog)
         ->with('blogId', $blogId)
-        ->with('blogComments', $blogComments)
-        ->with('commentName', $commentName)
-        ->with('commentAvatar', $commentAvatar)
+        ->with('comments', $comments)
         ->with('name', $blogName)
         ->with('content', $blogContent)
         ->with('themeColour', $blogThemeColour)

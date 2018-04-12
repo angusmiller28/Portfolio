@@ -8,6 +8,7 @@ use App\Comment;
 use App\ProductImage;
 use App\ProductVideo;
 use App\User;
+use App\Admin;
 use Auth;
 
 class ProductController extends Controller
@@ -59,13 +60,14 @@ class ProductController extends Controller
         $productName = $p->name;
         $productPrice = $p->price;
         $productDisplayImage = $p->display_image;
-        $comments =  $p->comments;
+        $productComments =  $p->comments;
       }
 
       $commentName = "";
       $commentAvatar = "";
+      $comments = array();
 
-      foreach ($comments as $c) {
+      foreach ($productComments as $c) {
         if ($c->user_id != null){
           $id = $c->user_id;
           $user = User::where('id', $id)->get();
@@ -83,6 +85,14 @@ class ProductController extends Controller
             $commentAvatar = $a->avatar;
           }
         }
+
+        // store user data into array
+        $comments[] = [
+          'name' => $commentName,
+          'rating' => $c->rating,
+          'avatar' => $commentAvatar,
+          'comment' => $c->comment
+        ];
       }
 
       $productImages = ProductImage::where('product_id', $id)->get();
@@ -133,5 +143,20 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function add($id)
+    {
+      $product = Product::where('id', $id)->get();
+
+      return redirect('product/'.$id)
+        ->with('product', $product)
+        ->with('success', 'Product added to cart');
     }
 }

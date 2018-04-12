@@ -3,25 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
-use App\User;
-use App\Blog;
-use App\Product;
-use App\Comment;
-use Auth;
 
-class CommentsController extends Controller
+class CartController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
-  public function __construct()
-  {
-    $this->middleware('auth:admin');
-  }
-
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +13,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+      return view('cart');
     }
 
     /**
@@ -48,42 +32,9 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-      $this->validate($request, array(
-        'comment' => 'required|min:5|max:2000'
-      ));
-
-      $comment = new Comment();
-      $comment->rating = $request->rating;
-      $comment->comment = $request->comment;
-      $comment->approved = true;
-
-      if (Auth::check() && Auth::user()->role == "admin" ){
-        $admin = Admin::find(Auth::user()->id);
-        $comment->admin()->associate($admin);
-      }  else {
-        $user = User::find(Auth::user()->id);
-        $comment->user()->associate($user);
-      }
-
-      $type = $request->type;
-
-      if($type == 'blog'){
-        $blog = Blog::find($id);
-        $comment->blog()->associate($blog);
-        $comment->save();
-
-        return redirect('/blogs/blog/'.$blog->id)
-          ->with('success', 'Comment added');
-      } else {
-        $product = Product::find($id);
-        $comment->product()->associate($product);
-        $comment->save();
-
-        return redirect('/product/'.$product->id)
-          ->with('success', 'Comment added');
-      }
+        //
     }
 
     /**

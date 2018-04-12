@@ -27,6 +27,8 @@ Route::get('/store', 'StoreController@index');
 
 // products
 Route::get('/product/{id}', 'ProductController@show');
+Route::get('/cart', 'CartController@index');
+Route::post('/product/{id}', 'ProductController@add')->name('products.add');
 
 Auth::routes();
 Route::post('/register', 'Auth\RegisterController@store');

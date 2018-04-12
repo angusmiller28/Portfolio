@@ -57,17 +57,17 @@ class AdminController extends Controller
           $resumeSet = true;
 
       return view('admin')
-      ->with('blogs', $blogs)
-      ->with('users', $users)
-      ->with('admins', $admins)
-      ->with('references', $references)
-      ->with('technicals', $technicals)
-      ->with('certificates', $certificates)
-      ->with('educations', $educations)
-      ->with('resumes', $resumes)
-      ->with('resumeSet', $resumeSet)
-      ->with('projects', $projects)
-      ->with('quickNavData', $quickNavData);
+        ->with('blogs', $blogs)
+        ->with('users', $users)
+        ->with('admins', $admins)
+        ->with('references', $references)
+        ->with('technicals', $technicals)
+        ->with('certificates', $certificates)
+        ->with('educations', $educations)
+        ->with('resumes', $resumes)
+        ->with('resumeSet', $resumeSet)
+        ->with('projects', $projects)
+        ->with('quickNavData', $quickNavData);
     }
 
     /**

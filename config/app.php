@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        App\Providers\AngusServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -214,7 +215,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
-
+        'Comments' => App\Helpers\Angus\Comments::class,
     ],
 
 ];

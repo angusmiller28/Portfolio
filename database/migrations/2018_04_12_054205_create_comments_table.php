@@ -20,6 +20,7 @@ class CreateCommentsTable extends Migration
         $table->integer('project_id')->unsigned();
         $table->integer('admin_id')->unsigned()->nullable;
         $table->integer('user_id')->unsigned()->nullable;
+        $table->float('rating', 2, 1)->unsigned();
         $table->text('comment');
         $table->boolean('approved');
         $table->timestamps();

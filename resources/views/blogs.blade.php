@@ -21,10 +21,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
           </head>
           <body>
+            @include('partials/nav')
+            
             <div id="container" >
-
-                @include('partials/nav')
-
                 <section id="body-container">
                   <div id="title-container"><h1 id="title">Blogs</h1></div>
 
@@ -44,9 +43,9 @@
                 </section>
 
 
-                @include('partials/footer')
-            </div>
 
+            </div>
+            @include('partials/footer')
             <script src="{{asset('js/nav.js')}}" type="text/javascript"></script>
             <script src="{{asset('js/app.js')}}" type="text/javascript"></script>
           </body>

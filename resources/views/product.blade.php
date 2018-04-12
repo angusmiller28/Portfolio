@@ -23,11 +23,13 @@
   <body>
     @include('partials/nav')
     <div id="container">
-      <ul>
-        <li><p>{{ $productName }}</p></li>
-        <li><p><img src="/uploads/products/{{ $productDisplayImage }}" alt="" style="width: 150px; height: 150px; "></li>
-        <li><p>${{ $productPrice }}</p></li>
-      </ul>
+      <div class="">
+        <ul>
+          <li><p>{{ $productName }}</p></li>
+          <li><p><img src="/uploads/products/{{ $productDisplayImage }}" alt="" style="width: 150px; height: 150px; "></li>
+          <li><p>${{ $productPrice }}</p></li>
+        </ul>
+      </div>
       <div class="gallery">
         @foreach($productImages as $productImage)
           <img src="/uploads/products/{{ $productImage->image }}" alt="" style="width: 150px; height: 150px; ">
@@ -43,32 +45,48 @@
           @endforeach
         @endif <!-- END::Tools List -->
       </div>
-    </div>
 
-    <div id="comments-form-container">
-      @if (Auth::check())
-      <img src="/uploads/avatars/{{Auth::user()->avatar}}" alt="" style="width: 150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px">
-      <p>{{Auth::user()->name}}</p>
-      <p>{{Auth::user()->email}}</p>
-      {{ Form::open(['route' => ['comments.store', $productId], 'method' => 'POST']) }}
-        {{ Form::hidden('type', 'product') }}
+      <div class="">
+        {{ Form::open(['route' => ['products.add', $productId], 'method' => 'POST']) }}
+          {{ Form::submit('Add to Cart', ['class' => 'form-control btn btn-default']) }}
+        {{ Form::close() }}
+      </div>
 
-        {{ Form::label('comment'), "Comment:" }}
-        {{ Form::textarea('comment', null, ['class' => 'form-control', 'style' => 'background-color: orange']) }}
+      <div id="comments-form-container">
+        @if (Auth::check())
+          <img src="/uploads/avatars/{{Auth::user()->avatar}}" alt="" style="width: 150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px">
+          <p>{{Auth::user()->name}}</p>
+          <p>{{Auth::user()->email}}</p>
+          {{ Form::open(['route' => ['comments.store', $productId], 'method' => 'POST']) }}
+            {{ Form::hidden('type', 'product') }}
 
-        {{ Form::submit('Add Comment', ['class' => 'form-control btn btn-default']) }}
-      {{ Form::close() }}
-      @endif
-    </div>
+            <div class="rating">
+              <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
+              <span><input type="radio" name="rating" id="str4" value="4"><label for="str4"></label></span>
+              <span><input type="radio" name="rating" id="str3" value="3"><label for="str3"></label></span>
+              <span><input type="radio" name="rating" id="str2" value="2"><label for="str2"></label></span>
+              <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
+            </div>
 
-    <div id="comments-container">
-      @foreach($comments as $comment)
-        <div class="comment">
-          <img src="/uploads/avatars/{{ $commentAvatar }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 25px">
-          <p>Name: {{ $commentName }}</p>
-          <p>Comment: {{ $comment->comment }}</p>
-        </div>
-      @endforeach
+            {{ Form::label('comment'), "Comment:" }}
+            {{ Form::textarea('comment', null, ['class' => 'form-control', 'style' => 'background-color: orange']) }}
+
+            {{ Form::submit('Add Comment', ['class' => 'form-control btn btn-default']) }}
+          {{ Form::close() }}
+        @endif
+      </div>
+
+      <div id="comments-container">
+        @foreach($comments as $comment)
+          <div class="comment">
+            <img src="/uploads/avatars/{{ $comment['avatar']}}" alt="" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 25px">
+            <p>Rating: {{ $comment['rating'] }}</p>
+            <p>Name: {{ $comment['name'] }}</p>
+            <p>Comment: {{ $comment['comment'] }}</p>
+          </div>
+        @endforeach
+      </div>
+
     </div>
     @include('partials/footer')
   </body>
