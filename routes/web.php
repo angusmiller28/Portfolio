@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,15 +24,24 @@ Route::get('/resume', 'ResumeController@index');
 // store
 Route::get('/store', 'StoreController@index');
 
-// products
+// product
 Route::get('/product/{id}', 'ProductController@show');
+Route::post('/product/{id}', 'CartController@add')->name('products.add');
+
+// cart
 Route::get('/cart', 'CartController@index');
-Route::post('/product/{id}', 'ProductController@add')->name('products.add');
+Route::post('/cart/{id}', 'CartController@updateQuantity')->name('products.update.quantity');
+Route::post('/cart', 'CartController@remove')->name('products.remove');
+
+// checkout
+Route::post('/checkout', 'CheckoutController@index')->name('checkout');
+
+// order
+Route::post('/order', 'OrderController@index')->name('order');
 
 Auth::routes();
 Route::post('/register', 'Auth\RegisterController@store');
 Route::resource('/resumes', 'ResumeController');
-
 
 // Blog Routes
 Route::resource('/blogs', 'BlogController');

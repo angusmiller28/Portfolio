@@ -15,10 +15,10 @@
 
     <ul class="nav-bar-nav">
       <li><a href="/projects"><div class="pop nav-project"><i class="fas fa-folder-open"></i></div></a></li>
-      <li><a href="/blogs"><div class="active"><i class="fas fa-pencil-alt nav-index"></i></div></a></li>
-      <li><a href="/resume"><div class="active"><i class="fas fa-user nav-index"></i></div></a></li>
-      <li><a href="/store"><div class="active"><i class="fas fa-shopping-bag nav-index"></i></div></a></li>
-      <li><a href="/cart"><div class="active"><i class="fas fa-shopping-cart nav-index"></i></div></a></li>
+      <li><a href="/blogs"><div class="pop active"><i class="fas fa-pencil-alt nav-index"></i></div></a></li>
+      <li><a href="/resume"><div class="pop active"><i class="fas fa-user nav-index"></i></div></a></li>
+      <li><a href="/store"><div class="pop active"><i class="fas fa-shopping-bag nav-index"></i></div></a></li>
+      <li><a href="/cart"><div class="pop active"><i class="fas fa-shopping-cart nav-index"></i></div></a></li>
       <li><div class="search-nav-btn pop"><i class="fa fa-search"></i></div></li>
       <li><div class="quick-nav-btn pop"><i class="fa fa-link"></i></div></li>
       <li><div class="other-nav-btn pop"><i class="fas fa-bars"></i></div></li>

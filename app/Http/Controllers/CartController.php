@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use Cart;
 
 class CartController extends Controller
 {
@@ -13,7 +15,11 @@ class CartController extends Controller
      */
     public function index()
     {
-      return view('cart');
+      session_start();
+
+      return view('cart')
+        ->with('cartTotalCost', Cart::total())
+        ->with('items', Cart::content());
     }
 
     /**
@@ -34,7 +40,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -80,5 +86,61 @@ class CartController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function add($id)
+    {
+      $product = Product::where('id', $id)->get();
+
+      foreach ($product as $p) {
+        $productId = $p->id;
+        $productName = $p->name;
+        $productQty = 1;
+        $productPrice = $p->price;
+      }
+
+      Cart::add($productId, $productName, $productQty, $productPrice);
+
+      return redirect('product/'.$id)
+        ->with('product', $product)
+        ->with('success', 'Product added to cart');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateQuantity(Request $request, $id)
+    {
+      $qty = $request->quantity;
+      $rowId = $request->rowId;
+      Cart::update($rowId, ['qty' => $qty]);
+
+      return redirect('cart')
+        ->with('success', 'Product quantity updated');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function remove(Request $request)
+    {
+      $rowId = $request->rowId;
+
+      Cart::remove($rowId);
+
+      return redirect('cart')
+        ->with('success', 'Product removed');
     }
 }

@@ -52,6 +52,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+      // Start the session
+      session_start();
+
       $product = Product::where('id', $id)->get();
 
       // break results project into variables
@@ -145,18 +148,4 @@ class ProductController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function add($id)
-    {
-      $product = Product::where('id', $id)->get();
-
-      return redirect('product/'.$id)
-        ->with('product', $product)
-        ->with('success', 'Product added to cart');
-    }
 }

@@ -26,6 +26,7 @@
           <ul id="filter-content-container">
             <li>Blogs<input id="filter_blog_checkbox" type="checkbox" name="filter_blog_checkbox" checked></li>
             <li>Projects<input id="filter_project_checkbox" type="checkbox" name="filter_project_checkbox" checked></li>
+            <li>Products<input id="filter_product_checkbox" type="checkbox" name="filter_product_checkbox" checked></li>
           </ul>
         </div>
 
@@ -43,31 +44,29 @@
 $('#filter-more-btn').click(function(){
   $('#filter-content-container').toggle();
 });
+
 $('#search').on('keyup',function(){
 
-$value=$(this).val();
-$filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
-$filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
+  $value=$(this).val();
+  $filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
+  $filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
+  $filter_product_checkbox = document.getElementById('filter_product_checkbox').checked;
 
-$.ajax({
+  $.ajax({
 
-type : 'get',
+  type : 'get',
 
-url : '{{URL::to('search')}}',
+  url : '{{URL::to('search')}}',
 
-data:{'search':$value, 'filter_blog_checkbox':$filter_blog_checkbox, 'filter_project_checkbox':$filter_project_checkbox},
+  data:{'search':$value, 'filter_blog_checkbox':$filter_blog_checkbox, 'filter_project_checkbox':$filter_project_checkbox, 'filter_product_checkbox':$filter_product_checkbox},
 
-success:function(data){
+  success:function(data){
 
-$('#search-results').html(data);
+  $('#search-results').html(data);
 
-}
+  }
 
-});
-
-
-
-
+  });
 
 });
 
@@ -75,6 +74,7 @@ $('#filter_blog_checkbox').change(function() {
   $value=$('#search').val();
   $filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
   $filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
+  $filter_product_checkbox = document.getElementById('filter_product_checkbox').checked;
 
   $.ajax({
 
@@ -97,6 +97,7 @@ $('#filter_project_checkbox').change(function() {
   $value=$('#search').val();
   $filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
   $filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
+  $filter_product_checkbox = document.getElementById('filter_product_checkbox').checked;
 
   $.ajax({
 
@@ -105,6 +106,29 @@ $('#filter_project_checkbox').change(function() {
   url : '{{URL::to('search')}}',
 
   data:{'search':$value, 'filter_blog_checkbox':$filter_blog_checkbox, 'filter_project_checkbox':$filter_project_checkbox},
+
+  success:function(data){
+
+  $('#search-results').html(data);
+
+  }
+
+  });
+});
+
+$('#filter_product_checkbox').change(function() {
+  $value=$('#search').val();
+  $filter_blog_checkbox = document.getElementById('filter_blog_checkbox').checked;
+  $filter_project_checkbox = document.getElementById('filter_project_checkbox').checked;
+  $filter_product_checkbox = document.getElementById('filter_product_checkbox').checked;
+
+  $.ajax({
+
+  type : 'get',
+
+  url : '{{URL::to('search')}}',
+
+  data:{'search':$value, 'filter_blog_checkbox':$filter_blog_checkbox, 'filter_project_checkbox':$filter_project_checkbox, 'filter_product_checkbox':$filter_product_checkbox},
 
   success:function(data){
 

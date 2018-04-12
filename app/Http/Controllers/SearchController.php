@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Project;
+use App\Product;
 use DB;
 
 class SearchController extends Controller
@@ -59,8 +60,22 @@ public function search(Request $request){
     }
   }
 
+  if($request->filter_product_checkbox == 'true'){
+    $products = Product::where('name','LIKE','%'.$request->search."%")->get();
 
-
+    if($products){
+      foreach ($products as $key => $product) {
+        $output.='<div class="card card-small"><div class="card-image"><a style="color: black; text-decoration: none;" href="/product/'.$product->id.'">'.
+        '<img  class="card-hero" src="/uploads/products/'.$product->display_image.'" alt=""></div>'.
+        '<div class="card-content">'.
+          '<h3>'.$product->name.'</h3>'.
+          '<p>'.$product->description.'</p>'.
+        '</div>'.
+        '</a></div>';
+        $search++;
+      }
+    }
+  }
 
   $output = '<p>showing '.$search.' results</p>' . $output;
 
