@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
+use App\Payment;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-      return view('order');
+      return view('payment');
     }
 
     /**
@@ -41,10 +41,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Payment $payment)
     {
         //
     }
@@ -52,10 +52,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Payment $payment)
     {
         //
     }
@@ -64,10 +64,21 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Payment $payment)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Payment  $payment
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Payment $payment)
     {
         //
     }
@@ -78,9 +89,8 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function payWithStripe(Order $order)
     {
         //
     }
-
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
+use App\OrderConfirmation;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class OrderConfirmationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-      return view('order');
+      return view('order_confirmation');
     }
 
     /**
@@ -41,10 +41,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\OrderConfirmation  $orderConfirmation
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(OrderConfirmation $orderConfirmation)
     {
         //
     }
@@ -52,10 +52,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\OrderConfirmation  $orderConfirmation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(OrderConfirmation $orderConfirmation)
     {
         //
     }
@@ -64,10 +64,10 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\OrderConfirmation  $orderConfirmation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, OrderConfirmation $orderConfirmation)
     {
         //
     }
@@ -75,12 +75,11 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  \App\OrderConfirmation  $orderConfirmation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(OrderConfirmation $orderConfirmation)
     {
         //
     }
-
 }

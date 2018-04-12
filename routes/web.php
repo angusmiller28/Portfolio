@@ -37,7 +37,14 @@ Route::post('/cart', 'CartController@remove')->name('products.remove');
 Route::post('/checkout', 'CheckoutController@index')->name('checkout');
 
 // order
-Route::post('/order', 'OrderController@index')->name('order');
+Route::get('/order', 'OrderController@index')->name('order');
+
+// payment
+Route::get('/payment', 'PaymentController@index')->name('payment');
+Route::post('/payment', 'PaymentController@payWithStripe')->name('payment.stripe');
+
+// order confirmation
+Route::get('/order-confirmation', 'OrderConfirmationController@index')->name('order-confirmation');
 
 Auth::routes();
 Route::post('/register', 'Auth\RegisterController@store');

@@ -29,12 +29,12 @@
                     {{ Form::submit('Remove Product', ['class' => 'form-control btn btn-warning']) }}
                   {{ Form::close() }}
                 </div>
-                <p>${{ $item->price }}</p>
-                <p>{{ $item->tax }} %</p>
-                <p>${{ $item->subtotal }}</p>
+                <p>Price: ${{ $item->price }}</p>
+                <p>Tax: {{ $item->tax }} %</p>
+                <p>Subtotal: ${{ $item->subtotal }}</p>
               </div>
               @endforeach
-              <p>${{ $cartTotalCost }}</p>
+              <p>Total: ${{ $cartTotalCost }}</p>
               <div id="checkout-btn">
                 {{ Form::open(['route' => ['checkout'], 'method' => 'POST']) }}
                   {{ Form::hidden('items', $items, ['class' => 'form-control']) }}
