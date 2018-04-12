@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\ProductImage;
+use App\ProductVideo;
 
 class ProductController extends Controller
 {
@@ -57,12 +58,14 @@ class ProductController extends Controller
       }
 
       $productImages = ProductImage::where('product_id', $id)->get();
+      $productVideos = ProductVideo::where('product_id', $id)->get();
 
       return view('product')
         ->with('productName', $productName)
         ->with('productPrice', $productPrice)
         ->with('productDisplayImage', $productDisplayImage)
-        ->with('productImages', $productImages);
+        ->with('productImages', $productImages)
+        ->with('productVideos', $productVideos);
     }
 
     /**

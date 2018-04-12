@@ -32,7 +32,19 @@
         @foreach($productImages as $productImage)
           <img src="/uploads/products/{{ $productImage->image }}" alt="" style="width: 150px; height: 150px; ">
         @endforeach
+
+        @if(isset($productVideos)) <!-- Video -->
+          @foreach($productVideos as $productVideo)
+          <div class="">
+              <video width="320" height="240" controls src="/uploads/projects/{{$productVideo->video}}">
+                Your browser does not support the video tag.
+              </video>
+          </div>
+          @endforeach
+        @endif <!-- END::Tools List -->
       </div>
+
+
     </div>
     @include('partials/footer')
   </body>

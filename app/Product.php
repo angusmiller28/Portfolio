@@ -12,4 +12,8 @@ class Product extends Model
   public function images(){
       return $this->hasMany('App\ProductImage');
   }
+
+  public function videos(){
+      return $this->hasMany('App\ProductVideo');
+  }
 }
